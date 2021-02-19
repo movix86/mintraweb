@@ -13,12 +13,13 @@
 	<div class="container">
 		<div class="row text-center">
 			@foreach($sliders as $slider)
-			
 					<div class="col-md-4">
 						{{$slider->id}}
 						<center>
-							<a href="{{$slider->descripcion}}"><img width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER"></a>
-						</center>
+							<a href="{{$slider->descripcion}}">
+								<img width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER">
+							</a>
+						</center> 
 						<br>
 						<input type="text" name="destinatario" placeholder="{{$slider->direccion}}">
 						<a href="/eliminarSlider1/{{$slider->id}}" class="btn btn-danger">
@@ -27,12 +28,12 @@
 						</span>
 						</a>
 						<br>
-						<a href="/actualizarSlider/{{$slider->id}}/" class="btn btn-primary">
+						<a name="actualizar-{{$slider->id}}/" class="btn btn-primary">
 							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
 								Actualizar
 							</span>
 						</a>
-					</div>						
+					</div>
 			@endforeach
 		</div>
 	</div>
@@ -50,7 +51,6 @@
 			
 			<form action="file" method="POST" enctype="multipart/form-data">
 				@csrf
-				
 					<div class="col-md-6">
 						<br><br>
 						URL a direccionar : 

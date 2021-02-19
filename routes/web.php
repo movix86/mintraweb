@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('pagina');
 });
+*/
+
+Route::get('/', 'HomeController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -38,7 +42,6 @@ Route::get('/eliminarSlider', function() {
 	echo "HIHI";
 
 	return view('file', $data);
-	//return view('file');
 });
 
 Route::get('/insertSlider', function () {
@@ -50,7 +53,11 @@ Route::get('/insertSlider', function () {
 	]);
 });
 
+Route::get('/test', 'SliderController@indexSlider');
+
 Route::post('file', 'SliderController@insertarSlider');
+
+Route::post('update-file', 'SliderController@insertarSlider');
 /*
 Route::post('file', function(Illuminate\Http\Request $request) {
 

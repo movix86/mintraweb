@@ -19,6 +19,11 @@ class SliderController extends Controller
     	return view('file', compact('sliders'));
     }
 
+    public function indexSlider() {
+        $sliders = Slider::orderBy('id', 'DESC')->paginate();
+        return view('slider', compact('sliders'));
+    }
+
     public function destroy($id) {
     	$sliders = Slider::find($id);
     	$sliders->delete();
