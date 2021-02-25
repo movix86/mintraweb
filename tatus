@@ -1,0 +1,59 @@
+[33mcommit df5327dd2c7fcd3c7b4218583541cc8eb4fcf02b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: webmaster <webmaster@uniagustiniana.edu.co>
+Date:   Wed Feb 17 16:14:35 2021 -0500
+
+    Se trabajo en los botones de encuesta de salud, Siga y Cumpleaños
+
+[33mcommit 8f169144d524879d411eb8c15a267eb17ea0be9a[m
+Author: webmaster <webmaster@uniagustiniana.edu.co>
+Date:   Wed Feb 17 12:57:04 2021 -0500
+
+    Se ajustaron las medidas de los sliders y se ajustaron los botones de los servicios
+
+[33mcommit 034c6fc226606f99c8bbc9a6c61eabf6b4f5aa5d[m
+Author: webmaster <webmaster@uniagustiniana.edu.co>
+Date:   Tue Feb 16 16:43:21 2021 -0500
+
+    Se modifico vista b-home-sericios
+
+[33mcommit a221c04708b54261136ca861856c431b364fc7f7[m
+Author: webmaster <webmaster@uniagustiniana.edu.co>
+Date:   Tue Feb 16 16:11:49 2021 -0500
+
+    Se agrego el componentes de botones
+
+[33mcommit 9ee7abe7ba77f091659ed360c562209a37943d03[m
+Author: webmaster <webmaster@uniagustiniana.edu.co>
+Date:   Tue Feb 16 14:50:15 2021 -0500
+
+    Se agrego el componente sliders en components
+
+[33mcommit 01f0d76904f589b2c3c71637ea5b2983ef73b672[m
+Author: movix86 <movix86@gmail.com>
+Date:   Mon Feb 15 17:49:12 2021 -0500
+
+    Modificacion tittle de base.blade.php
+
+[33mcommit e234a0c9749c81d04db9e787e5a590614a76716c[m
+Author: movix86 <movix86@gmail.com>
+Date:   Mon Feb 15 17:38:25 2021 -0500
+
+    Se agregaron las vistas genericas de jetstring en la carpeta vendor/jetstream
+
+[33mcommit 1034df3c561fae6d01a306a34353c20af6e5c28b[m
+Author: movix86 <movix86@gmail.com>
+Date:   Mon Feb 15 17:34:48 2021 -0500
+
+    En este commit se creo la barra de navegacion, con la vista base y home, ademas se agrego el componente nav y se reemplazo el antiguo div, esto es la barra de navegacion con el login de usuario
+
+[33mcommit d59376621ae5459790365f795ba5e52e53f2a69f[m
+Author: movix86 <movix86@gmail.com>
+Date:   Mon Feb 15 17:28:33 2021 -0500
+
+    En este commit se creo la barra de navegacion, con la vista base y home, ademas se agrego el componente div que es la barra de navegacion
+
+[33mcommit 13da38c370abdcdb1bd0be3875897a5c4e3039ca[m
+Author: movix86 <movix86@gmail.com>
+Date:   Mon Feb 15 14:51:33 2021 -0500
+
+    Intraweb 2021
