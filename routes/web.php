@@ -57,7 +57,8 @@ Route::get('/test', 'SliderController@indexSlider');
 
 Route::post('file', 'SliderController@insertarSlider');
 
-Route::post('update-file', 'SliderController@insertarSlider');
+Route::post('slider-update', 'SliderController@update');
+
 /*
 Route::post('file', function(Illuminate\Http\Request $request) {
 

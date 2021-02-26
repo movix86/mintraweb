@@ -10,33 +10,37 @@
 	<h1>Editar Sliders</h1>
 	<h2>Listado de sliders</h2>
 	
-	<div class="container">
-		<div class="row text-center">
-			@foreach($sliders as $slider)
-					<div class="col-md-4">
-						{{$slider->id}}
-						<center>
-							<a href="{{$slider->descripcion}}">
-								<img width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER">
-							</a>
-						</center> 
-						<br>
-						<input type="text" name="destinatario" placeholder="{{$slider->direccion}}">
-						<a href="/eliminarSlider1/{{$slider->id}}" class="btn btn-danger">
-						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
-							X
-						</span>
-						</a>
-						<br>
-						<a name="actualizar-{{$slider->id}}/" class="btn btn-primary">
-							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
-								Actualizar
-							</span>
-						</a>
-					</div>
-			@endforeach
+	<form action="slider-update" method="POST" enctype="multipart/form-data">
+	@csrf
+		<div class="container">
+			<div class="row text-center">
+					@foreach($sliders as $slider)
+							{{$ids[] = $slider->id }}
+							<div class="col-md-4">
+								{{$slider->id}}
+								<center>
+									<a href="{{$slider->descripcion}}">
+										<img width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER">
+									</a>
+								</center> 
+								<br>
+								<input type="hidden" id="ids" name="ids" value="$ids">
+								<br>
+								<input type="text" name="updateEtiquetaAlt{{$slider->id}}" placeholder="{{$slider->direccion}}">
+								<a href="/eliminarSlider1/{{$slider->id}}" class="btn btn-danger">
+								<span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
+									X
+								</span>
+								</a>
+								<br>
+								<a href="" class="btn btn-primary">
+									<button name="actualizar{{$slider->id}}" type="submit" class="btn btn-primary">Actualizar</button>	
+								</a>
+							</div>
+					@endforeach
+			</div>
 		</div>
-	</div>
+	</form>	
 
 	<hr>
 

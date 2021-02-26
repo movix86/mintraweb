@@ -32,6 +32,40 @@ class SliderController extends Controller
     	return redirect('pruebaListar');
     }
 
+    public function update(Request $request) {
+        //$input_ids [] = $request->input('ids');
+        foreach ($request->input('ids') as $input_ids) {
+            echo $input_ids;
+        }
+        die();
+        dd($request);
+        $numero = $request->input('updateEtiquetaAlt');
+        echo "mi request" .$request->updateEtiquetaAlt563;
+        
+        $sliders = Slider::orderBy('id', 'DESC')->paginate();
+
+        /*
+        foreach ($sliders as $slider) {
+            echo "<br>";
+            //echo "line". $slider;
+            echo "<br>";
+            $id = $request->updateEtiquetaAlt.$slider->id;
+            echo "slider:".$id;
+            echo "<br>";
+            
+            //echo $request->updateEtiquetaAlt."$id";
+
+            /*
+            $consultaId = Slider::where('id', $id)
+                        ->orderBy('id')
+                        ->get();
+            */
+        /*}*/
+
+        die();
+        
+    }
+
     public function insertarSlider(Request $request) {
         //echo "slider elegido:" . $request->sliderElejido;
 

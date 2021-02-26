@@ -10,7 +10,7 @@
         <div class="carousel-item active">
           @foreach($oneSlider as $oneSliderView)
           <a href="{{$oneSliderView->descripcion}}">
-            <img width="80%" src="{{asset('storage'). '/' . $oneSliderView->direccion}}" alt="IMAGEN-SLIDER">
+            <img height="500px" width="80%" src="{{asset('storage'). '/' . $oneSliderView->direccion}}" alt="IMAGEN-SLIDER">
           </a>
           @endforeach
           <div class="carousel-caption">
@@ -21,7 +21,7 @@
         @foreach($sliders as $slider)
           <div class="carousel-item">
             <a href="{{$slider->descripcion}}">
-              <img width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER">
+              <img height="500px" width="80%" src="{{asset('storage'). '/' . $slider->direccion}}" alt="IMAGEN-SLIDER">
             </a>
             <div class="carousel-caption">
             </div>
