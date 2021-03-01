@@ -6,6 +6,9 @@
     width: 100%;
     height: 100%;
 }
+.app-mark{
+    width: 50%;
+}
 /*Este genera espacio entre las grillas de los botones de servicios 1*/
 div.padding-20{
     padding: 20px;
