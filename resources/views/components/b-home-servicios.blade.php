@@ -38,12 +38,12 @@
             <div class="row">
                 <div class="col-12" align="center">
                     <div class="b2">
-                        <a href=""><img src="img/b-salud.jpg" alt="" width="100%"></a>
+                        <a href=""><img src="{{ asset('img/b-salud.jpg') }}" alt="" width="100%"></a>
                     </div>
                 </div>
                 <div class="col-12" align="center">
                     <div class="b2">
-                        <a href=""><img src="img/b-siga.jpg" alt="" width="100%"></a>
+                        <a href=""><img src="{{ asset('img/b-siga.jpg') }}" alt="" width="100%"></a>
                     </div>
                 </div>
             </div>

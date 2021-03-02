@@ -19,7 +19,7 @@
                                 <button type="button" class="btn btn-primary box-shadow b-dash">Sliders</button>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <button type="button" class="btn btn-primary box-shadow b-dash">Agregar <br>Noticia</button>
+                                <a type="button" href="{{url('noticia/crear')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 <button type="button" class="btn btn-primary box-shadow b-dash">Agregar <br>Evento</button>

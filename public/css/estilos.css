@@ -1,4 +1,9 @@
-
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .row{
     margin: 0px;
 }
@@ -61,6 +66,28 @@ padding-bottom: 20px;
     border: 1px solid;
     max-height: 500px;
     overflow:auto;
+}
+
+/* Aqui inicia primero la conf de backend de crear noticia y despues el front*/
+.upload-banner-new{
+    background-color: #cfcfcf;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+/* Text Editor */
+textarea.text-editor {
+    background-color:#FAFAFA;
+    border:#EFEFEF solid 1px;
+    color:#333;
+    height:150px;
+    width:100%;
+}
+.richText {
+    margin-top: 40px;
+    -webkit-box-shadow: 0 0 20px 0 #999;
+    -moz-box-shadow: 0 0 20px 0 #999;
+    box-shadow: 0 0 20px 0 #999;
 }
 
 /* If the screen size is 601px or more, set the font-size of <div> to 80px */
