@@ -10,6 +10,8 @@ use App\Http\Controllers\Storage;
 class SliderController extends Controller
 {
     public function index() {
+        echo "line 16";
+        die();
     	$sliders = Slider::orderBy('id', 'DESC')->paginate();
     	return view('listarSliders', compact('sliders'));
     }
@@ -33,37 +35,18 @@ class SliderController extends Controller
     }
 
     public function update(Request $request) {
-        //$input_ids [] = $request->input('ids');
-        foreach ($request->input('ids') as $input_ids) {
-            echo $input_ids;
-        }
-        die();
-        dd($request);
+        $ids = $request->input('ids');
+        echo "line 39:" .$ids;
+         
+       $input_ids = $request->input('btn-actualizar');
+
+ 
+
+
         $numero = $request->input('updateEtiquetaAlt');
-        echo "mi request" .$request->updateEtiquetaAlt563;
-        
-        $sliders = Slider::orderBy('id', 'DESC')->paginate();
-
-        /*
-        foreach ($sliders as $slider) {
-            echo "<br>";
-            //echo "line". $slider;
-            echo "<br>";
-            $id = $request->updateEtiquetaAlt.$slider->id;
-            echo "slider:".$id;
-            echo "<br>";
-            
-            //echo $request->updateEtiquetaAlt."$id";
-
-            /*
-            $consultaId = Slider::where('id', $id)
-                        ->orderBy('id')
-                        ->get();
-            */
-        /*}*/
-
-        die();
-        
+        $consulta = Slider::find($input_ids);
+        $consulta->descripcion = $request->input('updateEtiquetaAlt'.$input_ids);
+        $consulta->save();
     }
 
     public function insertarSlider(Request $request) {
@@ -84,8 +67,8 @@ class SliderController extends Controller
 
             $alt = $request->etiquetaAlt;
             
-            if (is_null($alt) || is_null($image)) {
-                echo "Por favor escriba algo para la etiquetaAlt, no puede ser null";
+            if (is_null($image)) {
+                echo "Por favor agregue una imagen, no puede ser null";
             } else {
                 echo "estoy en controller line 38";
                 $slider = new Slider();

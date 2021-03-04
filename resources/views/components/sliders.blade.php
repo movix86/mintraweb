@@ -6,7 +6,6 @@
         <li data-target="#demo" data-slide-to="2"></li>
       </ul>
       <div class="carousel-inner">
-
         <div class="carousel-item active">
           @foreach($oneSlider as $oneSliderView)
           <a href="{{$oneSliderView->descripcion}}">

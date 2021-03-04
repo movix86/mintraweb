@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenido')
-    <x-sliders/>
+	<x-sliders/>
     <x-b-home-servicios/>
     <x-footer/>
 @stop

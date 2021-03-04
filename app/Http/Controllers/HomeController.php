@@ -17,14 +17,9 @@ class HomeController extends Controller
 	return view pagina y con ella 2 consultas a base de datos
 	*/
 	public function index(){
-        $sliders = Slider::orderBy('id', 'DESC')->paginate();
-        $oneSlider = $sliders->min('id');
-
-        $oneSlider = Slider::where('id', $oneSlider)
-        			->orderBy('id')
-        			->get();
-
-    	return view('pagina', compact('sliders', 'oneSlider'));
+        
+       // @componenteSlider(['type' => $sliders ]);
+    	return view('pagina');
     }
 
 }
