@@ -10,8 +10,6 @@ use App\Http\Controllers\Storage;
 class SliderController extends Controller
 {
     public function index() {
-        echo "line 16";
-        die();
     	$sliders = Slider::orderBy('id', 'DESC')->paginate();
     	return view('listarSliders', compact('sliders'));
     }
@@ -36,12 +34,7 @@ class SliderController extends Controller
 
     public function update(Request $request) {
         $ids = $request->input('ids');
-        echo "line 39:" .$ids;
-         
-       $input_ids = $request->input('btn-actualizar');
-
- 
-
+        $input_ids = $request->input('btn-actualizar');
 
         $numero = $request->input('updateEtiquetaAlt');
         $consulta = Slider::find($input_ids);
@@ -50,8 +43,6 @@ class SliderController extends Controller
     }
 
     public function insertarSlider(Request $request) {
-        //echo "slider elegido:" . $request->sliderElejido;
-
         $etiquetaAlt = $request->etiquetaAlt;
 
         $image = $request->file('file');
@@ -59,7 +50,6 @@ class SliderController extends Controller
             echo "Debe incluir una imagen";
         } else {
             $image_name = $image->getClientOriginalName();
-            //echo "nombre".$image_name;
             \Storage::disk('public')->put($image_name, \File::get($image));
 
             $data['etiquetaAlt'] = $request->etiquetaAlt;
@@ -79,4 +69,5 @@ class SliderController extends Controller
             }
         }
 	}
+    
 }
