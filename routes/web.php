@@ -25,5 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::prefix('noticia')->group(function () {
-    Route::get('crear', 'HomeController@crear_noticia');
+    Route::get('/crear', 'HomeController@crear_noticia');
+    Route::get('/actualidad', 'HomeController@mostrar_noticia');
 });
