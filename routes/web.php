@@ -59,7 +59,9 @@ Route::post('file', 'SliderController@insertarSlider');
 
 Route::post('slider-update', 'SliderController@update');
 
-Route::get('/cumpleanios', 'AdminCumpleaniosController@index');
+Route::get('/admin-cumpleanios', 'AdminCumpleaniosController@index');
+
+//Route::get('/cumpleanios', '')
 
 /*
 Route::post('file', function(Illuminate\Http\Request $request) {
