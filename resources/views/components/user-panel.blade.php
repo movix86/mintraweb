@@ -4,7 +4,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <div class="col-sm-12 jumbotron box-shadow">
-                        <x-table-users/>
+                        @if (isset($usuarios))
+                            @component('components.table-users', ['user' => $usuarios])
+                                <x-table-users/>
+                            @endcomponent
+                        @endif
                     </div>
                 </div>
             </div>

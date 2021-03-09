@@ -59,7 +59,7 @@ div.backgroud-user-panel{
 }
 .table-users{
     border: 1px solid;
-    max-height: 400px;
+    max-height: 200px;
     overflow:auto;
 }
 .table-news{
@@ -93,17 +93,17 @@ a span.fa{
 .banner-news{
     max-width: 70%;
 }
-.txt-date{
-    padding-top: 2%;
-    padding-left: 15%;
-    padding-right: 15%;
-    padding-bottom: 1.25%;
-}
 .txt-news{
-    padding-top: 1.25%;
+    padding-top: 3%;
     padding-left: 15%;
     padding-right: 15%;
-    padding-bottom: 3%;
+    padding-bottom: 1%;
+}
+.txt-date{
+    padding-top: 1%;
+    padding-left: 14%;
+    padding-right: 14%;
+    padding-bottom: 2%;
 }
 
 
