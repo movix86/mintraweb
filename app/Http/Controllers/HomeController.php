@@ -12,6 +12,10 @@ class HomeController extends Controller
         $usuarios = User::all()->first();
         return view('dashboard', ['usuarios' => $usuarios]);
     }
+    public function modificar_usuario($id){
+        //$usuarios = User::all()->first();
+        return view('home.modificar-usuario');
+    }
     public function crear_noticia(){
 
         return view('home.crear-noticia');

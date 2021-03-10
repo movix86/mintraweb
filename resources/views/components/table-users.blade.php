@@ -14,10 +14,10 @@
           <tbody>
             @if (isset($user))
                 <tr align="center">
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->lastname }}</td>
-                <td>{{ $user->email }}</td>
-                <td><a href=""><i class="material-icons">edit</i></a></td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->lastname }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td><a href="{{ url('/modificar/usuario/'.$user->id) }}"><i class="material-icons">edit</i></a></td>
                 </tr>
             @else
                 No existe

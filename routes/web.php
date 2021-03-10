@@ -26,3 +26,7 @@ Route::prefix('noticia')->group(function () {
     Route::get('/crear', 'HomeController@crear_noticia');
     Route::get('/actualidad', 'HomeController@mostrar_noticia');
 });
+
+Route::prefix('/modificar')->group(function () {
+    Route::get('/usuario/{id}', 'HomeController@modificar_usuario');
+});
