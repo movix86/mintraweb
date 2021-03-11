@@ -13,12 +13,14 @@
           </thead>
           <tbody>
             @if (isset($user))
-                <tr align="center">
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->lastname }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td><a href="{{ url('/modificar/usuario/'.$user->id) }}"><i class="material-icons">edit</i></a></td>
-                </tr>
+                @foreach ($user as $user_table)
+                  <tr align="center">
+                      <td>{{ $user_table['name'] }}</td>
+                      <td>{{ $user_table['lastname'] }}</td>
+                      <td>{{ $user_table['email'] }}</td>
+                      <td><a href="{{ url('/modificar/usuario/'.$user_table['id']) }}"><i class="material-icons">edit</i></a></td>
+                  </tr>
+                @endforeach
             @else
                 No existe
             @endif

@@ -27,6 +27,7 @@ Route::prefix('noticia')->group(function () {
     Route::get('/actualidad', 'HomeController@mostrar_noticia');
 });
 
-Route::prefix('/modificar')->group(function () {
-    Route::get('/usuario/{id}', 'HomeController@modificar_usuario');
-});
+
+Route::get('modificar/usuario/{id}', 'HomeController@modificar_usuario');
+Route::post('actualizar/usuario/', 'HomeController@actualizar_usuario');
+
