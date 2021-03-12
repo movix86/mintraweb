@@ -24,6 +24,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
+                #Si descomento la linea 26 entonces cuando el user este logueado no podra registrar.
             }
         }
 

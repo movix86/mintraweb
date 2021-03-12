@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,8 +16,14 @@ class HomeController extends Controller
     }
     public function modificar_usuario($id){
         $usuario = User::find($id);
-        return view('home.modificar-usuario', ['usuario' => $usuario]);
+
+        if (Auth::user()->id == $id) {
+            return redirect("/user/profile");
+        }else{
+            return view('home.modificar-usuario', ['usuario' => $usuario]);
+        }
     }
+
     public function actualizar_usuario(Request $data){
         $usuario = User::find($data->input('id'));
         $usuario->name = $data->input('name');
@@ -29,6 +36,7 @@ class HomeController extends Controller
 
         return redirect('dashboard');
     }
+
     public function crear_noticia(){
 
         return view('home.crear-noticia');

@@ -32,11 +32,13 @@
                 @if (Route::has('login'))
                     @auth
                             <a class="dropdown-item" href="{{ url('/dashboard') }}">Dashboard</a>
-                        @else
+                @else
                             <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                            {{--
                         @if (Route::has('register'))
                             <a class="dropdown-item" href="{{ route('register') }}">Register</a>
                         @endif
+                        --}}
                     @endauth
                 @endif
                 </div>

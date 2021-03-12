@@ -8,7 +8,7 @@
     <label for="email">Email</label><br>
     <input type="text" name="email" id="email" value="{{ isset($usuario) ? $usuario->email : 'Nombre' }}"><br>
     <label for="password">Contraseña</label><br>
-    <input type="password" name="password" id="password" placeholder="Nueva Contraseña"><br>
+    <input type="password" name="password" id="password" minlength="8" placeholder="Nueva Contraseña"><br>
     <button type="submit" name="guardar" id="guardar">Guardar</button><br>
 </form>
 

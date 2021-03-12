@@ -17,7 +17,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 jumbotron box-shadow">
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <button type="button" class="btn btn-primary box-shadow b-dash">Mis datos</button>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" type="button" class="btn btn-primary box-shadow b-dash">Agregar <br>Usuario</a>
+                                @endif
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 <button type="button" class="btn btn-primary box-shadow b-dash">Sliders</button>
