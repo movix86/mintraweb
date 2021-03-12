@@ -24,10 +24,47 @@ class AdminCumpleaniosController extends Controller
     	} else {
     		$user = User::find($id);
     		$emailLogin = $user->email;
-
-    		$admin = AdminCumpleanios::orderBy('id', 'DESC')->paginate();
-    		
-    		return view('admincumpleanios');
+			if ($emailLogin == 'analistaweb@uniagustiniana.edu.co'||$emailLogin == 'webmaster@uniagustiniana.edu.co'  ) {
+				$admins = AdminCumpleanios::orderBy('id', 'asc')->get();
+				return view('admincumpleanios', compact('admins'));
+			} else {
+				echo "No tiene permisos necesarios. Por favor comuniquese con los administradores";				
+			}
     	}    	
+    }
+
+    public function create(Request $request) {
+    	$name = $request->name;
+    	$correo = $request->correo;
+
+    	if (is_null($correo)) {
+    		echo "Por favor agregue un valor para el correo ";
+    	} else {
+    		if (str_contains($correo, '@uniagustiniana.edu.co')) {
+    			$admin = new AdminCumpleanios();
+	    		$admin->nombre = $name;
+	    		$admin->correo = $correo;
+	        	$admin->save();
+	        	return redirect('/admin-cumpleanios');
+    		} else {
+    			echo "El correo debe tener: @uniagustiniana.edu.co";
+    		}
+    	}
+    }
+
+    public function destroy($id){
+    	$adminEliminar = AdminCumpleanios::find($id);
+    	$adminEliminar->delete();
+    	return redirect('/admin-cumpleanios');
+    }
+
+    public function update(Request $request) {
+    	$input_ids = $request->input('btn-actualizar');
+
+    	$consulta = AdminCumpleanios::find($input_ids);
+    	$consulta->nombre = $request->input('updatename'.$input_ids);
+    	$consulta->correo = $request->input('updatecorreo'.$input_ids);
+        $consulta->save();
+    	return redirect('/admin-cumpleanios');
     }
 }

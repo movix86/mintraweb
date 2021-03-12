@@ -16,6 +16,7 @@ class CreateAdminCumpleaniosTable extends Migration
         Schema::create('adminCumpleanios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('correo');
+            $table->string('nombre');
             $table->timestamps();
         });
     }

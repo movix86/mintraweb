@@ -7,17 +7,13 @@
 
 </head>
 <body>
-    <h1>Editar Sliders</h1>
     <h2>Listado de sliders</h2>
-
  
-
     <form action="slider-update" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="container">
             <div class="row text-center">
                     @foreach($sliders as $slider)
-                            {{$ids[] = $slider->id }}
                             <div class="col-md-4">
                                 {{$slider->id}}
                                 <center>
@@ -26,8 +22,6 @@
                                     </a>
                                 </center>
                                 <br>
-
- 
 
                                 <br>
                                 <input type="text" name="updateEtiquetaAlt{{$slider->id}}"  value="{{ $slider->descripcion }}">

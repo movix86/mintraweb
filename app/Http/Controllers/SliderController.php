@@ -10,17 +10,17 @@ use App\Http\Controllers\Storage;
 class SliderController extends Controller
 {
     public function index() {
-    	$sliders = Slider::orderBy('id', 'DESC')->paginate();
+    	$sliders = Slider::orderBy('id', 'asc')->paginate();
     	return view('listarSliders', compact('sliders'));
     }
 
     public function index2() {
-    	$sliders = Slider::orderBy('id', 'DESC')->paginate();
+    	$sliders = Slider::orderBy('id', 'asc')->paginate();
     	return view('file', compact('sliders'));
     }
 
     public function indexSlider() {
-        $sliders = Slider::orderBy('id', 'DESC')->paginate();
+        $sliders = Slider::orderBy('id', 'asc')->paginate();
         return view('slider', compact('sliders'));
     }
 
