@@ -28,6 +28,9 @@ Route::prefix('noticia')->group(function () {
 });
 
 
-Route::get('modificar/usuario/{id}', 'HomeController@modificar_usuario');
-Route::post('actualizar/usuario/', 'HomeController@actualizar_usuario');
+Route::get('/modificar/usuario/{id}', 'HomeController@modificar_usuario');
+Route::post('/actualizar/usuario/', 'HomeController@actualizar_usuario');
 
+#CREA UN NUEVO USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
+Route::get('/crear/usuario', 'HomeController@crear_usuario');
+Route::post('/guardar/usuario', 'HomeController@guardar_usuario');

@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" type="button" class="btn btn-primary box-shadow b-dash">Agregar <br>Usuario</a>
+                                    <a href="{{ url('/crear/usuario') }}" type="button" class="btn btn-primary box-shadow b-dash">Agregar <br>Usuario</a>
                                 @endif
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">

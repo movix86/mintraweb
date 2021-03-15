@@ -10,7 +10,7 @@
             <x-update-user-form/>
         @endcomponent
     @else
-        No existe
+        <x-update-user-form/>
     @endif
 
     <x-footer/>
