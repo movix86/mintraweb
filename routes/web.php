@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Models\Slider;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,12 +11,6 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-/*
-Route::get('/', function () {
-    return view('pagina');
-});
 */
 
 Route::get('/', 'HomeController@index');
@@ -66,3 +59,11 @@ Route::post('administradoresCumpleanios', 'AdminCumpleaniosController@create');
 Route::get('/eliminarAdminCumple/{id}', 'AdminCumpleaniosController@destroy');
 
 Route::post('admin-cumple-update', 'AdminCumpleaniosController@update');
+
+Route::get('/cumpleanios', 'CumpleaniosController@index');
+
+Route::get('/eliminarCumpleanios/{id}', 'CumpleaniosController@destroy');
+
+Route::post('cumpleanios-update', 'CumpleaniosController@update');
+
+Route::post('nuevo-cumpleanios', 'CumpleaniosController@insert');

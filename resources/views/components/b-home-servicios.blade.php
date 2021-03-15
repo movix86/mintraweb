@@ -47,41 +47,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-            <div class="row">
-                <div class="col-12" align="center">
-                    <img width="180px" src="img/gif-cumpleanios.gif" alt=""> 
-                    <style type="text/css">
-                    </style>
-                    <div class="list-age">
-                         
-                        <table class="table table-hover table-striped">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img style="border-radius: 100px" width="100px" src="img/fondo.jpg">
-                                </td>
-                                
-                                <td>
-                                    Steve Jobs
-                                </td>
-                                <td>5 marzo</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img style="border-radius: 100px" width="100px" src="img/Steve jobs.jpg">
-                                </td>
-                                <td>
-                                    Luis Miguel Gomez
-                                </td>
-                                <td>29 marzo</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>      
     </div>
 </div>

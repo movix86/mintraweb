@@ -7,5 +7,6 @@
 @section('contenido')
     <x-sliders/>
     <x-b-home-servicios/>
+    <x-cumpleanios/>
     <x-footer/>
 @stop
