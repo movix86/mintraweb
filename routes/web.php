@@ -34,3 +34,8 @@ Route::post('/actualizar/usuario/', 'HomeController@actualizar_usuario');
 #CREA UN NUEVO USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
 Route::get('/crear/usuario', 'HomeController@crear_usuario');
 Route::post('/guardar/usuario', 'HomeController@guardar_usuario');
+
+#ADMINISTRACION CRUD DE SLIDERS
+Route::prefix('/slider')->group(function () {
+    Route::get('/admin', 'FileController@admin_sliders');
+});
