@@ -12,7 +12,20 @@ use Illuminate\Support\Facades\File;
 class FileController extends Controller
 {
     public function admin_sliders(){
+        $id_user = Auth::user()->id;
         $sliders_list = Sliders::all();
+
+        #Este asigna un slider-predeterminado:
+        $sliders_num = $sliders_list->count();
+        if ($sliders_num < 1) {
+            $slider = new Sliders;
+            $slider->name = 'Nombre de slider, que se usara como titulo';
+            $slider->url_path_image =  '1616191535image-default.jpg';
+            $slider->url_news = '';
+            $slider->user_id = $id_user;
+            $slider->save();
+            return back()->with('success','Slider Default!');
+        }
         return view('home.admin-sliders', ['sliders' => $sliders_list]);
     }
 
@@ -21,7 +34,7 @@ class FileController extends Controller
 
         $slider = new Sliders;
         $slider->name = 'Nombre de slider, que se usara como titulo';
-        $slider->url_path_image =  'no-imagen';
+        $slider->url_path_image =  'img/image-default.jpg';
         $slider->url_news = '';
         $slider->user_id = $id_user;
         $slider->save();

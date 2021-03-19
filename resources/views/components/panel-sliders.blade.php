@@ -7,8 +7,8 @@
         <p>Default file:</p>
         <input type="hidden" id="id_slide" name="id_slider" value="{{ isset($slider) ? $slider->id : "" }}">
         <input type="file" id="{{ isset($slider) ? 'slider' . $slider->id : 'No' }}" name="file-slider"><br>
-        <input type="text" placeholder="Titulo Slider" name="name-slider" value="{{ isset($slider) ? $slider->name : "" }}"><br>
-        <input type="text" placeholder="URL" name="url" value="{{ isset($slider) ? $slider->url_news : "" }}"><br>
+        <input type="text" placeholder="Titulo Slider" name="name-slider" value="{{ isset($slider) ? $slider->name : '' }}" maxlength="50"><br>
+        <input type="text" placeholder="URL" name="url" value="{{ isset($slider) ? $slider->url_news : '' }}"><br>
         <a href='{{ isset($slider) ? url('slider/eliminar/'. $slider->id) : "Error en el codigo" }}'>Eliminar</a>
         {{ isset($slider) ? $slider->id : 'No' }}
         <div class="mt-3">
