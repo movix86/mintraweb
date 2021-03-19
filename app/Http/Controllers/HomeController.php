@@ -6,11 +6,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Sliders;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserFormValidator;
 
 class HomeController extends Controller
 {
+    public function home(){
+        $sliders_query = Sliders::orderBy('name', 'desc')->paginate();
+        $slider_array = [];
+        foreach ($sliders_query as $obj_sliders) {
+            $sliders [] = $obj_sliders;
+        }
+        return view('home.home', ['sliders' => $sliders]);
+    }
     public function dashboard_c(){
         $usuarios = User::all();
         return view('dashboard', ['usuarios' => $usuarios]);

@@ -15,9 +15,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
+Route::get('/', 'HomeController@home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeController@dashboard_c')->name('dashboard');
 
@@ -38,4 +36,7 @@ Route::post('/guardar/usuario', 'HomeController@guardar_usuario');
 #ADMINISTRACION CRUD DE SLIDERS
 Route::prefix('/slider')->group(function () {
     Route::get('/admin', 'FileController@admin_sliders');
+    Route::get('/crear', 'FileController@crear_sliders');
+    Route::get('/eliminar/{id}', 'FileController@eliminar_sliders');
+    Route::post('/guardar', 'FileController@guardar_slider');
 });

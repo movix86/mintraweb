@@ -5,7 +5,9 @@
 @endsection
 
 @section('contenido')
-	<x-sliders/>
+    @component('components.sliders', ['sliders' => $sliders])
+        <x-sliders/>
+    @endcomponent
     <x-b-home-servicios/>
     <x-footer/>
 @stop

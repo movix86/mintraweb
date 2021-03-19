@@ -16,8 +16,8 @@ class CreateSlidersTable extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('url_path');
-            $table->string('url_button');
+            $table->string('url_path_image');
+            $table->string('url_news');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

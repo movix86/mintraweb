@@ -1,30 +1,51 @@
 <div>
     <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
-          <li data-target="#demo" data-slide-to="0" class="active"></li>
-          <li data-target="#demo" data-slide-to="1"></li>
-          <li data-target="#demo" data-slide-to="2"></li>
+            @if (isset($sliders))
+                @php $num_indicator=[]; @endphp
+                @php $num=0; @endphp
+                @foreach ($sliders as $data_indicator)
+
+                    @php $num_indicator[]=$data_indicator->url_path_image; @endphp
+                    @php $num=$num+1; @endphp
+                    @if ($num == 1)
+                        <li data-target="#demo" data-slide-to="{{$num}}" class="active"></li>
+                    @endif
+                    @if ($num != 1)
+                        <li data-target="#demo" data-slide-to="{{$num}}"></li>
+                    @endif
+                @endforeach
+            @endif
         </ul>
+
         <div class="carousel-inner">
-          <div class="carousel-item active" width="600" height="500">
-            <img src="{{ asset('img/slider-1920.png') }}" alt="Los Angeles" width="1100" height="500">
-            <div class="carousel-caption font">
-                <p>Mintraweb 2021</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('img/slider-1920.png') }}" alt="Chicago" width="1100" height="500">
-            <div class="carousel-caption font">
-                <p>Uniagustiniana Mintraweb 2021</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('img/slider-1920.png') }}" alt="New York" width="1100" height="500">
-            <div class="carousel-caption font">
-                <p>Uniagustiniana Mintraweb 2021</p>
-            </div>
-          </div>
+            @if (isset($sliders))
+                @php $num_url=[]; @endphp
+                @php $num=0; @endphp
+                @foreach ($sliders as $data_slider)
+                    @php $num_url[]=$data_slider->url_path_image; @endphp
+                    @php $num=$num+1; @endphp
+                    @if ($num == 1)
+                        <div class="carousel-item active" width="600" height="500">
+                            <img src="{{ asset('storage'). '/' . $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                            <div class="carousel-caption font">
+                                <p>{{ $data_slider->name }}</p>
+                            </div>
+                        </div>
+                    @endif
+                    @if ($num != 1)
+                        <div class="carousel-item" width="600" height="500">
+                            <img src="{{ asset('storage'). '/' . $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                            <div class="carousel-caption font">
+                                <p>{{ $data_slider->name }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            @endif
         </div>
+
+
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </a>
