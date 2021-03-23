@@ -27,7 +27,7 @@
                     @php $num=$num+1; @endphp
                     @if ($num == 1)
                         <div class="carousel-item active" width="600" height="500">
-                            <img src="{{ asset('storage'). '/' . $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                            <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
                             <div class="carousel-caption font">
                                 <p>{{ $data_slider->name }}</p>
                             </div>
@@ -35,7 +35,7 @@
                     @endif
                     @if ($num != 1)
                         <div class="carousel-item" width="600" height="500">
-                            <img src="{{ asset('storage'). '/' . $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                            <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
                             <div class="carousel-caption font">
                                 <p>{{ $data_slider->name }}</p>
                             </div>

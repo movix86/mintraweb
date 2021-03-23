@@ -15,7 +15,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home')->name('index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeController@dashboard_c')->name('dashboard');
 
@@ -30,7 +30,7 @@ Route::get('/modificar/usuario/{id}', 'HomeController@modificar_usuario');
 Route::post('/actualizar/usuario/', 'HomeController@actualizar_usuario');
 
 #CREA UN NUEVO USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
-Route::get('/crear/usuario', 'HomeController@crear_usuario');
+Route::get('/crear/usuario', 'HomeController@crear_usuario')->name('nuevo_usuario');
 Route::post('/guardar/usuario', 'HomeController@guardar_usuario');
 
 #ADMINISTRACION CRUD DE SLIDERS
