@@ -14,7 +14,7 @@ use App\Http\Requests\UserFormValidator;
 class HomeController extends Controller
 {
     public function home(){
-        $sliders_query = Sliders::orderBy('name', 'desc')->paginate();
+        $sliders_query = Sliders::orderBy('id', 'desc')->paginate();
         $sliders = [];
         #1. Este asigna un usuario predeterminado al systema y el primer slider:
         $num_user_list = User::all();

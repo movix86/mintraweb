@@ -14,7 +14,7 @@ class FileController extends Controller
     public function admin_sliders(){
         if(Auth::check()){
             $id_user = Auth::user()->id;
-            $sliders_list = Sliders::all();
+            $sliders_list = Sliders::orderBy('id', 'desc')->paginate();
 
             #Este asigna un slider-predeterminado:
             $sliders_num = $sliders_list->count();

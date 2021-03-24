@@ -1,7 +1,7 @@
 <div>
     <div>
-        <h2>Noticias y Eventos</h2>
-        <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+        <h2>Noticias</h2>
+        <p>Panel modification de Noticias:</p>
         <div class="container table-news">
             <table class="table table-hover">
               <thead>

@@ -1,19 +1,23 @@
 
-<div class="container mt-3">
-    <h2>Custom File</h2>
-    <p>To create a custom file upload, wrap a container element with a class of .custom-file around the input with type="file". Then add the .custom-file-input to the file input:</p>
+<div class="file-box">
+    <h2>Slider {{ isset($slider) ? ' ' . $slider->id : 'No' }}</h2>
     <form action='{{ url('/slider/guardar') }}' method="POST" enctype="multipart/form-data">
         @csrf
-        <p>Default file:</p>
+        <p>Seleccionar el archivo:</p>
         <input type="hidden" id="id_slide" name="id_slider" value="{{ isset($slider) ? $slider->id : "" }}">
-        <input type="file" id="{{ isset($slider) ? 'slider' . $slider->id : 'No' }}" name="file-slider"><br>
-        <input type="text" placeholder="Titulo Slider" name="name-slider" value="{{ isset($slider) ? $slider->name : '' }}" maxlength="50"><br>
-        <input type="text" placeholder="URL" name="url" value="{{ isset($slider) ? $slider->url_news : '' }}"><br>
-        <a href='{{ isset($slider) ? url('slider/eliminar/'. $slider->id) : "Error en el codigo" }}'>Eliminar</a>
-        {{ isset($slider) ? $slider->id : 'No' }}
+        <div class="form-group">
+            <input type="file" id="{{ isset($slider) ? 'slider' . $slider->id : 'No' }}" name="file-slider"><br>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Titulo Slider" name="name-slider" value="{{ isset($slider) ? $slider->name : '' }}" maxlength="50" class="form-control"><br>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="URL" name="url" value="{{ isset($slider) ? $slider->url_news : '' }}" class="form-control">
+        </div>
+        <br>
         <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Guardar Este slider</button>
+            <button type="submit" class="btn btn-primary">Guardar slider</button><br><br>
+            <a href='{{ isset($slider) ? url('slider/eliminar/'. $slider->id) : "Error en el codigo" }}'><i class="material-icons" style="font-size:48px;color:red">delete_forever</i></a>
         </div>
     </form>
 </div>
-

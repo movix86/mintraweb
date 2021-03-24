@@ -51,6 +51,9 @@ div.backgroud-user-panel{
 .b-dash{
     width: 100px;
     height: 100px;
+    display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .box-shadow{
     border: 1px solid #ABB2B9;
@@ -67,6 +70,7 @@ div.backgroud-user-panel{
     max-height: 500px;
     overflow:auto;
 }
+
 
 /* Aqui inicia primero la conf de backend de crear noticia y despues el front*/
 .upload-banner-new{
@@ -113,12 +117,83 @@ a span.fa{
       font-size: 24px;
       padding: 10px;
     }
+    /* Formulario de creacion y actualizacion de usuarios */
+    div.form-user{
+        background-color: #f3f3f3;
+        width: 500px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border: 1px solid #ABB2B9;
+        box-shadow: 5px 10px 8px #888888;
+        padding: 30px;
+    }
+    span.txt-form-user{
+        padding-bottom: 300px;
+    }
+    /* SCROLL DE ADMINISTRACION DE SLIDERS */
+    div.row > div.sliders-box-a{
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        font-size:18px;
+        text-align: center;
+
+        border: solid 1px rgb(230, 228, 228);
+        min-height: 450px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div.row > div.sliders-box-b{
+        background-color: rgb(235, 235, 235);
+        border-radius: 10px;
+        overflow-x: auto;
+        padding: 10px;
+        white-space: nowrap;
+    }
+    div.file-box{
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        display: inline-block;
+        float: none;
+
+        padding: 25px;
+        min-width: 600px;
+    }
   }
-  /* If the screen size is 600px or less, set the font-size of <div> to 30px */
+  /* If the screen size is 600px or less, set the font-size of <div> to 30px ESCRITORIO */
 @media only screen and (max-width: 600px) {
     .font  {
       font-size: 12px;
-      padding: 5px;
+      margin: 5px;
+    }
+    /* Formulario de creacion y actualizacion de usuarios MOVIL*/
+    div.form-user{
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
+    /* SCROLL DE ADMINISTRACION DE SLIDERS */
+    div.row > div.sliders-box-a{
+        background-color: #f3f3f3;
+        text-align: center;
+        margin: auto;
+        border: solid 1px rgb(230, 228, 228);
+        min-height: 20px;
+        padding: 10px;
+    }
+    div.row > div.sliders-box-b{
+        background-color: rgb(235, 235, 235);
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    div.file-box{
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        display: inline-block;
+        float: none;
+
+        padding: 25px;
+        min-width: 50px;
     }
 }
 

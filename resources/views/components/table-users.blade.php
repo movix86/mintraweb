@@ -1,6 +1,6 @@
 <div>
     <h2>Usuarios</h2>
-    <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+    <p>Panel modification de usuarios</p>
     <div class="container table-users">
         <table class="table table-hover">
           <thead>
