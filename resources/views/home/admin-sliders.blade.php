@@ -5,6 +5,7 @@
 @endsection
 
 @section('contenido')
+    @include('flash-message')
     <h2 align="center"><small>Administrador de Sliders</small></h2>
     <div class="row padding-20">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 sliders-box-a">
@@ -18,6 +19,5 @@
              @endforeach
         </div>
     </div>
-    @include('flash-message')
     <x-footer/>
 @stop
