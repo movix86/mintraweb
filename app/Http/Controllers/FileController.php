@@ -27,7 +27,7 @@ class FileController extends Controller
                 $slider->save();
                 return back()->with('success','Slider Default!');
             }
-            return view('home.admin-sliders', ['sliders' => $sliders_list]);
+            return view('admin-sliders', ['sliders' => $sliders_list]);
         }else{
             return redirect('login');
         }

@@ -62,6 +62,10 @@ class HomeController extends Controller
         $usuarios = User::all();
         return view('dashboard', ['usuarios' => $usuarios]);
     }
+    public function usuarios_c(){
+        $usuarios = User::all();
+        return view('usuarios', ['usuarios' => $usuarios]);
+    }
     public function modificar_usuario($id){
         $usuario = User::find($id);
         if(Auth::check()){
