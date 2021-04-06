@@ -25,7 +25,7 @@
                                 <a href="{{ url('/slider/admin') }}" class="btn btn-primary box-shadow b-dash">Sliders</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <a href="{{url('noticia/crear')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
+                                <a href="{{route('crear-noticia')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 <a class="btn btn-primary box-shadow b-dash">Agregar <br>Evento</a>

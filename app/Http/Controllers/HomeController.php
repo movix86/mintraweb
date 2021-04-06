@@ -123,16 +123,4 @@ class HomeController extends Controller
         ]));
     }
 
-    public function crear_noticia(){
-
-        return view('home.crear-noticia');
-    }
-    public function guardar_noticia(){
-
-
-    }
-    public function mostrar_noticia(){
-
-        return view('home.front-noticia');
-    }
 }

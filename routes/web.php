@@ -21,9 +21,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeControll
 Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeController@usuarios_c')->name('usuarios');
 
 
-Route::prefix('noticia')->group(function () {
-    Route::get('/crear', 'HomeController@crear_noticia');
-    Route::get('/actualidad', 'HomeController@mostrar_noticia');
+Route::prefix('/noticia')->group(function () {
+    Route::get('/crear', 'ContentController@create_news')->name('crear-noticia');
+    Route::post('/guardar-noticia', 'ContentController@save_news')->name('guardar-noticia');
+    Route::get('/actualidad', 'ContentController@read_news')->name('mostrar-noticia');
 });
 
 

@@ -7,6 +7,8 @@
 @endif
     <form method="POST" action="{{ isset($usuario) ? url('actualizar/usuario/') : url('guardar/usuario/') }}">
         @csrf
+        {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
+        @include('flash-message')
         {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -37,6 +39,4 @@
         </div>
         <button type="submit" class="btn btn-primary" name="guardar" id="guardar">Guardar</button><br>
     </form>
-    {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
-    @include('flash-message')
 </div>
