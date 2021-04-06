@@ -6,67 +6,27 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
+                  <th>Noticia</th>
+                  <th>Categoria</th>
+                  <th>Autor_id</th>
+                  <th>Fecha de creacion</th>
+                  <th>Modificar</th>
+                  <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                  </tr>
+                @if (isset($noticias))
+                    @foreach ($noticias as $noticia)
+                        <tr>
+                            <td>{{ $noticia->news_name }}</td>
+                            <td>{{ $noticia->category }}</td>
+                            <td>{{ $noticia->user_id }}</td>
+                            <td>{{ $noticia->created_at }}</td>
+                            <td><a href="">M</a></td>
+                            <td><a href="">E</a></td>
+                        </tr>
+                    @endforeach
+                @endif
               </tbody>
             </table>
         </div>

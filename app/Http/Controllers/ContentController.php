@@ -43,6 +43,8 @@ class ContentController extends Controller
             $image_path_name = time().$image_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($image_path));
             $news->url_path_image_news = asset('storage') . '/' . $image_path_name;
+        }else{
+            $news->url_path_image_news = asset('img') . '/1616191535image-default.jpg';
         }
         $news->save();
         return back()->with('success','Se guardo la noticia con exito!');

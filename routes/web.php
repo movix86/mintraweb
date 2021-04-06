@@ -14,8 +14,9 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'HomeController@home')->name('index');
+#Route::get('/', 'HomeController@home')->name('index');
+Route::get('/', 'HomeController@index')->name('log');
+Route::get('/home', 'HomeController@home')->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeController@dashboard_c')->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeController@usuarios_c')->name('usuarios');

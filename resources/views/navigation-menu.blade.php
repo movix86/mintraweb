@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('index') }}">
+                    <a href="{{ route('home') }}">
                         <x-jet-application-mark class="block h-9 w-auto"/>
                         <!-- Logotipo que aparece en la dashboard -->
                     </a>

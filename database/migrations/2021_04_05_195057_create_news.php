@@ -17,7 +17,7 @@ class CreateNews extends Migration
             $table->id();
             $table->string('news_name');
             $table->string('url_path_image_news');
-            $table->string('code_block');
+            $table->longText('code_block');
             $table->string('category');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

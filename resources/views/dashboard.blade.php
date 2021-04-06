@@ -11,9 +11,11 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{--  <x-jet-welcome /> --}}
                 {{-- https://dev.to/kingsconsult/customize-laravel-jetstream-registration-and-login-210f --}}
-                {{--@component('components.user-panel', ['usuarios' => $usuarios])--}}
-                    <x-news-panel/>
-                {{--@endcomponent--}}
+                @if (isset($noticias))
+                    @component('components.news-panel', ['noticias' => $noticias])
+                        <x-news-panel/>
+                    @endcomponent
+                @endif
             </div>
         </div>
     </div>

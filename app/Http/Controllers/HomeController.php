@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
-use App\Models\Team;
-use App\Models\Sliders;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserFormValidator;
 
+use App\Models\User;
+use App\Models\Team;
+use App\Models\Sliders;
+use App\Models\News;
+
 class HomeController extends Controller
 {
-    public function home(){
-        $sliders_query = Sliders::orderBy('id', 'desc')->paginate();
-        $sliders = [];
+    public function index(){
         #1. Este asigna un usuario predeterminado al systema y el primer slider:
         $num_user_list = User::all();
         $num_user = $num_user_list->count();
@@ -33,6 +33,11 @@ class HomeController extends Controller
                 'personal_team' => true,
             ]));
         }
+        return view('auth.login');
+    }
+    public function home(){
+        $sliders_query = Sliders::orderBy('id', 'desc')->paginate();
+        $sliders = [];
 
         #2. Este asigna un slider-predeterminado al HOME:
         $sliders_list = Sliders::all();
@@ -54,18 +59,15 @@ class HomeController extends Controller
     }
 
 
-
-
-
-
     public function dashboard_c(){
-        $usuarios = User::all();
-        return view('dashboard', ['usuarios' => $usuarios]);
+        $noticias = News::all();
+        return view('dashboard', ['noticias' => $noticias]);
     }
     public function usuarios_c(){
         $usuarios = User::all();
         return view('usuarios', ['usuarios' => $usuarios]);
     }
+    #MIDDLEWARE MODIFICAR
     public function modificar_usuario($id){
         $usuario = User::find($id);
         if(Auth::check()){
@@ -90,7 +92,7 @@ class HomeController extends Controller
         $usuario->save();
         return back()->with('success','Usuario actualizado con exito!');
     }
-
+    #MIDDLEWARE MODIFICAR
     public function crear_usuario(){
         if(Auth::check()){
             return view('home.modificar-usuario');
