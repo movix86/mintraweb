@@ -16,8 +16,10 @@ class CreateNews extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('news_name');
+            $table->string('resume');
             $table->string('url_path_image_news');
             $table->longText('code_block');
+            $table->string('type');
             $table->string('category');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

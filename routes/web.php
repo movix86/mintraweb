@@ -25,7 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeControlle
 Route::prefix('/noticia')->group(function () {
     Route::get('/crear', 'ContentController@create_news')->name('crear-noticia');
     Route::post('/guardar-noticia', 'ContentController@save_news')->name('guardar-noticia');
-    Route::get('/actualidad', 'ContentController@read_news')->name('mostrar-noticia');
+    Route::get('/actualidad/{categoria?}', 'ContentController@show_news')->name('mostrar-noticias');
+    Route::get('/actual/{id}/{noticia_name_id}', 'ContentController@read_news')->name('mostrar-noticia');
+    #Route::post('/actualidad/filtrado', 'ContentController@show_news_filter')->name('mostrar-noticias-filtradas');
 });
 
 

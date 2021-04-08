@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\NewsFormValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use App\Models\User;
 use App\Models\News;
+use App\Models\User;
+
 
 class ContentController extends Controller
 {
@@ -17,12 +18,7 @@ class ContentController extends Controller
 
         return view('create_news');
     }
-    public function save_news(Request $data){
-        #GUARDA DATOS DE SLIDER EXISTENTE
-        $validate = $this->validate($data, [
-            'news_name' => 'max:255',
-            'url_path_image_news' => 'max:255'
-        ]);
+    public function save_news(Request $data, NewsFormValidator $newsFormValidator){
         #Captura ruta de la imagen
         $image_path = $data->file('url_path_image_news');
 
@@ -30,8 +26,10 @@ class ContentController extends Controller
         #Crea la noticia
         $news = new News;
         $news->news_name = $data->input('news_name');
+        $news->resume = $data->input('resume');
         $news->code_block = $data->input('code_block');
-        $news->category = 'Noticias';
+        $news->type = $data->input('type');
+        $news->category = $data->input('category');
         $news->user_id = Auth::user()->id;
 
 
@@ -51,9 +49,29 @@ class ContentController extends Controller
 
     }
 
-    public function read_news(){
-        return view('home.front-noticia');
+
+    public function show_news($filtro = ''){
+         #$categoria = $category->input('c');
+         if (empty($filtro)) {
+             $noticias = News::where([['type', '=', 'noticias']])->paginate(2);
+
+         }else{
+             $noticias = News::where([['type', '=', 'noticias'],['category', '=', $filtro]])->paginate(2);
+         }
+         $noticias_filter = [
+             'noticias' => $noticias,
+             'categoria' => $filtro
+         ];
+
+         return view('home.home-noticias', ['noticias_filter'=> $noticias_filter]);
     }
+    public function read_news($id, $titulo){
+        $data_news = News::where('id', $id)->first();
+        $user_data = User::where('id', $data_news->user_id)->first();
+        $user_name = $user_data->name;
+        return view('home.front-noticia', ['data'=> $data_news]);
+   }
+
     public function update_news(){
 
     }

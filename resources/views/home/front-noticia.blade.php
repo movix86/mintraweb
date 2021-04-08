@@ -5,6 +5,10 @@
 @endsection
 
 @section('contenido')
-    <x-news/>
+    @if (isset($data))
+        @component('components.news', ['data' => $data])
+            <x-news/>
+        @endcomponent
+    @endif
     <x-footer/>
 @stop

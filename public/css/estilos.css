@@ -109,7 +109,16 @@ a span.fa{
     padding-right: 14%;
     padding-bottom: 2%;
 }
-
+/*Cajas de noticias, texto resumido*/
+.box-news{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.w-5{
+    display: none;
+}
 
 /* If the screen size is 601px or more, set the font-size of <div> to 80px */
 @media only screen and (min-width: 601px) {
