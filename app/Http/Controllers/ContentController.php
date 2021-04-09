@@ -53,10 +53,10 @@ class ContentController extends Controller
     public function show_news($filtro = ''){
          #$categoria = $category->input('c');
          if (empty($filtro)) {
-             $noticias = News::where([['type', '=', 'noticias']])->paginate(2);
+             $noticias = News::where([['type', '=', 'noticias']])->orderBy('created_at', 'desc')->paginate(2);
 
          }else{
-             $noticias = News::where([['type', '=', 'noticias'],['category', '=', $filtro]])->paginate(2);
+             $noticias = News::where([['type', '=', 'noticias'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
          }
          $noticias_filter = [
              'noticias' => $noticias,
@@ -69,7 +69,12 @@ class ContentController extends Controller
         $data_news = News::where('id', $id)->first();
         $user_data = User::where('id', $data_news->user_id)->first();
         $user_name = $user_data->name;
-        return view('home.front-noticia', ['data'=> $data_news]);
+
+        $data = [
+            'data_news' => $data_news,
+            '$user_name' => $user_name
+        ];
+        return view('home.front-noticia', ['data'=> $data]);
    }
 
     public function update_news(){

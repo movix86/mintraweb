@@ -28,7 +28,7 @@
                 @endforeach
             @endif
             @if (isset($noticias_filter))
-            {{ $noticias_filter['noticias']->onEachSide(2)->links() }}
+            {{ $noticias_filter['noticias']->links('components.pagination-links') }}
             @endif
         </div>
     </div>
