@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsFormValidator;
+use App\Http\Requests\NewsFormUpdateValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -21,8 +22,6 @@ class ContentController extends Controller
     public function save_news(Request $data, NewsFormValidator $newsFormValidator){
         #Captura ruta de la imagen
         $image_path = $data->file('url_path_image_news');
-
-
         #Crea la noticia
         $news = new News;
         $news->news_name = $data->input('news_name');
@@ -31,8 +30,6 @@ class ContentController extends Controller
         $news->type = $data->input('type');
         $news->category = $data->input('category');
         $news->user_id = Auth::user()->id;
-
-
         //Verifica y configura el fichero o imagen
         if($image_path){
             #1 - Crea nuevo nombre del archivo con fecha al inicio
@@ -77,8 +74,37 @@ class ContentController extends Controller
         return view('home.front-noticia', ['data'=> $data]);
    }
 
-    public function update_news(){
+    public function update_news($id){
+        $data = News::where('id', $id)->first();
+        return view('create_news', ['data' => $data]);
+    }
+    public function save_update_news(Request $data, NewsFormUpdateValidator $newsFormUpdateValidator){
 
+        if ($data->input('id')) {
+            $news = News::where('id', $data->input('id'))->first();
+
+        }
+
+        #Captura ruta de la imagen
+        $image_path = $data->file('url_path_image_news');
+        #Crea la noticia
+        $news->news_name = $data->input('news_name');
+        $news->resume = $data->input('resume');
+        $news->code_block = $data->input('code_block');
+        $news->type = $data->input('type');
+        $news->category = $data->input('category');
+        $news->user_id = Auth::user()->id;
+        //Verifica y configura el fichero o imagen
+        if($image_path !== Null){
+            #1 - Crea nuevo nombre del archivo con fecha al inicio
+            #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
+            #3 - Guarda el nombre de la url
+            $image_path_name = time().$image_path->getClientOriginalName();
+            Storage::disk('public')->put($image_path_name, File::get($image_path));
+            $news->url_path_image_news = asset('storage') . '/' . $image_path_name;
+        }
+        $news->save();
+        return back()->with('success','Se actualizo la noticia con exito!');
     }
     public function delete_news(){
 

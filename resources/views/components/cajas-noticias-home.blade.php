@@ -14,7 +14,7 @@
             @if (isset($noticias_filter))
                 @foreach ($noticias_filter['noticias'] as $noticia)
                         <div class="container">
-                            <div class="card" style="width:350px">
+                            <div class="card" style="width:100%">
                                 <a href="{{ url('/noticia/actual/'. $noticia->id .'/'. $noticia->news_name) }}">
                                 <img class="card-img-top" src="{{ $noticia->url_path_image_news }}" alt="Card image" style="width:100%">
                                 <div class="card-body">

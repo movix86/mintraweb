@@ -39,9 +39,10 @@ class NewsFormValidator extends FormRequest
                     }
                 }
             ],
+            'resume' => ['required', 'max:100'],
             'url_path_image_news' => ['max:255'],
-            'type' => ['required'],
-            'category' => ['required']
+            'type' => ['required', 'max:255'],
+            'category' => ['required', 'max:255']
         ];
     }
 

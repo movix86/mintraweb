@@ -27,6 +27,8 @@ Route::prefix('/noticia')->group(function () {
     Route::post('/guardar-noticia', 'ContentController@save_news')->name('guardar-noticia');
     Route::get('/actualidad/{categoria?}', 'ContentController@show_news')->name('mostrar-noticias');
     Route::get('/actual/{id}/{noticia_name_id}', 'ContentController@read_news')->name('mostrar-noticia');
+    Route::get('/actualizar/{id}', 'ContentController@update_news')->name('actualizar-noticia');
+    Route::post('/guardar-actualizar-noticia', 'ContentController@save_update_news')->name('guardar-upd-noticia');
     #Route::post('/actualidad/filtrado', 'ContentController@show_news_filter')->name('mostrar-noticias-filtradas');
 });
 

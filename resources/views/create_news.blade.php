@@ -1,8 +1,11 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Noticia') }}
+            @if (isset($data))
+                {{ __('Actualizar Noticia') }}
+            @else
+                {{ __('Crear Noticia') }}
+            @endif
         </h2>
     </x-slot>
 
@@ -11,7 +14,13 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{--  <x-jet-welcome /> --}}
                 {{-- https://dev.to/kingsconsult/customize-laravel-jetstream-registration-and-login-210f --}}
-                <x-upload-banner-news/>
+                @if (isset($data))
+                    @component('components.upload-banner-news', ['data' => $data])
+                        <x-upload-banner-news/>
+                    @endcomponent
+                @else
+                    <x-upload-banner-news/>
+                @endif
             </div>
         </div>
     </div>
