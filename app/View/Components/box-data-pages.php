@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class cajas-noticias-home extends Component
+class box-data-pages extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class cajas-noticias-home extends Component
      */
     public function render()
     {
-        return view('components.cajas-noticias-home');
+        return view('components.box-data-pages');
     }
 }

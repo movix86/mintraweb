@@ -15,9 +15,9 @@ use App\Models\User;
 class ContentController extends Controller
 {
 
-    public function create_page(){
+    public function create_page($tipo){
 
-        return view('create_news');
+        return view('create_pages' ,['tipo' => $tipo]);
     }
     public function save_page(Request $data, NewsFormValidator $newsFormValidator){
         #Captura ruta de la imagen
@@ -56,7 +56,7 @@ class ContentController extends Controller
              $noticias = News::where([['type', '=', 'noticias'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
          }
          $data_filter = [
-             'tipo' => 'noticia',
+             'tipo' => 'actualidad',
              'data' => $noticias,
              'categoria' => $filtro
          ];
@@ -69,7 +69,7 @@ class ContentController extends Controller
         $user_name = $user_data->name;
 
         $data = [
-            'tipo' => 'noticias',
+            'tipo' => 'actualidad',
             'data_news' => $data_news,
             '$user_name' => $user_name
         ];
@@ -78,7 +78,7 @@ class ContentController extends Controller
 
     public function update_page($id){
         $data = News::where('id', $id)->first();
-        return view('create_news', ['data' => $data]);
+        return view('create_pages', ['data' => $data]);
     }
     public function save_update_page(Request $data, NewsFormUpdateValidator $newsFormUpdateValidator){
 
@@ -123,7 +123,7 @@ class ContentController extends Controller
             $eventos = News::where([['type', '=', 'eventos'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
         }
         $data_filter = [
-            'tipo' => 'evento',
+            'tipo' => 'eventos',
             'data' => $eventos,
             'categoria' => $filtro
         ];

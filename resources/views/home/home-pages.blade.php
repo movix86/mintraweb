@@ -5,13 +5,9 @@
 @endsection
 
 @section('contenido')
-    @if (isset($data_filter) && $data_filter['tipo'] == 'noticia')
-        @component('components.cajas-noticias-home', ['data_filter' => $data_filter])
-            <x-cajas-noticias-home/>
-        @endcomponent
-    @elseif (isset($data_filter) && $data_filter['tipo'] == 'evento')
-        @component('components.cajas-eventos-home', ['data_filter' => $data_filter])
-            <x-cajas-noticias-home/>
+    @if (isset($data_filter))
+        @component('components.box-data-pages', ['data_filter' => $data_filter])
+            <x-box-data-pages/>
         @endcomponent
     @endif
     <x-footer/>

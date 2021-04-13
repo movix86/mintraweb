@@ -18,22 +18,22 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 Route::get('/', 'HomeController@index')->name('log');
 Route::get('/home', 'HomeController@home')->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeController@dashboard_c')->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/{tipo?}/{categoria?}', 'HomeController@dashboard_c')->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeController@usuarios_c')->name('usuarios');
 
 
 Route::prefix('/información')->group(function () {
     #ESTAS RUTAS FUNCIONAN CON EL MODELO NEWS
-    Route::get('/crear', 'ContentController@create_page')->name('create-page');
+    Route::get('/crear/{tipo}', 'ContentController@create_page')->name('create-page');
     Route::post('/guardar-noticia', 'ContentController@save_page')->name('save-page');
     Route::get('/actualidad/{categoria?}', 'ContentController@show_pages_news')->name('show-pages-news');
-    Route::get('/actual/{id}/{noticia_name_id}', 'ContentController@read_page_news')->name('show-page-news');
+    Route::get('/actualidad/{id}/{noticia_name_id}', 'ContentController@read_page_news')->name('show-page-news');
     Route::get('/actualizar/{id}', 'ContentController@update_page')->name('edit-page');
     Route::post('/guardar-actualizar-noticia', 'ContentController@save_update_page')->name('save-update-page');
 
     #EVENTOS:
     Route::get('/eventos/{categoria?}', 'ContentController@show_pages_events')->name('show-pages-events');
-    Route::get('/evento/{id}/{noticia_name_id}', 'ContentController@read_page_event')->name('show-page-event');
+    Route::get('/eventos/{id}/{noticia_name_id}', 'ContentController@read_page_event')->name('show-page-event');
 });
 
 

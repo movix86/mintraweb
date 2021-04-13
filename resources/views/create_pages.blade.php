@@ -2,9 +2,12 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             @if (isset($data))
-                {{ __('Actualizar Noticia') }}
-            @else
-                {{ __('Crear Noticia') }}
+                {{ __('Actualizar') }}
+            @endif
+            @if (isset($tipo) && $tipo == 'noticia')
+                {{ __('Crear '. ucfirst($tipo)) }}
+            @elseif (isset($tipo) && $tipo == 'evento')
+                {{ __('Crear '. ucfirst($tipo)) }}
             @endif
         </h2>
     </x-slot>

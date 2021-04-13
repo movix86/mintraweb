@@ -11,8 +11,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{--  <x-jet-welcome /> --}}
                 {{-- https://dev.to/kingsconsult/customize-laravel-jetstream-registration-and-login-210f --}}
-                @if (isset($noticias))
-                    @component('components.news-panel', ['noticias' => $noticias])
+                @if (isset($data_filter))
+                    @component('components.news-panel', ['data_filter' => $data_filter])
                         <x-news-panel/>
                     @endcomponent
                 @endif
