@@ -17,10 +17,10 @@
                 <a class="nav-link" href="#">Wikis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Eventos</a>
+                <a class="nav-link" href="{{ route('show-pages-events') }}">Eventos</a>
                 </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('mostrar-noticias') }}">Noticias</a>
+                <a class="nav-link" href="{{ route('show-pages-news') }}">Noticias</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">FQRS</a>

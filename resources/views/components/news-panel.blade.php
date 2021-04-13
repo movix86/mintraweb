@@ -19,7 +19,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 jumbotron box-shadow">
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <a href="{{route('crear-noticia')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
+                                <a href="{{route('create-page')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 <a href="#" class="btn btn-primary box-shadow b-dash">Categorias</a>

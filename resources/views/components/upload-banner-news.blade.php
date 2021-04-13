@@ -10,7 +10,7 @@
     </ul>
 </div>
 @endif
-<form action="{{ isset($data) ? route('guardar-upd-noticia') : route('guardar-noticia') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ isset($data) ? route('save-update-page') : route('save-page') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12 upload-banner-new">

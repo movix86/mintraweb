@@ -22,15 +22,20 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'HomeControll
 Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeController@usuarios_c')->name('usuarios');
 
 
-Route::prefix('/noticia')->group(function () {
-    Route::get('/crear', 'ContentController@create_news')->name('crear-noticia');
-    Route::post('/guardar-noticia', 'ContentController@save_news')->name('guardar-noticia');
-    Route::get('/actualidad/{categoria?}', 'ContentController@show_news')->name('mostrar-noticias');
-    Route::get('/actual/{id}/{noticia_name_id}', 'ContentController@read_news')->name('mostrar-noticia');
-    Route::get('/actualizar/{id}', 'ContentController@update_news')->name('actualizar-noticia');
-    Route::post('/guardar-actualizar-noticia', 'ContentController@save_update_news')->name('guardar-upd-noticia');
-    #Route::post('/actualidad/filtrado', 'ContentController@show_news_filter')->name('mostrar-noticias-filtradas');
+Route::prefix('/información')->group(function () {
+    #ESTAS RUTAS FUNCIONAN CON EL MODELO NEWS
+    Route::get('/crear', 'ContentController@create_page')->name('create-page');
+    Route::post('/guardar-noticia', 'ContentController@save_page')->name('save-page');
+    Route::get('/actualidad/{categoria?}', 'ContentController@show_pages_news')->name('show-pages-news');
+    Route::get('/actual/{id}/{noticia_name_id}', 'ContentController@read_page_news')->name('show-page-news');
+    Route::get('/actualizar/{id}', 'ContentController@update_page')->name('edit-page');
+    Route::post('/guardar-actualizar-noticia', 'ContentController@save_update_page')->name('save-update-page');
+
+    #EVENTOS:
+    Route::get('/eventos/{categoria?}', 'ContentController@show_pages_events')->name('show-pages-events');
+    Route::get('/evento/{id}/{noticia_name_id}', 'ContentController@read_page_event')->name('show-page-event');
 });
+
 
 
 Route::get('/modificar/usuario/{id}', 'HomeController@modificar_usuario');

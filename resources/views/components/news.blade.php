@@ -4,7 +4,17 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('/noticia/actualidad') }}">Noticias</a></li>
+                    @php
+                        var_dump(['tipo']);
+                        die();
+                    @endphp
+                    @foreach ($data['tipo'] as $tipo)
+                        @if ($tipo->tipo == 'noticias')
+                            <li class="breadcrumb-item"><a href="{{ url('/información/actualidad') }}">Noticias</a></li>
+                        @elseif ($tipo->tipo == 'eventos')
+                            <li class="breadcrumb-item"><a href="{{ url('/información/eventos') }}">Eventos</a></li>
+                        @endif
+                    @endforeach
                     <li class="breadcrumb-item active">{{$data['data_news']->news_name}}</li>
                 </ol>
             </nav>

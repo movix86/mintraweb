@@ -15,11 +15,11 @@ use App\Models\User;
 class ContentController extends Controller
 {
 
-    public function create_news(){
+    public function create_page(){
 
         return view('create_news');
     }
-    public function save_news(Request $data, NewsFormValidator $newsFormValidator){
+    public function save_page(Request $data, NewsFormValidator $newsFormValidator){
         #Captura ruta de la imagen
         $image_path = $data->file('url_path_image_news');
         #Crea la noticia
@@ -47,7 +47,7 @@ class ContentController extends Controller
     }
 
 
-    public function show_news($filtro = ''){
+    public function show_pages_news($filtro = ''){
          #$categoria = $category->input('c');
          if (empty($filtro)) {
              $noticias = News::where([['type', '=', 'noticias']])->orderBy('created_at', 'desc')->paginate(2);
@@ -55,30 +55,32 @@ class ContentController extends Controller
          }else{
              $noticias = News::where([['type', '=', 'noticias'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
          }
-         $noticias_filter = [
-             'noticias' => $noticias,
+         $data_filter = [
+             'tipo' => 'noticia',
+             'data' => $noticias,
              'categoria' => $filtro
          ];
 
-         return view('home.home-noticias', ['noticias_filter'=> $noticias_filter]);
+         return view('home.home-pages', ['data_filter'=> $data_filter]);
     }
-    public function read_news($id, $titulo){
+    public function read_page_news($id, $titulo){
         $data_news = News::where('id', $id)->first();
         $user_data = User::where('id', $data_news->user_id)->first();
         $user_name = $user_data->name;
 
         $data = [
+            'tipo' => 'noticias',
             'data_news' => $data_news,
             '$user_name' => $user_name
         ];
-        return view('home.front-noticia', ['data'=> $data]);
-   }
+        return view('home.front-page', ['data'=> $data]);
+    }
 
-    public function update_news($id){
+    public function update_page($id){
         $data = News::where('id', $id)->first();
         return view('create_news', ['data' => $data]);
     }
-    public function save_update_news(Request $data, NewsFormUpdateValidator $newsFormUpdateValidator){
+    public function save_update_page(Request $data, NewsFormUpdateValidator $newsFormUpdateValidator){
 
         if ($data->input('id')) {
             $news = News::where('id', $data->input('id'))->first();
@@ -112,16 +114,32 @@ class ContentController extends Controller
 
 
 
-    public function crear_noticia(){
+    public function show_pages_events($filtro = ''){
+        #$categoria = $category->input('c');
+        if (empty($filtro)) {
+            $eventos = News::where([['type', '=', 'eventos']])->orderBy('created_at', 'desc')->paginate(2);
 
-        return view('home.crear-noticia');
-    }
-    public function guardar_noticia(){
+        }else{
+            $eventos = News::where([['type', '=', 'eventos'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
+        }
+        $data_filter = [
+            'tipo' => 'evento',
+            'data' => $eventos,
+            'categoria' => $filtro
+        ];
 
+        return view('home.home-pages', ['data_filter'=> $data_filter]);
+   }
+   public function read_page_event($id, $titulo){
+       $data_news = News::where('id', $id)->first();
+       $user_data = User::where('id', $data_news->user_id)->first();
+       $user_name = $user_data->name;
 
-    }
-    public function mostrar_noticia(){
-
-        return view('home.front-noticia');
-    }
+       $data = [
+           'tipo' => 'eventos',
+           'data_news' => $data_news,
+           '$user_name' => $user_name
+       ];
+       return view('home.front-page', ['data'=> $data]);
+   }
 }

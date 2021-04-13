@@ -1,4 +1,4 @@
-@if (isset($noticias_filter))
+@if (isset($data_filter))
 {{--ESTA VARIABLE AUN NO SE HA UTILIZADO Y ES PARA EL CRUD DE CATEGORIAS Y FILTROS--}}
 <div class="container">
     <h2>Dropdowns</h2>
@@ -8,11 +8,11 @@
         Seleccione la categoria
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ url('/noticia/actualidad') }}">Todas</a>
-            <a class="dropdown-item" href="{{ url('/noticia/actualidad/comunicados') }}">Comunicados</a>
-            <a class="dropdown-item" href="{{ url('/noticia/actualidad/OAR') }}">OAR</a>
-            <a class="dropdown-item" href="{{ url('/noticia/actualidad/convocatorias') }}">Convocatorias</a>
-            <a class="dropdown-item" href="{{ url('/noticia/actualidad/documentos') }}">Documentos</a>
+            <a class="dropdown-item" href="{{ url('/información/actualidad') }}">Todas</a>
+            <a class="dropdown-item" href="{{ url('/información/actualidad/comunicados') }}">Comunicados</a>
+            <a class="dropdown-item" href="{{ url('/información/actualidad/OAR') }}">OAR</a>
+            <a class="dropdown-item" href="{{ url('/información/actualidad/convocatorias') }}">Convocatorias</a>
+            <a class="dropdown-item" href="{{ url('/información/actualidad/documentos') }}">Documentos</a>
         </div>
     </div>
 </div>
