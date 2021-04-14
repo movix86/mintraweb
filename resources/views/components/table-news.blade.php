@@ -16,14 +16,16 @@
               </thead>
               <tbody>
                 @if (isset($noticias))
-                @php
-                    if($noticias['tipo'] == 'noticias'){
-                        $url = 'actualidad';
-                    }else{
-                        $url = $noticias['tipo'];
-                    }
-                @endphp
-                    @foreach ($noticias['data'] as $noticia)
+
+                    @foreach ($noticias as $noticia)
+                        @php
+                            if($noticia->type == 'noticias'){
+                                $url = 'actualidad';
+                            }else{
+                                $url = $noticia->type;
+                            }
+                        @endphp
+                        {{ $noticia->type }}
                         <tr>
                             <td><a href='{{url("/información/$url" . "/". $noticia->id ."/". $noticia->news_name)}}' title="{{ $noticia->resume }}">{{ $noticia->news_name }}</a></td>
                             <td>{{ $noticia->category }}</td>

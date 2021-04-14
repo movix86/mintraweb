@@ -1,10 +1,5 @@
 
 <div class="form-user">
-    @if (isset($usuario))
-    <span class="txt-form-user"><h2>Modificar Usuario</h2></span>
-@else
-    <span class="txt-form-user"><h2>Crear Usuario</h2></span>
-@endif
     <form method="POST" action="{{ isset($usuario) ? url('actualizar/usuario/') : url('guardar/usuario/') }}">
         @csrf
         {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}

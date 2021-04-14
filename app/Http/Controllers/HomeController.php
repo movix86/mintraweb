@@ -64,14 +64,17 @@ class HomeController extends Controller
             'tipo' => $tipo,
             'categoria' => $categoria
         ];
+        $data = '';
         #var_dump($filter);
         if ($filter['tipo'] == '' && $filter['categoria'] == '') {
             $data = News::all();
-        }elseif($filter['tipo'] !== '' && $filter['categoria'] == ''){
+        }elseif($filter['tipo'] == 'todas' && $filter['categoria'] == 'todas'){
+            $data = News::all();
+        }elseif($filter['tipo'] !== '' && $filter['categoria'] == 'todas'){
 
             $data = News::where([['type', $filter['tipo']]])->get();
 
-        }elseif($filter['tipo'] == '' && $filter['categoria'] !== ''){
+        }elseif($filter['tipo'] == 'todas' && $filter['categoria'] !== ''){
 
             $data = News::where([['category', $filter['categoria']]])->get();
 
