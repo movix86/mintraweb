@@ -4,10 +4,10 @@
             @if (isset($data))
                 {{ __('Actualizar') }}
             @endif
-            @if (isset($tipo) && $tipo == 'noticia')
-                {{ __('Crear '. ucfirst($tipo)) }}
-            @elseif (isset($tipo) && $tipo == 'evento')
-                {{ __('Crear '. ucfirst($tipo)) }}
+            @if (isset($data_type) && $data_type['tipo'] == 'noticia')
+                {{ __('Crear '. ucfirst($data_type['tipo'])) }}
+            @elseif (isset($data_type) && $data_type['tipo'] == 'evento')
+                {{ __('Crear '. ucfirst($data_type['tipo'])) }}
             @endif
         </h2>
     </x-slot>
@@ -22,7 +22,9 @@
                         <x-upload-banner-news/>
                     @endcomponent
                 @else
-                    <x-upload-banner-news/>
+                    @component('components.upload-banner-news', ['data_type' => $data_type['category']])
+                        <x-upload-banner-news/>
+                    @endcomponent
                 @endif
             </div>
         </div>

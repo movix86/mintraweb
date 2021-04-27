@@ -10,14 +10,19 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Models\News;
 use App\Models\User;
+use App\Models\Category;
 
 
 class ContentController extends Controller
 {
 
     public function create_page($tipo){
-
-        return view('create_pages' ,['tipo' => $tipo]);
+        $category = Category::all();
+        $data = [
+            'tipo' => $tipo,
+            'category' => $category
+        ];
+        return view('create_pages' ,['data_type' => $data]);
     }
     public function save_page(Request $data, NewsFormValidator $newsFormValidator){
         #Captura ruta de la imagen
@@ -77,7 +82,13 @@ class ContentController extends Controller
     }
 
     public function update_page($id){
-        $data = News::where('id', $id)->first();
+        $category = Category::all();
+        $data = [
+            'category' => $category,
+            'data' => News::where('id', $id)->first()
+        ];
+
+
         return view('create_pages', ['data' => $data]);
     }
     public function save_update_page(Request $data, NewsFormUpdateValidator $newsFormUpdateValidator){

@@ -82,7 +82,7 @@
                                 <a href="{{route('create-page', 'noticia')}}" class="btn btn-primary box-shadow b-dash">Agregar<br>Noticia</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <a href="#" class="btn btn-primary box-shadow b-dash">Categorias</a>
+                                <a href="{{route('admin-categories')}}" class="btn btn-primary box-shadow b-dash">Categorias</a>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
                                 <a href="{{route('create-page', 'evento')}}" class="btn btn-primary box-shadow b-dash">Agregar <br>Evento</a>

@@ -10,6 +10,7 @@ use App\Http\Requests\UserFormValidator;
 
 use App\Models\User;
 use App\Models\Team;
+use App\Models\TeamsUser;
 use App\Models\Sliders;
 use App\Models\News;
 
@@ -93,10 +94,6 @@ class HomeController extends Controller
     }
 
 
-
-
-
-
     public function usuarios_c(){
         $usuarios = User::all();
         return view('usuarios', ['usuarios' => $usuarios]);
@@ -150,6 +147,15 @@ class HomeController extends Controller
         return back()->with('success','Usuario creado con exito!');
 
     }
+    public function eliminar_usuario($id){
+
+        $user = User::where('id', $id)->first();
+        $team = TeamsUser::where('user_id', $id)->first();
+        $team->delete();
+        $user->delete();
+
+        return back()->with('success','Usuario eliminado con exito!');
+    }
     #CREA EL EQUIPO DEL USUARIO PARA EVITAR EL ERROR
     public function createTeam(User $user){
         $user->ownedTeams()->save(Team::forceCreate([
@@ -158,5 +164,6 @@ class HomeController extends Controller
             'personal_team' => true,
         ]));
     }
+
 
 }

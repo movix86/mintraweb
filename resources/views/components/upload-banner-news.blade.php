@@ -22,28 +22,29 @@
     </div>
     <div class="row padding-20">
         <div class="col-6 sm-6 col-md-6 col-lg-4">
-            <input type="hidden" id="id" name="id" value="{{ isset($data) ? $data->id : '' }}">
-            <input type="text" class="form-control form-control-lg" name="news_name" placeholder="Titulo de la noticia" value="{{ isset($data) ? $data->news_name : '' }}">
+            <input type="hidden" id="id" name="id" value="{{ isset($data) ? $data['data']->id : '' }}">
+            <input type="text" class="form-control form-control-lg" name="news_name" placeholder="Titulo de la noticia" value="{{ isset($data) ? $data['data']->news_name : '' }}">
         </div>
         <div class="col-6 sm-6 col-md-6 col-lg-4">
-            <input type="text" class="form-control form-control-lg" name="resume" placeholder="Resumen de noticia" maxlength="100" value="{{ isset($data) ? $data->resume : '' }}">
+            <input type="text" class="form-control form-control-lg" name="resume" placeholder="Resumen de noticia" maxlength="100" value="{{ isset($data) ? $data['data']->resume : '' }}">
         </div>
 
     </div>
     <div class="row">
         <div class="col-12 father-text-box-code" id="father-text-box-code">
-            <textarea class="text-editor" name="code_block">{{ isset($data) ? $data->code_block : '' }}</textarea>
+            <textarea class="text-editor" name="code_block">{{ isset($data) ? $data['data']->code_block : '' }}</textarea>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <label for="sel2">Seleccione Tipo:</label>
             <select multiple class="form-control" id="sel2" name="type">
-                <option value="noticias" @php if(isset($data) and $data->type == 'noticias'){ echo "selected"; } @endphp>Noticia</option>
-                <option value="eventos" @php if(isset($data) and $data->type == 'eventos'){ echo "selected"; } @endphp>Evento</option>
+                <option value="noticias" @php if(isset($data) and $data['data']->type == 'noticias'){ echo "selected"; } @endphp>Noticia</option>
+                <option value="eventos" @php if(isset($data) and $data['data']->type == 'eventos'){ echo "selected"; } @endphp>Evento</option>
             </select>
         </div>
     </div>
+    {{--
     <div class="row">
         <div class="col-12">
             <label for="sel2">Seleccione Categoria:</label>
@@ -52,6 +53,23 @@
                 <option value="oar" @php if(isset($data) and $data->category == 'oar'){ echo "selected"; } @endphp>OAR</option>
                 <option value="convocatorias" @php if(isset($data) and $data->category == 'convocatorias'){ echo "selected"; } @endphp>Convocatorias</option>
                 <option value="documentos" @php if(isset($data) and $data->category == 'documentos'){ echo "selected"; } @endphp>Documentos</option>
+            </select>
+        </div>
+    </div>
+    --}}
+    <div class="row">
+        <div class="col-12">
+            <label for="sel2">Seleccione Categoria:</label>
+            <select multiple class="form-control" id="sel2" name="category">
+                @if (isset($data_type))
+                    @foreach ($data_type as $categoria)
+                        <option value="{{ $categoria->name }}" @php if(isset($data) and $data['data']->category == $categoria->name){ echo "selected"; } @endphp>{{ ucfirst($categoria->name) }}</option>
+                    @endforeach
+                @elseif(isset($data))
+                    @foreach ($data['category'] as $categoria)
+                        <option value="{{ $categoria->name }}" @php if(isset($data) and $data['data']->category == $categoria->name){ echo "selected"; } @endphp>{{ ucfirst($categoria->name) }}</option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>

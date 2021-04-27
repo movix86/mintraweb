@@ -9,16 +9,24 @@
               <th>Apellidos</th>
               <th>Email</th>
               <th>Actualizar</th>
+              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
             @if (isset($user))
                 @foreach ($user as $user_table)
                   <tr align="center">
-                      <td>{{ $user_table['name'] }}</td>
-                      <td>{{ $user_table['lastname'] }}</td>
-                      <td>{{ $user_table['email'] }}</td>
-                      <td><a href="{{ url('/modificar/usuario/'.$user_table['id']) }}"><i class="material-icons">edit</i></a></td>
+                    <td>{{ $user_table->name }}</td>
+                    <td>{{ $user_table->lastname }}</td>
+                    <td>{{ $user_table->email }}</td>
+                    <td><a href="{{ url('/modificar/usuario/'.$user_table->id) }}"><i class="material-icons">edit</i></a></td>
+                    @if (Auth::user()->id == $user_table->id)
+                        <td><a href="{{ url('/modificar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:rgb(0, 116, 6)">delete</i></a></td>
+                    @else
+                        <td><a href="{{ url('/eliminar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:red">delete</i></a></td>
+                    @endif
+
+
                   </tr>
                 @endforeach
             @else

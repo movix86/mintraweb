@@ -14,4 +14,8 @@ class Users extends Model
     public function sliders(){
         return $this->hasMany('App/Models/Sliders');
     }
+
+    public function teams(){
+        return $this->hasMany('App/Models/TeamsUser');
+    }
 }
