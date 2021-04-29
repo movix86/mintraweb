@@ -13,6 +13,7 @@ use App\Models\Team;
 use App\Models\TeamsUser;
 use App\Models\Sliders;
 use App\Models\News;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -61,6 +62,7 @@ class HomeController extends Controller
 
 
     public function dashboard_c($tipo = '', $categoria = ''){
+        $category_db = Category::all();
         $filter = [
             'tipo' => $tipo,
             'categoria' => $categoria
@@ -87,7 +89,8 @@ class HomeController extends Controller
         $data_filter = [
             'tipo' => $filter['tipo'],
             'categoria' => $filter['categoria'],
-            'data' => $data
+            'data' => $data,
+            'category_db' => $category_db
         ];
 
         return view('dashboard', ['data_filter' => $data_filter]);
@@ -101,14 +104,10 @@ class HomeController extends Controller
     #MIDDLEWARE MODIFICAR
     public function modificar_usuario($id){
         $usuario = User::find($id);
-        if(Auth::check()){
-            if (Auth::user()->id == $id) {
-                return redirect("/user/profile");
-            }else{
-                return view('home.modificar-usuario', ['usuario' => $usuario]);
-            }
+        if (Auth::user()->id == $id) {
+            return redirect("/user/profile");
         }else{
-            return redirect('login');
+            return view('home.modificar-usuario', ['usuario' => $usuario]);
         }
     }
     public function actualizar_usuario(Request $data){
@@ -125,11 +124,7 @@ class HomeController extends Controller
     }
     #MIDDLEWARE MODIFICAR
     public function crear_usuario(){
-        if(Auth::check()){
-            return view('home.modificar-usuario');
-        }else{
-            return redirect('login');
-        }
+        return view('home.modificar-usuario');
     }
     public function guardar_usuario(Request $data, UserFormValidator $validador){
 

@@ -38,13 +38,14 @@ Route::prefix('/información')->group(function () {
 
 
 #CREA UN NUEVO USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
-Route::get('/crear/usuario', 'HomeController@crear_usuario')->name('nuevo_usuario');
+Route::middleware(['auth:sanctum', 'verified'])->get('/crear/usuario', 'HomeController@crear_usuario')->name('nuevo_usuario');
+#Route::get('/crear/usuario', 'HomeController@crear_usuario')->name('nuevo_usuario');
 Route::post('/guardar/usuario', 'HomeController@guardar_usuario');
 
 #MODIFICA UN USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
-Route::get('/modificar/usuario/{id}', 'HomeController@modificar_usuario');
-Route::post('/actualizar/usuario/', 'HomeController@actualizar_usuario');
-Route::get('/eliminar/usuario/{id}', 'HomeController@eliminar_usuario');
+Route::middleware(['auth:sanctum', 'verified'])->get('/modificar/usuario/{id}', 'HomeController@modificar_usuario')->name('modificar-usuario');
+Route::middleware(['auth:sanctum', 'verified'])->get('/actualizar/usuario/', 'HomeController@actualizar_usuario')->name('actualizar-usuario');
+Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/usuario/{id}', 'HomeController@eliminar_usuario')->name('eliminar-usuario');
 
 #ADMINISTRACION CRUD DE SLIDERS
 Route::prefix('/slider')->group(function () {
@@ -56,10 +57,14 @@ Route::prefix('/slider')->group(function () {
 
 #ADMINISTRACION CRUD CATEGORIAS
 Route::prefix('/categoria')->group(function () {
-    Route::get('/administracion', 'CategoryController@admin_categories')->name('admin-categories');
-    Route::get('/crear', 'CategoryController@create_category')->name('create-category');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/administracion', 'CategoryController@admin_categories')->name('admin-categories');
+    #Route::get('/administracion', 'CategoryController@admin_categories')->name('admin-categories');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/crear', 'CategoryController@create_category')->name('create-category');
+    #Route::get('/crear', 'CategoryController@create_category')->name('create-category');
     Route::post('/guardar', 'CategoryController@save_category')->name('save-category');
-    Route::get('/editar/{id}', 'CategoryController@edit_category')->name('edit-category');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/editar/{id}', 'CategoryController@edit_category')->name('edit-category');
+    #Route::get('/editar/{id}', 'CategoryController@edit_category')->name('edit-category');
     Route::post('/guardar-actualizar-categoria', 'CategoryController@save_update_category')->name('save-update-category');
-    Route::get('/eliminar/{id}', 'CategoryController@delete_category')->name('delete-category');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/{id}', 'CategoryController@delete_category')->name('delete-category');
+    #Route::get('/eliminar/{id}', 'CategoryController@delete_category')->name('delete-category');
 });

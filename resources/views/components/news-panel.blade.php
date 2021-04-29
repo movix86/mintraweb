@@ -33,6 +33,7 @@
                                         Seleccion Tipo: Todas
                                     @endif
                                 </button>
+
                                 @if (isset($data_filter))
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'todas', 'categoria'=> $data_filter['categoria']]) }}">Todas</a>
@@ -41,6 +42,7 @@
                                         <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'wikis', 'categoria'=> $data_filter['categoria']]) }}">Wikis</a>
                                     </div>
                                 @endif
+
                             </div>
                         </div>
                         <br>
@@ -58,11 +60,9 @@
                                 </button>
                                 @if (isset($data_filter))
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => 'todas']) }}">Todas</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => 'comunicados']) }}">Comunicados</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'OAR']) }}">OAR</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'convocatorias']) }}">Convocatorias</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'documentos']) }}">Documentos</a>
+                                        @foreach ($data_filter['category_db'] as $category)
+                                            <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => $category->name]) }}">{{ $category->name }}</a>
+                                        @endforeach
                                     </div>
                                 @endif
                             </div>

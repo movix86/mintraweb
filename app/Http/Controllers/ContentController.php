@@ -53,7 +53,7 @@ class ContentController extends Controller
 
 
     public function show_pages_news($filtro = ''){
-         #$categoria = $category->input('c');
+        $category_db = Category::all();
          if (empty($filtro)) {
              $noticias = News::where([['type', '=', 'noticias']])->orderBy('created_at', 'desc')->paginate(2);
 
@@ -63,7 +63,8 @@ class ContentController extends Controller
          $data_filter = [
              'tipo' => 'actualidad',
              'data' => $noticias,
-             'categoria' => $filtro
+             'categoria' => $filtro,
+             'category_db' => $category_db
          ];
 
          return view('home.home-pages', ['data_filter'=> $data_filter]);
@@ -126,7 +127,7 @@ class ContentController extends Controller
 
 
     public function show_pages_events($filtro = ''){
-        #$categoria = $category->input('c');
+        $category_db = Category::all();
         if (empty($filtro)) {
             $eventos = News::where([['type', '=', 'eventos']])->orderBy('created_at', 'desc')->paginate(2);
 
@@ -136,7 +137,8 @@ class ContentController extends Controller
         $data_filter = [
             'tipo' => 'eventos',
             'data' => $eventos,
-            'categoria' => $filtro
+            'categoria' => $filtro,
+            'category_db' => $category_db
         ];
 
         return view('home.home-pages', ['data_filter'=> $data_filter]);

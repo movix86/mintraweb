@@ -9,10 +9,16 @@
         </button>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo']) }}">Todas</a>
+            @foreach ($data_filter['category_db'] as $category)
+                <a class="dropdown-item" href="{{ url('/información/' . $data_filter['tipo'] . '/' . $category->name) }}">{{ $category->name }}</a>
+            @endforeach
+            {{--
+            <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo']) }}">Todas</a>
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo'].'/comunicados') }}">Comunicados</a>
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo'].'/OAR') }}">OAR</a>
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo'].'/convocatorias') }}">Convocatorias</a>
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo'].'/documentos') }}">Documentos</a>
+            --}}
         </div>
     </div>
 </div>
