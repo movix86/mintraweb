@@ -23,17 +23,22 @@
                     @if (Auth::user()->id == $user_table->id)
                         <td><a href="{{ url('/modificar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:rgb(0, 116, 6)">delete</i></a></td>
                     @else
-                        <td><a href="{{ url('/eliminar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:red">delete</i></a></td>
+                        {{--<td><a href="{{ url('/eliminar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:red">delete</i></a></td>--}}
+                        <td><a href="javascript:void(0)" onclick="delete_date('/eliminar/usuario/' , {{ $user_table->id }})"><i class="material-icons" data-toggle="modal" data-target="#myModal" style="color:red">delete</i></a></td>
                     @endif
 
 
                   </tr>
                 @endforeach
+
+
+
+
             @else
                 No existe
             @endif
           </tbody>
         </table>
     </div>
-
 </div>
+<x-modal-delete-date/>
