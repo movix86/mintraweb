@@ -15,7 +15,7 @@
                 @foreach ($data_filter['data'] as $data)
                         <div class="container">
                             <div class="card" style="width:100%">
-                                <a href="{{ url('/información/'.$data_filter['tipo'].'/'. $data->id .'/'. $data->news_name) }}">
+                                <a href="{{ url('/informacion/'.$data_filter['tipo'].'/'. $data->id .'/'. $data->news_name) }}">
                                 <img class="card-img-top" src="{{ $data->url_path_image_news }}" alt="Card image" style="width:100%">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $data->news_name }}</h4>

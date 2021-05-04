@@ -120,11 +120,11 @@ class ContentController extends Controller
         $news->save();
         return back()->with('success','Se actualizo la noticia con exito!');
     }
-    public function delete_news(){
-
+    public function delete_page($id){
+        $page_delete = News::where('id', $id)->first();
+        $page_delete->delete();
+        return back()->with('success','Se elimino la noticia con exito!');
     }
-
-
 
     public function show_pages_events($filtro = ''){
         $category_db = Category::all();

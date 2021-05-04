@@ -12,7 +12,7 @@
         <!-- Modal body -->
         <div class="modal-body">
             <div class="alert alert-danger">
-                <strong>Cuidado!</strong> Estas seguro de eliminar este usuario?
+                <strong>Cuidado!</strong> Esta seguro de esta acción?
             </div>
             <br>
             <center>

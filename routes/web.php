@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/{tipo?}/{catego
 Route::middleware(['auth:sanctum', 'verified'])->get('/usuarios', 'HomeController@usuarios_c')->name('usuarios');
 
 
-Route::prefix('/información')->group(function () {
+Route::prefix('/informacion')->group(function () {
     #ESTAS RUTAS FUNCIONAN CON EL MODELO NEWS
     Route::get('/crear/{tipo}', 'ContentController@create_page')->name('create-page');
     Route::post('/guardar-noticia', 'ContentController@save_page')->name('save-page');
@@ -30,6 +30,7 @@ Route::prefix('/información')->group(function () {
     Route::get('/actualidad/{id}/{noticia_name_id}', 'ContentController@read_page_news')->name('show-page-news');
     Route::get('/actualizar/{id}', 'ContentController@update_page')->name('edit-page');
     Route::post('/guardar-actualizar-noticia', 'ContentController@save_update_page')->name('save-update-page');
+    Route::get('/eliminar/{id}', 'ContentController@delete_page')->name('delete-page');
 
     #EVENTOS:
     Route::get('/eventos/{categoria?}', 'ContentController@show_pages_events')->name('show-pages-events');

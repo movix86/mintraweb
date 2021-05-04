@@ -8,9 +8,9 @@
         Seleccione la categoria
         </button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo']) }}">Todas</a>
+            <a class="dropdown-item" href="{{ url('/informacion/'.$data_filter['tipo']) }}">Todas</a>
             @foreach ($data_filter['category_db'] as $category)
-                <a class="dropdown-item" href="{{ url('/información/' . $data_filter['tipo'] . '/' . $category->name) }}">{{ $category->name }}</a>
+                <a class="dropdown-item" href="{{ url('/informacion/' . $data_filter['tipo'] . '/' . $category->name) }}">{{ $category->name }}</a>
             @endforeach
             {{--
             <a class="dropdown-item" href="{{ url('/información/'.$data_filter['tipo']) }}">Todas</a>
