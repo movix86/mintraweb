@@ -72,12 +72,15 @@ class ContentController extends Controller
     public function read_page_news($id, $titulo){
         $data_news = News::where('id', $id)->first();
         $user_data = User::where('id', $data_news->user_id)->first();
+        $categoria = $data_news->category;
+        $news_relation = News::where('category', $categoria)->take(3)->get();
         $user_name = $user_data->name;
 
         $data = [
             'tipo' => 'actualidad',
             'data_news' => $data_news,
-            '$user_name' => $user_name
+            '$user_name' => $user_name,
+            'categorias' => $news_relation
         ];
         return view('home.front-page', ['data'=> $data]);
     }
@@ -144,15 +147,18 @@ class ContentController extends Controller
         return view('home.home-pages', ['data_filter'=> $data_filter]);
    }
    public function read_page_event($id, $titulo){
-       $data_news = News::where('id', $id)->first();
-       $user_data = User::where('id', $data_news->user_id)->first();
-       $user_name = $user_data->name;
+        $data_news = News::where('id', $id)->first();
+        $user_data = User::where('id', $data_news->user_id)->first();
+        $categoria = $data_news->category;
+        $news_relation = News::where('category', $categoria)->take(3)->get();
+        $user_name = $user_data->name;
 
-       $data = [
-           'tipo' => 'eventos',
-           'data_news' => $data_news,
-           '$user_name' => $user_name
-       ];
-       return view('home.front-page', ['data'=> $data]);
+        $data = [
+            'tipo' => 'eventos',
+            'data_news' => $data_news,
+            '$user_name' => $user_name,
+            'categorias' => $news_relation
+        ];
+        return view('home.front-page', ['data'=> $data]);
    }
 }

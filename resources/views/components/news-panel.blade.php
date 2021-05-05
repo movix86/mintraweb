@@ -60,6 +60,7 @@
                                 </button>
                                 @if (isset($data_filter))
                                     <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'todas']) }}">Todas</a>
                                         @foreach ($data_filter['category_db'] as $category)
                                             <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => $category->name]) }}">{{ $category->name }}</a>
                                         @endforeach

@@ -109,6 +109,14 @@ a span.fa{
     padding-right: 14%;
     padding-bottom: 2%;
 }
+.news-relation{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.card-text{
+    font-size: 1vw;
+    display: in;
+}
 /*Cajas de noticias, texto resumido*/
 .box-news{
     width: 100%;
@@ -169,6 +177,10 @@ a span.fa{
         padding: 25px;
         min-width: 600px;
     }
+    /* ACTIVACION DE LA RELACIONES DE LAS NOTICIAS DEPENDIENDO SI ES MOBIL O NO */
+    .activacion-mobile{
+        display: block;
+    }
   }
   /* If the screen size is 600px or less, set the font-size of <div> to 30px ESCRITORIO */
 @media only screen and (max-width: 600px) {
@@ -203,6 +215,10 @@ a span.fa{
 
         padding: 25px;
         min-width: 50px;
+    }
+    /* ACTIVACION DE LA RELACIONES DE LAS NOTICIAS DEPENDIENDO SI ES MOBIL O NO */
+    .activacion-mobile{
+        display:none;
     }
 }
 
