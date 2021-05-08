@@ -5,9 +5,15 @@
 @endsection
 
 @section('contenido')
-    @component('components.sliders', ['sliders' => $sliders])
-        <x-sliders/>
-    @endcomponent
-    <x-b-home-servicios/>
+    @if (isset($date))
+        @component('components.sliders', ['sliders' => $date['sliders']])
+            <x-sliders/>
+        @endcomponent
+    @endif
+    @if (isset($date))
+        @component('components.b-home-servicios', ['date' => $date])
+            <x-b-home-servicios/>
+        @endcomponent
+    @endif
     <x-footer/>
 @stop

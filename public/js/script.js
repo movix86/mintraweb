@@ -10,3 +10,14 @@ function delete_date(url='', id=''){
 
 }
 
+function show_data_file(url='', sizes = ''){
+    //alert(url);
+    var data_show = document.getElementById('file-visor');
+    var file = '/storage/' + url;
+    var p = sizes;
+
+    data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
+
+
+}
+

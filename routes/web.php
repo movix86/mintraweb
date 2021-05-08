@@ -69,3 +69,24 @@ Route::prefix('/categoria')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/{id}', 'CategoryController@delete_category')->name('delete-category');
     #Route::get('/eliminar/{id}', 'CategoryController@delete_category')->name('delete-category');
 });
+
+#ADMINISTRACION CRUD MEDIOS
+Route::prefix('/medios')->group(function () {
+    Route::middleware(['auth:sanctum', 'verified'])->get('/mostrar', 'MediosController@show_medios')->name('admin-medios');
+    #Route::get('/administracion', 'CategoryController@admin_categories')->name('admin-categories');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/subir', 'MediosController@subir_medio')->name('subir-medio');
+
+});
+
+# CRUD CUMPLEANIOS Y CRUD ADMIN-CUMPLEANIOS
+Route::prefix('/cumpleanios')->group(function () {
+    Route::get('/admin-cumpleanios', 'CumpleaniosController@indexAdminCumpleanios')->name('admin-cumpleanios');
+    Route::post('administradoresCumpleanios', 'CumpleaniosController@createAdmin');
+    Route::get('/eliminarAdminCumple/{id}', 'CumpleaniosController@destroyAdminCumple');
+    Route::post('admin-cumple-update', 'CumpleaniosController@updateAdminCumple');
+    Route::get('/cumpleanios', 'CumpleaniosController@index')->name('cumpleanios-board');
+    Route::post('csv-cumpleanios', 'CumpleaniosController@insertFile');
+    Route::get('/eliminarCumpleanios/{id}', 'CumpleaniosController@destroy');
+    Route::post('cumpleanios-update', 'CumpleaniosController@update');
+    Route::post('nuevo-cumpleanios', 'CumpleaniosController@insert');
+});

@@ -145,8 +145,8 @@ class ContentController extends Controller
         ];
 
         return view('home.home-pages', ['data_filter'=> $data_filter]);
-   }
-   public function read_page_event($id, $titulo){
+    }
+    public function read_page_event($id, $titulo){
         $data_news = News::where('id', $id)->first();
         $user_data = User::where('id', $data_news->user_id)->first();
         $categoria = $data_news->category;
@@ -160,5 +160,5 @@ class ContentController extends Controller
             'categorias' => $news_relation
         ];
         return view('home.front-page', ['data'=> $data]);
-   }
+    }
 }

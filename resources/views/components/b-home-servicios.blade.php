@@ -52,7 +52,31 @@
             <div class="row">
                 <div class="col-12" align="center">
                     <div class="list-age">
-                        <h3>Lista de Cumpleaños</h3>
+                        <h5>Cumpleaños - 2021</h5>
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                @if (isset($date))
+                                    @foreach($date['cumpleaneros'] as $cumpleanio)
+                                        <tr>
+                                            <td>
+                                                <img style="border-radius: 100px" width="100px" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
+                                            </td>
+                                            <td>
+                                                {{$cumpleanio->nombre}}
+                                            </td>
+                                            <td>
+                                                {{$cumpleanio->dia}}-{{$cumpleanio->mes}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 ">
+                            @if (isset($date))
+                                {{ $date['cumpleaneros']->links('components.pagination-links') }}
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

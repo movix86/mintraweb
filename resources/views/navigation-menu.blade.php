@@ -22,6 +22,12 @@
                     <x-jet-nav-link href="{{ route('admin-sliders') }}" :active="request()->routeIs('admin-sliders')">
                         {{ __('Sliders') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin-medios') }}" :active="request()->routeIs('admin-medios')">
+                        {{ __('Medios') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cumpleanios-board') }}" :active="request()->routeIs('cumpleanios-board')">
+                        {{ __('Cumpleaños') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -153,6 +159,12 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin-sliders') }}" :active="request()->routeIs('admin-sliders')">
                 {{ __('Sliders') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('admin-medios') }}" :active="request()->routeIs('admin-medios')">
+                {{ __('Medios') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('cumpleanios-board') }}" :active="request()->routeIs('cumpleanios-board')">
+                {{ __('Cumpleaños') }}
             </x-jet-responsive-nav-link>
         </div>
 
