@@ -1,3 +1,4 @@
+
 <div class="form-user">
     <form method="POST" action="{{ isset($data_category) ? route('save-update-category') : url('categoria/guardar/') }}">
         @csrf

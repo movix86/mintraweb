@@ -53,6 +53,6 @@ class CategoryController extends Controller
     public function delete_category($id){
         $category = Category::where('id', $id)->first();
         $category->delete();
-        return redirect()->route('admin-categories');
+        return back()->with('success','Categoria se elimino con exito!');
     }
 }

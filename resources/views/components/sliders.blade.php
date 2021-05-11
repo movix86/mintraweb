@@ -26,15 +26,15 @@
                     @php $num_url[]=$data_slider->url_path_image; @endphp
                     @php $num=$num+1; @endphp
                     @if ($num == 1)
-                        <div class="carousel-item active" width="600" height="500">
+                        <div class="carousel-item slider-w active">
                             @if (empty($data_slider->url_news))
-                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
                                 <div class="carousel-caption font">
                                     <p>{{ $data_slider->name }}</p>
                                 </div>
                             @else
                                 <a href="{{ $data_slider->url_news }}" target="_blank">
-                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
                                     <div class="carousel-caption font">
                                         <p>{{ $data_slider->name }}</p>
                                     </div>
@@ -43,16 +43,16 @@
                         </div>
                     @endif
                     @if ($num != 1)
-                        <div class="carousel-item" width="600" height="500">
+                        <div class="carousel-item slider-w">
 
                             @if (empty($data_slider->url_news))
-                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
                                 <div class="carousel-caption font">
                                     <p>{{ $data_slider->name }}</p>
                                 </div>
                             @else
                                 <a href="{{ $data_slider->url_news }}" target="_blank">
-                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" width="1100" height="500">
+                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
                                     <div class="carousel-caption font">
                                         <p>{{ $data_slider->name }}</p>
                                     </div>

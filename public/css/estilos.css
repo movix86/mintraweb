@@ -36,9 +36,7 @@ div.padding-20{
     min-height: 400px;
     box-shadow: 5px 10px 8px #888888;
 }
-.font-buttons-services{
-    font-size: 1vw;
-}
+
 .footer{
     background-color: #003c69;
 }
@@ -143,10 +141,21 @@ a span.fa{
 }
 
 /* TABLA CUMPLEAÑOS */
-section > tbody.list-age{
+.list-age{
     max-height: 100px;
     overflow: auto;
 }
+.date-born-box{
+    border: solid 1px #D5D5D5;
+    background-color: rgb(236, 236, 236);
+}
+.file-csv{
+    padding: 20px;
+}
+.manual-date-bord{
+    padding: 20px;
+}
+
 
 /* If the screen size is 601px or more, set the font-size of <div> to 80px */
 @media only screen and (min-width: 601px) {
@@ -168,6 +177,11 @@ section > tbody.list-age{
     span.txt-form-user{
         padding-bottom: 300px;
     }
+
+    /*BOTONES SERVICIOS HOME*/
+    .font-buttons-services{
+        font-size: 1vw;
+    }
     /* SCROLL DE ADMINISTRACION DE SLIDERS */
     div.row > div.sliders-box-a{
         background-color: #f3f3f3;
@@ -188,6 +202,12 @@ section > tbody.list-age{
         padding: 10px;
         white-space: nowrap;
     }
+
+    .image-slider{
+        width: 100%;
+    }
+
+    /*ARCHIVOS SLIDERS*/
     div.file-box{
         background-color: #f3f3f3;
         border-radius: 10px;
@@ -197,10 +217,27 @@ section > tbody.list-age{
         padding: 25px;
         min-width: 600px;
     }
+    /*FRONT DE LOS SLIDERS EN EL HOME PRONCIPAL*/
+    .slider-w{
+        width: 100%;
+        height: 429.5px;
+    }
     /* ACTIVACION DE LA RELACIONES DE LAS NOTICIAS DEPENDIENDO SI ES MOBIL O NO */
     .activacion-mobile{
         display: block;
     }
+
+    .img-cumpleanios-default{
+        width: 60%;
+    }
+    .font-cumpleanios-front{
+        font-size: 1vw;
+    }
+
+    .img-cumpleanios-admin{
+        max-width: 50px;
+    }
+
   }
   /* If the screen size is 600px or less, set the font-size of <div> to 30px ESCRITORIO */
 @media only screen and (max-width: 600px) {
@@ -227,6 +264,15 @@ section > tbody.list-age{
         overflow-x: auto;
         white-space: nowrap;
     }
+    /*BOTONES SERVICIOS HOME*/
+    .font-buttons-services{
+        font-size: 3vw;
+    }
+    /*FRONT DE LOS SLIDERS EN EL HOME PRONCIPAL*/
+    .slider-w{
+        width: 100%;
+        height: 179.5px;
+    }
     div.file-box{
         background-color: #f3f3f3;
         border-radius: 10px;
@@ -239,6 +285,13 @@ section > tbody.list-age{
     /* ACTIVACION DE LA RELACIONES DE LAS NOTICIAS DEPENDIENDO SI ES MOBIL O NO */
     .activacion-mobile{
         display:none;
+    }
+    /* TABÑA CUMPLEAÑOS*/
+    .img-cumpleanios-default{
+        width: 60%;
+    }
+    .font-cumpleanios-front{
+        font-size: 3vw;
     }
 }
 

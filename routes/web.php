@@ -35,6 +35,10 @@ Route::prefix('/informacion')->group(function () {
     #EVENTOS:
     Route::get('/eventos/{categoria?}', 'ContentController@show_pages_events')->name('show-pages-events');
     Route::get('/eventos/{id}/{noticia_name_id}', 'ContentController@read_page_event')->name('show-page-event');
+
+    #WIKIS
+    Route::get('/wikis/{categoria?}', 'ContentController@show_pages_wikis')->name('show-pages-wikis');
+    Route::get('/wikis/{id}/{noticia_name_id}', 'ContentController@read_page_wikis')->name('show-page-wikis');
 });
 
 

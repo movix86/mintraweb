@@ -41,6 +41,8 @@
             <select multiple class="form-control" id="sel2" name="type">
                 <option value="noticias" @php if(isset($data) and $data['data']->type == 'noticias'){ echo "selected"; } @endphp>Noticia</option>
                 <option value="eventos" @php if(isset($data) and $data['data']->type == 'eventos'){ echo "selected"; } @endphp>Evento</option>
+                <option value="wikis" @php if(isset($data) and $data['data']->type == 'wikis'){ echo "selected"; } @endphp>Wiki</option>
+                <option value="sitios" @php if(isset($data) and $data['data']->type == 'sitios'){ echo "selected"; } @endphp>Sitio</option>
             </select>
         </div>
     </div>

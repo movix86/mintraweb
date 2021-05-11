@@ -16,7 +16,7 @@
             </li>
             --}}
             <li class="nav-item">
-                <a class="nav-link" href="#">Wikis</a>
+                <a class="nav-link" href="{{ route('show-pages-wikis') }}">Wikis</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('show-pages-events') }}">Eventos</a>

@@ -12,53 +12,70 @@
         </ul>
     </div>
 @endif
+
+
 <div class="container">
-	<form action="{{url('/csv-cumpleanios')}}" method="POST" enctype="multipart/form-data">
-	    @csrf
-	    <div class="col-md-6">
-	        <br><br>
-	        <strong>Archivo csv</strong>
-	        <input type="file" name="file"><br><br>
-	        <center>
-	            <button type="submit" class="btn btn-primary">Enviar</button>
-	        </center>
-	    </div>
-    </form>
-	<hr>
-    <div class="row text-center">
-        <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-user-plus fa-stack-1x fa-inverse"></i>
-            </span>
+    <div class="row date-born-box">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            {{--FORMULARIO QUE CARGA UN DOCUMENTO TIPO GOOGLE--}}
+            <form action="{{url('/csv-cumpleanios')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group file-csv">
+                    <h5>Archivo CSV -  Cumpleaños</h5>
+                    <input class="form-control-file" type="file" name="file">
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <form action="{{url('/cumpleanios/nuevo-cumpleanios')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="col-md-6">
-                <br><br>
-                <strong>Nombre *:</strong>
-                <input type="text" name="inputnombre"><br><br>
-                <strong>Fecha *:</strong>
-                <input id="date" name="inputfecha" type="date"><br><br>
-                <strong>Imagen</strong>
-                <input type="file" name="file"><br><br>
-                <center>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </center>
-            </div>
-        </form>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            {{--INGRESA URUSIO MANUAL--}}
+
+            <form action="{{url('/cumpleanios/nuevo-cumpleanios')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="manual-date-bord">
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Nombre</span>
+                        </div>
+                        <input type="text" class="form-control" name="inputnombre" placeholder="Crear nuevo usuario">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Nacimiento</span>
+                        </div>
+                        <input type="date" id="date" name="inputfecha" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Imagen</label>
+                        <input class="form-control-file" type="file" name="file">
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
     </div>
-</div>
-<hr>
-<div class="container">
-    <div class="row text-center">
-        <div class="col-md-12">
-			<table class="table table-hover table-striped">
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {{--MUESTRA LOS USUARIOS CREADOS EN UNA TABLA--}}
+            <table class="table table-hover">
 		        <tr>
 				    <th scope="col">Imagen</th>
 				    <th scope="col">Nombre</th>
-				    <th scope="col">Fecha</th>
-				    <th scope="col">Editar y/o eliminar</th>
+				    <th scope="col">Fecha de Nacimiento</th>
+				    <th scope="col">Eliminar y/o Editar</th>
 		 		</tr>
 		        <tbody>
                     @if (isset($cumpleanios))
@@ -68,22 +85,22 @@
                                     <tr>
                                         <input type="hidden" name="id" id="id" value="{{$cumpleanio->id}}">
                                         <td>
-                                            <img style="border-radius: 100px" width="100px" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
+                                            <img src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER" class="img-cumpleanios-admin">
                                         </td>
                                         <td>
-                                            <input type="text" name="updatename{{$cumpleanio->id}}"  value="{{$cumpleanio->nombre}}">
+                                            <input type="text" name="updatename{{$cumpleanio->id}}" value="{{$cumpleanio->nombre}}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                                         </td>
                                         <td>
-                                            <input id="date" name="updatefecha{{$cumpleanio->id}}" type="date" value="{{$cumpleanio->fecha}}">
+                                            <input type="date" name="updatefecha{{$cumpleanio->id}}" value="{{$cumpleanio->fecha}}" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                                         </td>
                                         <td>
-                                            <br>
-                                            <a href="{{ url('/cumpleanios/eliminarCumpleanios/' . $cumpleanio->id) }}" class="btn btn-danger">
+
+                                            <a href="{{ url('/cumpleanios/eliminarCumpleanios/' . $cumpleanio->id) }}" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
                                                     X
                                                 </span>
                                             </a>
-                                            <button name="btn-actualizar" type="submit" class="btn btn-primary">Actualizar</button>
+                                            <button name="btn-actualizar" type="submit" class="btn btn-primary btn-sm">Actualizar</button>
                                         </td>
                                     </tr>
                             </form>
@@ -91,11 +108,17 @@
                     @endif
 			    </tbody>
 		    </table>
-		</div>
-	</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (isset($cumpleanios))
+                {{ $cumpleanios->links('components.pagination-links') }}
+            @endif
+        </div>
+    </div>
+
+
+
 </div>
-<br>
-@if (isset($cumpleanios))
-    {{ $cumpleanios->links('components.pagination-links') }}
-@endif
-<br>
+

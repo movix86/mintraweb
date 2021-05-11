@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-12" align="center">
                     <div class="b2">
-                        <a href="" target="_blank"><img src="{{ asset('img/b-salud.jpg') }}" alt="" width="100%"></a>
+                        <a href="https://www.segurossura.com.co/covid-19/encuestas/paginas/sintomas.aspx?nitEmpresa=830027493&sector=RURVQ0FDSdNO&idEmpresa=ODMwMDI3NDkz&mail=sst@uniagustiniana.edu.co" target="_blank"><img src="{{ asset('img/b-salud.jpg') }}" alt="encuesta-salud" width="100%"></a>
                     </div>
                 </div>
                 <div class="col-12" align="center">
@@ -51,7 +51,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="row">
                 <div class="col-12" align="center">
-                    <h5>Cumpleaños - 2021</h5>
+                    <h5>@php
+                        echo 'Cumpleaños'. ' - ' . date("d/m/Y");
+                    @endphp</h5>
                     <div class="list-age">
                         <table class="table table-hover table-striped">
                             <tbody>
@@ -59,13 +61,16 @@
                                     @foreach($date['cumpleaneros'] as $cumpleanio)
                                         <tr class="reveal">
                                             <td>
-                                                <img style="border-radius: 100px" width="100px" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
+                                                <img class="img-cumpleanios-default" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
                                             </td>
                                             <td>
-                                                {{$cumpleanio->nombre}}
+                                                <p class="font-cumpleanios-front">{{$cumpleanio->nombre}}</p>
                                             </td>
                                             <td>
-                                                {{$cumpleanio->dia}}-{{$cumpleanio->mes}}
+                                                <p class="font-cumpleanios-front">{{$cumpleanio->dia}}</p>
+                                            </td>
+                                            <td>
+                                                <p class="font-cumpleanios-front">{{$cumpleanio->mes}}</p>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -1,5 +1,17 @@
 <div class="backgroud-user-panel">
     <div class="container">
+        {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
+        @include('flash-message')
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
@@ -31,7 +43,8 @@
                                               <td>{{ $category_table->name }}</td>
                                               <td>{{ $category_table->description }}</td>
                                               <td><a href="{{url('/categoria/editar/'.$category_table->id)}}"><i class="material-icons">edit</i></a></td>
-                                              <td align="center"><a href="{{ url('categoria/eliminar/'.$category_table->id) }}"><i class="material-icons" style="color:red">delete</i></a></td>
+                                              <td align="center"><a href="javascript:void(0)" onclick="delete_date('/categoria/eliminar/' , {{ $category_table->id }})"><i class="material-icons" data-toggle="modal" data-target="#myModal" style="color:red">delete</i></a></td>
+
                                           </tr>
                                         @endforeach
                                     @else
@@ -47,3 +60,4 @@
         </div>
     </div>
 </div>
+<x-modal-delete-date/>
