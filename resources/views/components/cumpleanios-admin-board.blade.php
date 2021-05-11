@@ -1,8 +1,19 @@
 <title>Vista Cumpleaños</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+{{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
+@include('flash-message')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
-	<form action="csv-cumpleanios" method="POST" enctype="multipart/form-data">
+	<form action="{{url('/csv-cumpleanios')}}" method="POST" enctype="multipart/form-data">
 	    @csrf
 	    <div class="col-md-6">
 	        <br><br>
@@ -21,7 +32,7 @@
                 <i class="fas fa-user-plus fa-stack-1x fa-inverse"></i>
             </span>
         </div>
-        <form action="nuevo-cumpleanios" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/cumpleanios/nuevo-cumpleanios')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="col-md-6">
                 <br><br>
@@ -32,7 +43,7 @@
                 <strong>Imagen</strong>
                 <input type="file" name="file"><br><br>
                 <center>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </center>
             </div>
         </form>
@@ -50,35 +61,34 @@
 				    <th scope="col">Editar y/o eliminar</th>
 		 		</tr>
 		        <tbody>
-		        	<form action="cumpleanios-update" method="POST" enctype="multipart/form-data">
-			    	@csrf
-                        @if (isset($cumpleanios))
-                            @foreach($cumpleanios as $cumpleanio)
-                            <tr>
-                                <td>
-                                    <img style="border-radius: 100px" width="100px" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
-                                </td>
-                                <td>
-                                    <input type="text" name="updatename{{$cumpleanio->id}}"  value="{{$cumpleanio->nombre}}">
-                                </td>
-                                <td>
-                                    <input id="date" name="updatefecha{{$cumpleanio->id}}" type="date" value="{{$cumpleanio->fecha}}">
-                                </td>
-                                <td>
-                                    <br>
-                                    <a href="../cumpleanios/eliminarCumpleanios/{{$cumpleanio->id}}" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
-                                        X
-                                    </span>
-                                    </a>
-                                    <a href="" class="btn btn-primary">
-                                        <button name="btn-actualizar" type="submit" class="btn btn-primary" value="{{$cumpleanio->id}}">Actualizar</button>
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-					</form>
+                    @if (isset($cumpleanios))
+                        @foreach($cumpleanios as $cumpleanio)
+                            <form action="{{ url('/cumpleanios/cumpleanios-update') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                    <tr>
+                                        <input type="hidden" name="id" id="id" value="{{$cumpleanio->id}}">
+                                        <td>
+                                            <img style="border-radius: 100px" width="100px" src="{{asset($cumpleanio->img)}}" alt="IMAGEN-SLIDER">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="updatename{{$cumpleanio->id}}"  value="{{$cumpleanio->nombre}}">
+                                        </td>
+                                        <td>
+                                            <input id="date" name="updatefecha{{$cumpleanio->id}}" type="date" value="{{$cumpleanio->fecha}}">
+                                        </td>
+                                        <td>
+                                            <br>
+                                            <a href="{{ url('/cumpleanios/eliminarCumpleanios/' . $cumpleanio->id) }}" class="btn btn-danger">
+                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">
+                                                    X
+                                                </span>
+                                            </a>
+                                            <button name="btn-actualizar" type="submit" class="btn btn-primary">Actualizar</button>
+                                        </td>
+                                    </tr>
+                            </form>
+                        @endforeach
+                    @endif
 			    </tbody>
 		    </table>
 		</div>

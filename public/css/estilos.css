@@ -134,9 +134,18 @@ a span.fa{
 }
 .file-visor{
     border: solid 1px #D5D5D5;
+    min-height: 200px;
     max-height: 200px;
     overflow: auto;
+}
+.data-file-visor{
     padding: 15px;
+}
+
+/* TABLA CUMPLEAÑOS */
+section > tbody.list-age{
+    max-height: 100px;
+    overflow: auto;
 }
 
 /* If the screen size is 601px or more, set the font-size of <div> to 80px */

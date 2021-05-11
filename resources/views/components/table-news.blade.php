@@ -1,18 +1,20 @@
 <div>
     <h2>Contenido</h2>
     <p>Panel modification de contenido:</p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Entrada</th>
+            <th>Categoria</th>
+            <th>Autor_id</th>
+            <th>Fecha de creacion</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+    </table class="table table-hover">
     <div class="container table-news">
         <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Entrada</th>
-                <th>Categoria</th>
-                <th>Autor_id</th>
-                <th>Fecha de creacion</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
-            </tr>
-            </thead>
             <tbody>
             @if (isset($noticias))
 

@@ -10,6 +10,7 @@ use App\Models\AdminCumpleanios;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\DateFormValidator;
 
 class CumpleaniosController extends Controller
 {
@@ -23,11 +24,14 @@ class CumpleaniosController extends Controller
     public function destroy($id) {
     	$eliminarCumpleanero = Cumpleanios::find($id);
     	$eliminarCumpleanero->delete();
-    	return redirect('cumpleanios/cumpleanios');
+    	return back()->with('success','Se elimino con exito!');
     }
 
     public function insertFile(Request $request) {
         //dd($request->all());
+        $validate = $this->validate($request, [
+            'file' => ['mimes:jpeg,bmp,png,gif,svg|file|max:4000'],
+        ]);
         $image = $request->file('file');
         $image_name = $image->getClientOriginalName();
         //echo "nombre".$image_name;
@@ -54,21 +58,20 @@ class CumpleaniosController extends Controller
 
         }
         fclose($fp);
-
+        #return back()->with('success','Slider eliminado con exito!');
     }
 
-    public function insert(Request $request) {
+    public function insert(Request $request, DateFormValidator $validator) {
+
         $image = $request->file('file');
         $cumpleanios = new Cumpleanios();
 
-        if (is_null($image)) {
-
-        } else {
-            $image_name = $image->getClientOriginalName();
+        if ($image) {
+            $image_name = time() . $image->getClientOriginalName();
             Storage::disk('public')->put($image_name, File::get($image));
 
             /*Insert a base de datos*/
-            $cumpleanios->img = $image_name;
+            $cumpleanios->img = asset('storage') . '/' . $image_name;
         }
         /*Insert a base de datos*/
         $cumpleanios->nombre = $request->input('inputnombre');
@@ -77,13 +80,13 @@ class CumpleaniosController extends Controller
         $cumpleanios->mes = $datosFecha[1];
         $cumpleanios->save();
 
-        return redirect('/cumpleanios/cumpleanios');
+        return back()->with('success','Se guardo con exito!');
     }
 
     public function update(Request $request) {
-    	$input_ids = $request->input('btn-actualizar');
-
-    	$actualizarCumple = Cumpleanios::find($input_ids);
+    	$input_ids = $request->input('id');
+        #dd($input_ids);
+    	$actualizarCumple = Cumpleanios::where('id', $input_ids)->first();
     	$actualizarCumple->nombre = $request->input('updatename'.$input_ids);
     	$obtenerFecha = $request->input('updatefecha'.$input_ids);
 
@@ -94,7 +97,7 @@ class CumpleaniosController extends Controller
         }
 
         $actualizarCumple->save();
-    	return redirect('/cumpleanios/cumpleanios');
+        return back()->with('success','Se actualizo con exito!');
     }
 
     /*ADMINISTRADORES DE CUMPLEANIOS*/
@@ -148,7 +151,8 @@ class CumpleaniosController extends Controller
     public function destroyAdminCumple($id){
         $adminEliminar = AdminCumpleanios::find($id);
         $adminEliminar->delete();
-        return redirect('cumpleanios/admin-cumpleanios');
+        #return redirect('cumpleanios/admin-cumpleanios');
+        return back()->with('success','Se eliminó con exito!');
     }
 
     public function updateAdminCumple(Request $request) {
@@ -158,7 +162,7 @@ class CumpleaniosController extends Controller
         $consulta->nombre = $request->input('updatename'.$input_ids);
         $consulta->correo = $request->input('updatecorreo'.$input_ids);
         $consulta->save();
-        return redirect('cumpleanios/admin-cumpleanios');
+        #return redirect('cumpleanios/admin-cumpleanios');
     }
 
 

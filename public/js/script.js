@@ -14,7 +14,7 @@ function show_data_file(url='', sizes = ''){
     //alert(url);
     var data_show = document.getElementById('file-visor');
     var file = '/storage/' + url;
-    var p = sizes;
+    var p = 'Peso sugerido no mas de 3mb';
 
     data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
 

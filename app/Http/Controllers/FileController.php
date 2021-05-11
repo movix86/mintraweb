@@ -32,7 +32,7 @@ class FileController extends Controller
             return redirect('login');
         }
     }
-
+    #SLIDER PREDETERMINADO ------------------------------------------------------------
     public function crear_sliders(){
         if(Auth::check()){
             $id_user = Auth::user()->id;
