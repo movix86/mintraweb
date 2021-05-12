@@ -194,4 +194,37 @@ class ContentController extends Controller
         ];
         return view('home.front-page', ['data'=> $data]);
     }
+
+    public function show_pages_sitios($filtro = ''){
+        $category_db = Category::all();
+         if (empty($filtro)) {
+             $noticias = News::where([['type', '=', 'wikis']])->orderBy('created_at', 'desc')->paginate(2);
+
+         }else{
+             $noticias = News::where([['type', '=', 'wikis'],['category', '=', $filtro]])->orderBy('created_at', 'desc')->paginate(2);
+         }
+         $data_filter = [
+             'tipo' => 'sitios',
+             'data' => $noticias,
+             'categoria' => $filtro,
+             'category_db' => $category_db
+         ];
+
+         return view('home.home-pages', ['data_filter'=> $data_filter]);
+    }
+    public function read_page_sitios($id, $titulo){
+        $data_news = News::where('id', $id)->first();
+        $user_data = User::where('id', $data_news->user_id)->first();
+        $categoria = $data_news->category;
+        $news_relation = News::where('category', $categoria)->take(3)->get();
+        $user_name = $user_data->name;
+
+        $data = [
+            'tipo' => 'sitios',
+            'data_news' => $data_news,
+            '$user_name' => $user_name,
+            'categorias' => $news_relation
+        ];
+        return view('home.front-page', ['data'=> $data]);
+    }
 }
