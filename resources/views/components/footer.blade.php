@@ -6,32 +6,35 @@
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-light text-uppercase">Footer Content</h5>
+          <h5 class="text-light text-uppercase">UNIAGUSTINIANA</h5>
 
-          <p class="text-light">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-            voluptatem veniam, est atque cumque eum delectus sint!
+          <p class="text-light flex-column-reverse" align="left">
+            Personería Jurídica No 6651 de 1996 – Resolución 780 febrero de 2009.
+            Institución de Educación Superior sujeta a inspección y vigilancia por el Ministerio de Educación Nacional. <br>
+            <strong>Campus Tagaste: </strong>Avenida Ciudad de Cali No. 11b-95.<br>
+            <strong>Campus Suba: </strong>Calle 147 No. 89-39, Parque Principal.<br>
+            <strong>PBX:</strong>(57) (1) 4193200<br>
+            Ciudad Bogotá D.C
           </p>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-light text-uppercase">Links</h5>
+          <h5 class="text-light text-uppercase">Servicios</h5>
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-info">Link 1</a>
+              <a href="https://sicu.uniagustiniana.edu.co/kawak/">Sicu</a>
             </li>
             <li>
-              <a href="#!" class="text-info">Link 2</a>
+              <a href="http://sisot.uniagustiniana.edu.co/glpi/" class="text-info">Sisot</a>
             </li>
             <li>
-              <a href="#!" class="text-info">Link 3</a>
+              <a href="http://sipaerp.uniagustiniana.edu.co:8000/psp/UAEP92PR/?cmd=login&languageCd=ESP&" class="text-info">Sipa - ERP</a>
             </li>
             <li>
-              <a href="#!" class="text-info">Link 4</a>
+              <a href="https://myaccount.google.com/" class="text-info">Correo</a>
             </li>
           </ul>
         </div>
@@ -39,11 +42,11 @@
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-light text-uppercase mb-0">Links</h5>
+          <h5 class="text-light text-uppercase mb-0">Institución</h5>
 
           <ul class="list-unstyled">
             <li>
-              <a href="#!" class="text-info">Link 1</a>
+              <a href="https://www.uniagustiniana.edu.co/" class="text-info">Uniagustinina</a>
             </li>
             <li>
               <a href="#!" class="text-info">Link 2</a>

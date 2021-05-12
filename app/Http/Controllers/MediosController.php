@@ -52,7 +52,7 @@ class MediosController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name = time().$file_path->getClientOriginalName();
+            $image_path_name = date("dmYGis").$file_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($file_path));
             #$slider->url_path_image = asset('storage') . '/' . $image_path_name;
         }
