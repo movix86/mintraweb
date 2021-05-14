@@ -28,13 +28,13 @@
                     @if ($num == 1)
                         <div class="carousel-item slider-w active">
                             @if (empty($data_slider->url_news))
-                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
+                                <img src="{{ $data_slider->url_path_image }}" alt="slides-mintraweb">
                                 <div class="carousel-caption font">
                                     <p>{{ $data_slider->name }}</p>
                                 </div>
                             @else
                                 <a href="{{ $data_slider->url_news }}" target="_blank">
-                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
+                                    <img src="{{ $data_slider->url_path_image }}" alt="slides-mintraweb">
                                     <div class="carousel-caption font">
                                         <p>{{ $data_slider->name }}</p>
                                     </div>
@@ -46,13 +46,13 @@
                         <div class="carousel-item slider-w">
 
                             @if (empty($data_slider->url_news))
-                                <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
+                                <img src="{{ $data_slider->url_path_image }}" alt="slides-mintraweb">
                                 <div class="carousel-caption font">
                                     <p>{{ $data_slider->name }}</p>
                                 </div>
                             @else
                                 <a href="{{ $data_slider->url_news }}" target="_blank">
-                                    <img src="{{ $data_slider->url_path_image }}" alt="Los Angeles" class="image-slider">
+                                    <img src="{{ $data_slider->url_path_image }}" alt="slides-mintraweb">
                                     <div class="carousel-caption font">
                                         <p>{{ $data_slider->name }}</p>
                                     </div>

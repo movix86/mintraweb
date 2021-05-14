@@ -14,9 +14,26 @@
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-12">
-                    <img src="{{ $data['data_news']->url_path_image_news }}" alt="test" class="mx-auto d-block banner-news">
-                    <div class="carousel-caption">
-                        <h2 style="font-size:3vw;">{{$data['data_news']->news_name}}</h2>
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                          <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        </ul>
+                        <div class="carousel-inner">
+                          <div class="carousel-item banner-news active">
+                            <img src="{{ $data['data_news']->url_path_image_news }}" alt="banner-noticias">
+                            <div class="carousel-caption">
+                              <h2 style="font-size:3vw;">{{$data['data_news']->news_name}}</h2>
+                            </div>
+                          </div>
+                        </div>
+                        {{--
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                          <span class="carousel-control-next-icon"></span>
+                        </a>
+                        --}}
                     </div>
                 </div>
             </div>

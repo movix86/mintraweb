@@ -12,42 +12,35 @@ use Illuminate\Support\Facades\File;
 class FileController extends Controller
 {
     public function admin_sliders(){
-        if(Auth::check()){
-            $id_user = Auth::user()->id;
-            $sliders_list = Sliders::orderBy('id', 'desc')->paginate();
+        $id_user = Auth::user()->id;
+        $sliders_list = Sliders::orderBy('id', 'desc')->paginate();
 
-            #Este asigna un slider-predeterminado:
-            $sliders_num = $sliders_list->count();
-            if ($sliders_num < 1) {
-                $slider = new Sliders;
-                $slider->name = 'Nombre de slider, que se usara como titulo';
-                $slider->url_path_image =  asset('img') . '/1616191535image-default.jpg';
-                $slider->url_news = '';
-                $slider->user_id = $id_user;
-                $slider->save();
-                return back()->with('success','Slider Default!');
-            }
-            return view('admin-sliders', ['sliders' => $sliders_list]);
-        }else{
-            return redirect('login');
-        }
-    }
-    #SLIDER PREDETERMINADO ------------------------------------------------------------
-    public function crear_sliders(){
-        if(Auth::check()){
-            $id_user = Auth::user()->id;
-            #CREA UN SLIDER NUEVO Y DEJA ESTOS DATOS PREDETERMINADOS
+        #Este asigna un slider-predeterminado:
+        $sliders_num = $sliders_list->count();
+        if ($sliders_num < 1) {
             $slider = new Sliders;
             $slider->name = 'Nombre de slider, que se usara como titulo';
             $slider->url_path_image =  asset('img') . '/1616191535image-default.jpg';
             $slider->url_news = '';
             $slider->user_id = $id_user;
             $slider->save();
-
-            return back()->with('success','Slider creado con exito!');
-        }else{
-            return redirect('login');
+            return back()->with('success','Slider Default!');
         }
+        return view('admin-sliders', ['sliders' => $sliders_list]);
+    }
+    #SLIDER PREDETERMINADO ------------------------------------------------------------
+    public function crear_sliders(){
+
+        $id_user = Auth::user()->id;
+        #CREA UN SLIDER NUEVO Y DEJA ESTOS DATOS PREDETERMINADOS
+        $slider = new Sliders;
+        $slider->name = 'Nombre de slider, que se usara como titulo';
+        $slider->url_path_image =  asset('img') . '/1616191535image-default.jpg';
+        $slider->url_news = '';
+        $slider->user_id = $id_user;
+        $slider->save();
+
+        return back()->with('success','Slider creado con exito!');
     }
     public function eliminar_sliders($id){
         $id_slider = $id;

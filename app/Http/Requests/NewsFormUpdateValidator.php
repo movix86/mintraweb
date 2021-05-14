@@ -27,7 +27,7 @@ class NewsFormUpdateValidator extends FormRequest
         return [
             'news_name' => ['max:255'],
             'resume' => ['max:100'],
-            'url_path_image_news' => ['max:255'],
+            'url_path_image_news' => ['max:3000'],
             'type' => ['max:255'],
             'category' => ['max:255']
         ];
