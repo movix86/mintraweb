@@ -15,7 +15,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 #Route::get('/', 'HomeController@home')->name('index');
-Route::middleware(['auth:sanctum', 'verified'])->get('/', 'HomeController@index')->name('log');
+Route::get('/', 'HomeController@index')->name('log');
 Route::get('/home', 'HomeController@home')->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/{tipo?}/{categoria?}', 'HomeController@dashboard_c')->name('dashboard');
