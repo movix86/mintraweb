@@ -60,8 +60,4 @@ class MediosController extends Controller
         return back()->with('success','Se guardo el archivo!');
     }
 
-
-
-
-
 }

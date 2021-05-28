@@ -3,6 +3,7 @@
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,3 +99,7 @@ Route::prefix('/cumpleanios')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->post('/cumpleanios-update', 'CumpleaniosController@update');
     Route::middleware(['auth:sanctum', 'verified'])->post('nuevo-cumpleanios', 'CumpleaniosController@insert');
 });
+
+#GOOGLE LOGIN
+Route::get('auth/google', 'GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
