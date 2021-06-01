@@ -80,11 +80,19 @@ Route::prefix('/categoria')->group(function () {
 });
 
 #ADMINISTRACION CRUD MEDIOS
+/*
 Route::prefix('/medios')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->get('/mostrar', 'MediosController@show_medios')->name('admin-medios');
     #Route::get('/administracion', 'CategoryController@admin_categories')->name('admin-categories');
     Route::middleware(['auth:sanctum', 'verified'])->post('/subir', 'MediosController@subir_medio')->name('subir-medio');
 
+});
+*/
+#ADMINISTRACION CRUD MEDIOS
+Route::group(['prefix' => 'medios'], function ()
+{
+ Route::middleware(['auth:sanctum', 'verified'])->get('/show_medios', 'MediosController@show_medios')->name('admin-medios');
+ Route::middleware(['auth:sanctum', 'verified'])->post('/subir_medio', 'MediosController@subir_medio')->name('subir-medio');
 });
 
 # CRUD CUMPLEANIOS Y CRUD ADMIN-CUMPLEANIOS

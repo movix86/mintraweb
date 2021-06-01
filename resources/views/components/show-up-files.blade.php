@@ -13,7 +13,7 @@
 {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-medios">
-        <form action="{{ url('/medios/subir') }}" method="post" enctype="multipart/form-data" class="md-form">
+        <form action="{{ url('/medios/subir_medio') }}" method="post" enctype="multipart/form-data" class="md-form">
             @csrf
             {{--<p>Archivos:</p>--}}
             <input type="file" id="file-all" name="file-all">
