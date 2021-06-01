@@ -54,7 +54,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/guardar/usuario', 'HomeC
 
 #MODIFICA UN USUARIO UTILIZANDO EL FORMULARIO DE EDICION DE USUARIO
 Route::middleware(['auth:sanctum', 'verified'])->get('/modificar/usuario/{id}', 'HomeController@modificar_usuario')->name('modificar-usuario');
-Route::middleware(['auth:sanctum', 'verified'])->get('/actualizar/usuario/', 'HomeController@actualizar_usuario')->name('actualizar-usuario');
+Route::middleware(['auth:sanctum', 'verified'])->post('/actualizar/usuario/', 'HomeController@actualizar_usuario')->name('actualizar-usuario');
 Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/usuario/{id}', 'HomeController@eliminar_usuario')->name('eliminar-usuario');
 
 #ADMINISTRACION CRUD DE SLIDERS
