@@ -30,7 +30,7 @@ class CumpleaniosController extends Controller
     public function insertFile(Request $request) {
         //dd($request->all());
         $validate = $this->validate($request, [
-            'file' => ['mimes:jpeg,bmp,png,gif,svg|file|max:4000'],
+            'file' => ['mimes:csv|file|max:5000'],
         ]);
         $image = $request->file('file');
         $image_name = $image->getClientOriginalName();

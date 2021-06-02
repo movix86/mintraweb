@@ -1,4 +1,5 @@
-{{--<h2>Acceso Denegado!!</h2>--}}
+<h2>Acceso Denegado!!</h2>
+{{--
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -64,4 +65,4 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
-
+--}}
