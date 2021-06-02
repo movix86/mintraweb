@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DateFormValidator;
+use App\Http\Requests\CumpleaniosValidator;
 
 class CumpleaniosController extends Controller
 {
@@ -27,11 +28,9 @@ class CumpleaniosController extends Controller
     	return back()->with('success','Se elimino con exito!');
     }
 
-    public function insertFile(Request $request) {
+    public function insertFile(Request $request, CumpleaniosValidator $validator) {
         //dd($request->all());
-        $validate = $this->validate($request, [
-            'file' => ['mimes:csv|file|max:10000'],
-        ]);
+
         $image = $request->file('file');
         $image_name = $image->getClientOriginalName();
         //echo "nombre".$image_name;
@@ -42,11 +41,7 @@ class CumpleaniosController extends Controller
             $linea = fgets($fp);
             //$separador= explode(",", $linea);
             list($vacio,$apellidoUno,$apellidoDos,$nombre,$dia,$mes) = explode(",", $linea);
-            echo "$apellidoUno <br>";
-            echo "$apellidoDos <br>";
-            echo "$nombre <br>";
-            echo "$dia <br>";
-            echo "$mes <br>";
+            echo "Cargando........."."<br>";
 
             $nombreCompleto = $nombre." ".$apellidoUno." ".$apellidoDos;
 
@@ -58,7 +53,7 @@ class CumpleaniosController extends Controller
 
         }
         fclose($fp);
-        #return back()->with('success','Slider eliminado con exito!');
+        return back()->with('success','Se guardo con exito!');
     }
 
     public function insert(Request $request, DateFormValidator $validator) {

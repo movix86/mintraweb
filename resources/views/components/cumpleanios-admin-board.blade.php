@@ -24,7 +24,7 @@
                     <h5>Archivo CSV -  Cumpleaños</h5>
                     <input class="form-control-file" type="file" name="file">
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                     </div>
                 </div>
             </form>
@@ -56,7 +56,7 @@
                         <label for="exampleFormControlFile1">Imagen</label>
                         <input class="form-control-file" type="file" name="file">
                         <div class="mt-3">
-                            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                         </div>
                     </div>
                 </div>
