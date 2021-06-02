@@ -18,7 +18,7 @@
     <div class="row date-born-box">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             {{--FORMULARIO QUE CARGA UN DOCUMENTO TIPO GOOGLE--}}
-            <form action="{{url('/csv-cumpleanios')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/cumpleanios/csv-cumpleanios')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group file-csv">
                     <h5>Archivo CSV -  Cumpleaños</h5>
