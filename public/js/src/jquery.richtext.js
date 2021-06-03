@@ -1058,13 +1058,13 @@
                     var html = '';
                     if (settings.useSingleQuotes === true) {
                         if (align === "center") {
-                            html = "<div style='text-align:center;'><img src='" + url + "' width='100%'></div>";
+                            html = "<div style='text-align:center; width:100%;'><img src='" + url + "'></div>";
                         } else {
                             html = "<img src='" + url + "' align='" + align + "' width='100%'>";
                         }
                     } else {
                         if (align === "center") {
-                            html = '<div style="text-align:center;"><img src="' + url + '" width="100%"></div>';
+                            html = '<div style="text-align:center; width:100%;"><img src="' + url + '"></div>';
                         } else {
                             html = '<img src="' + url + '" align="' + align + '" width="100%">';
                         }
