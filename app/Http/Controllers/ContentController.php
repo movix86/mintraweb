@@ -79,7 +79,7 @@ class ContentController extends Controller
         $data = [
             'tipo' => 'actualidad',
             'data_news' => $data_news,
-            '$user_name' => $user_name,
+            'user_name' => $user_name,
             'categorias' => $news_relation
         ];
         return view('home.front-page', ['data'=> $data]);
@@ -91,7 +91,6 @@ class ContentController extends Controller
             'category' => $category,
             'data' => News::where('id', $id)->first()
         ];
-
 
         return view('create_pages', ['data' => $data]);
     }

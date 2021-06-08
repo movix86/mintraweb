@@ -1,11 +1,22 @@
 @if (isset($data))
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Inicio</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('/informacion/'.$data['tipo']) }}">{{ ucfirst($data['tipo']) }}</a></li>
                     <li class="breadcrumb-item active">{{$data['data_news']->news_name}}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    @if (Auth::check())
+                        <a href="{{ url('/informacion/actualizar/'.$data['data_news']->id) }}">Editar</a>
+                    @else
+                        <a href="{{ url('/informacion/actualidad') }}">Mas Noticias</a>
+                    @endif
                 </ol>
             </nav>
         </div>
@@ -46,7 +57,7 @@
             </div>
             <div class="row txt-date">
                 <div class="col-md-12">
-                    <span>{{ $data['data_news']->created_at . ' por '. $data['$user_name'] }}</span>
+                    <span>{{ $data['data_news']->created_at . ' por '. $data['user_name'] }}</span>
                 </div>
             </div>
         </div>

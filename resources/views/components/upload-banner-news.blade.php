@@ -76,8 +76,21 @@
         </div>
     </div>
     <div class="row padding-20">
-        <div class="col-12">
+        <div class="col-10">
             <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+        <div class="col-2">
+            @if (isset($data))
+                @php
+                    if($data['data']->type == 'noticias'){
+                        $url = 'actualidad';
+                    }else{
+                        $url = $data['data']->type;
+                    }
+                @endphp
+
+                <a href="{{ url("/informacion/$url" . "/". $data['data']->id ."/". $data['data']->news_name) }}">Ver entrada</a>
+            @endif
         </div>
      </div>
 </form>
