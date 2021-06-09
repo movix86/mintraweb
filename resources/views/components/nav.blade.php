@@ -1,7 +1,7 @@
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ route('home') }}">Mintraweb</a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(19, 44, 100)">
+        <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('img/intraweb-head.png') }}" alt="mintraweb" width="60%"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
