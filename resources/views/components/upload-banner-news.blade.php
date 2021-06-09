@@ -21,14 +21,21 @@
         </div>
     </div>
     <div class="row padding-20">
-        <div class="col-6 sm-6 col-md-6 col-lg-4">
+        <div class="col-12 sm-12 col-md-12 col-lg-5">
             <input type="hidden" id="id" name="id" value="{{ isset($data) ? $data['data']->id : '' }}">
             <input type="text" class="form-control form-control-lg" name="news_name" placeholder="Titulo de la noticia" value="{{ isset($data) ? $data['data']->news_name : '' }}">
         </div>
-        <div class="col-6 sm-6 col-md-6 col-lg-4">
+        <div class="col-12 sm-12 col-md-12 col-lg-2">
+            <div class="form-group">
+                <select class="form-control form-control-lg" id="tittle_activation" name="tittle_activation" @php if(isset($data) and $data['data']->tittle_activation == 'si'){ echo "style='border: 1px solid blue;'"; }elseif(isset($data) and $data['data']->tittle_activation == 'no'){ echo "style='border: 1px solid red;'"; }else{ echo "style='border: 1px solid blue;'"; } @endphp>
+                  <option value="si" @php if(isset($data) and $data['data']->tittle_activation == 'si'){ echo "selected"; } @endphp>Con título</option>
+                  <option value="no" @php if(isset($data) and $data['data']->tittle_activation == 'no'){ echo "selected"; } @endphp>Sin título</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 sm-12 col-md-12 col-lg-5">
             <input type="text" class="form-control form-control-lg" name="resume" placeholder="Resumen de noticia" maxlength="100" value="{{ isset($data) ? $data['data']->resume : '' }}">
         </div>
-
     </div>
     <div class="row">
         <div class="col-12 father-text-box-code" id="father-text-box-code">

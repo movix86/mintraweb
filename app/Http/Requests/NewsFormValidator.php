@@ -51,6 +51,7 @@ class NewsFormValidator extends FormRequest
         return [
             'news_name' => 'Título de la noticia',
             'resume' => 'Resumen',
+            'tittle_activation' => 'Título activacion',
             'url_path_image_news' => 'Banner',
             'code_block' => 'Caja de texto HTML',
             'type' => 'Tipo de noticia',

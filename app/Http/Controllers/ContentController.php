@@ -31,6 +31,7 @@ class ContentController extends Controller
         $news = new News;
         $news->news_name = $data->input('news_name');
         $news->resume = $data->input('resume');
+        $news->tittle_activation = $data->input('tittle_activation');
         $news->code_block = $data->input('code_block');
         $news->type = $data->input('type');
         $news->category = $data->input('category');
@@ -44,7 +45,7 @@ class ContentController extends Controller
             Storage::disk('public')->put($image_path_name, File::get($image_path));
             $news->url_path_image_news = asset('storage') . '/' . $image_path_name;
         }else{
-            $news->url_path_image_news = asset('img') . '/1616191535image-default.jpg';
+            $news->url_path_image_news = asset('img') . '/banner-news-default.jpg';
         }
         $news->save();
         return back()->with('success','Se guardo la noticia con exito!');
@@ -106,6 +107,7 @@ class ContentController extends Controller
         #Crea la noticia
         $news->news_name = $data->input('news_name');
         $news->resume = $data->input('resume');
+        $news->tittle_activation = $data->input('tittle_activation');
         $news->code_block = $data->input('code_block');
         $news->type = $data->input('type');
         $news->category = $data->input('category');

@@ -33,7 +33,11 @@
                           <div class="carousel-item banner-news active">
                             <img src="{{ $data['data_news']->url_path_image_news }}" alt="banner-noticias">
                             <div class="carousel-caption">
-                              <h2 style="font-size:3vw;">{{$data['data_news']->news_name}}</h2>
+                                @if ($data['data_news']->tittle_activation == 'si')
+                                    <h2 style="font-size:3vw;">{{$data['data_news']->news_name}}</h2>
+                                @else
+                                    <h2 style="font-size:3vw;"></h2>
+                                @endif
                             </div>
                           </div>
                         </div>
