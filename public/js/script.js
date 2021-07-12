@@ -18,6 +18,16 @@ function show_data_file(url='', sizes = ''){
 
     data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
 
+}
 
+function btn_services(state){
+    if (state == 1) {
+
+        document.getElementById('modal-uni').style.display = "block";
+    }
+    if(state == 0){
+
+        document.getElementById('modal-uni').style.display = "none";
+    }
 }
 

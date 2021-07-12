@@ -17,3 +17,4 @@
     @endif
     <x-footer/>
 @stop
+<x-btn-services/>

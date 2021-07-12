@@ -155,7 +155,29 @@ a span.fa{
     padding: 20px;
 }
 
-/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+/*Boton servicios V2.0*/
+.btn-services{
+    z-index: 1;
+    position: fixed;
+    bottom: 50%;
+    right: 0px;
+}
+.img-btn-services{
+    width: 50%;
+    float: right;
+}
+.modal-uni{
+    background-color: rgba(230, 242, 255, 0.9);
+    display: none;
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+
+/* If the screen size is 601px or more, set the font-size of <div> to 80px ESCRITORIO*/
 @media only screen and (min-width: 601px) {
     .font {
       font-size: 24px;
@@ -211,7 +233,12 @@ a span.fa{
         padding: 25px;
         min-width: 600px;
     }
-    /*FRONT DE LOS SLIDERS EN EL HOME PRONCIPAL*/
+    /*FRONT DE LOS SLIDERS EN EL HOME PRiNCIPAL*/
+    div.slide{
+        margin: 0 auto;
+        width: 90%;
+    }
+
     .slider-w{
         width: 100%;
         height: 429.5px;
@@ -238,10 +265,22 @@ a span.fa{
         height: 340px;
     }
 
+    /*NEW SERVICE ESCRITORIO*/
+    .modal-uni{
+        width: 50vw;
+        height: 100vh;
+    }
+    .img-icon-service{
+        width: 70%;
+    }
+    .padding-btn-new-services{
+        padding: 10px;
+    }
+
 }
-  /* If the screen size is 600px or less, set the font-size of <div> to 30px ESCRITORIO */
+  /* If the screen size is 600px or less, set the font-size of <div> to 30px MOVIL */
 @media only screen and (max-width: 600px) {
-    .font  {
+    .font{
       font-size: 12px;
       margin: 5px;
     }
@@ -298,6 +337,19 @@ a span.fa{
     .banner-news{
         width: 100%;
         height: 150px;
+    }
+
+    /*NEW SERVICE MOVIL*/
+    .modal-uni{
+        background-color: rgba(230, 242, 255, 0.8);
+        width: 100vw;
+        height: 100vh;
+    }
+    .img-icon-service{
+        width: 65%;
+    }
+    .padding-btn-new-services{
+        padding: 20px;
     }
 }
 
