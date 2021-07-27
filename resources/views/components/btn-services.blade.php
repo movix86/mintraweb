@@ -72,17 +72,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
+                <div class="col-6 sm-6 col-md-6 col-lg-3 padding-btn-new-services" align="center">
+                    <a href="https://www.yammer.com/login?locale=en-US&locale_type=standard" target="_blank">
+                        <img src="{{ asset('img/servicios/yammer.png') }}" class="img-icon-service" alt="servicios uniagustiniana">
+                        <p>Yammer</p>
+                    </a>
+                </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 padding-btn-new-services" align="center">
-                    <a href="" target="_blank">
+                    <a href="https://siga.uniagustiniana.edu.co/" target="_blank">
                         <img src="{{ asset('img/servicios/siga.png') }}" class="img-icon-service" alt="servicios uniagustiniana">
                         <p>Siga</p>
                     </a>
                 </div>
         {{--
-                <div class="col-6 sm-6 col-md-6 col-lg-3 padding-btn-new-services" align="center">
-                    <img src="{{ asset('img/servicios/email.png') }}" class="img-icon-service" alt="servicios uniagustiniana">
-                    <p>E-mail</p>
-                </div>
                 <div class="col-6 sm-6 col-md-6 col-lg-3 padding-btn-new-services" align="center">
                     <img src="{{ asset('img/servicios/powerbi.png') }}" class="img-icon-service" alt="servicios uniagustiniana">
                     <p>PowerBI</p>
