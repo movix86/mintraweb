@@ -25,6 +25,9 @@
                 <a class="nav-link" href="{{ route('show-pages-news') }}">Noticias</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('home-courses') }}">Cursos</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">FQRS</a>
             </li>
             <li class="nav-item dropdown">

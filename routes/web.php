@@ -111,3 +111,7 @@ Route::prefix('/cumpleanios')->group(function () {
 #GOOGLE LOGIN
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
+
+
+#HOME COURSES CONTROLLER
+Route::get('/courses', 'HomeCoursesController@home')->name('home-courses');
