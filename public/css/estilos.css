@@ -64,7 +64,7 @@ div.backgroud-user-panel{
     overflow:auto;
 }
 .table-news{
-    border: 1px solid;
+    border: 1px solid #b5b8c0;
     max-height: 500px;
     overflow:auto;
 }
@@ -175,7 +175,17 @@ a span.fa{
     height: 100vh;
     overflow: auto;
 }
-
+.searchy{
+    width: 100%;
+}
+.box-searchy{
+    width: 100%;
+    min-height: 100px;
+    max-height: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: auto;
+}
 
 /* If the screen size is 601px or more, set the font-size of <div> to 80px ESCRITORIO*/
 @media only screen and (min-width: 601px) {

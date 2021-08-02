@@ -13,64 +13,63 @@
 <div class="backgroud-user-panel">
     <div class="container">
 
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                            <h2>Buscador</h2>
-                            <p>Escribe el nombre del contenido:</p>
-                            {{--BUSCADOR--}}
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                            <p>Puedes utilizar el filtro para navegar entre tipo Noticia, Eventos y mas:</p>
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    @if (isset($data_filter))
-                                        Seleccion Tipo: {{ ucfirst($data_filter['tipo']) }}
-                                    @else
-                                        Seleccion Tipo: Todas
-                                    @endif
-                                </button>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div>
+                    <p>Use los filtros:</p>
+                    {{--BUSCADOR--}}
+                </div>
+                <br>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div>
+                    <p>Puedes utilizar el filtro para navegar entre tipo Noticia, Eventos y mas:</p>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            @if (isset($data_filter))
+                                Seleccion Tipo: {{ ucfirst($data_filter['tipo']) }}
+                            @else
+                                Seleccion Tipo: Todas
+                            @endif
+                        </button>
 
-                                @if (isset($data_filter))
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'todas', 'categoria'=> $data_filter['categoria']]) }}">Todas</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'noticias', 'categoria'=> $data_filter['categoria']]) }}">Noticias</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'eventos', 'categoria'=> $data_filter['categoria']])}}">Eventos</a>
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'wikis', 'categoria'=> $data_filter['categoria']]) }}">Wikis</a>
-                                    </div>
-                                @endif
+                        @if (isset($data_filter))
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'todas', 'categoria'=> $data_filter['categoria']]) }}">Todas</a>
+                                <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'noticias', 'categoria'=> $data_filter['categoria']]) }}">Noticias</a>
+                                <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'eventos', 'categoria'=> $data_filter['categoria']])}}">Eventos</a>
+                                <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => 'wikis', 'categoria'=> $data_filter['categoria']]) }}">Wikis</a>
+                            </div>
+                        @endif
 
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                        <div>
-                            <p>Puedes utilizar el filtro para navegar en las diferentes categorías:</p>
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                    @if (isset($data_filter))
-                                        Seleccion Categorias: {{ ucfirst($data_filter['categoria']) }}
-                                    @else
-                                        Seleccion Categorias: Todas
-                                    @endif
-                                </button>
-                                @if (isset($data_filter))
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'todas']) }}">Todas</a>
-                                        @foreach ($data_filter['category_db'] as $category)
-                                            <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => $category->name]) }}">{{ $category->name }}</a>
-                                        @endforeach
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                        <br>
                     </div>
                 </div>
+                <br>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div>
+                    <p>Puedes utilizar el filtro para navegar en las diferentes categorías:</p>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            @if (isset($data_filter))
+                                Seleccion Categorias: {{ ucfirst($data_filter['categoria']) }}
+                            @else
+                                Seleccion Categorias: Todas
+                            @endif
+                        </button>
+                        @if (isset($data_filter))
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'todas']) }}">Todas</a>
+                                @foreach ($data_filter['category_db'] as $category)
+                                    <a class="dropdown-item" href="{{ route('dashboard', ['tipo' => $data_filter['tipo'], 'categoria' => $category->name]) }}">{{ $category->name }}</a>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
 
 
         {{--Arriba esta el filtro--}}

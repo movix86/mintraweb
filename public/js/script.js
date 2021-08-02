@@ -19,7 +19,7 @@ function show_data_file(url='', sizes = ''){
     data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
 
 }
-
+//MODAL PARA ELIMINAR USURIO
 function btn_services(state){
     if (state == 1) {
 
@@ -28,6 +28,19 @@ function btn_services(state){
     if(state == 0){
 
         document.getElementById('modal-uni').style.display = "none";
+    }
+}
+
+//BUSCADOR DE NOTICIAS, ESTE DESACTUVA LA CAJA DE FILTROS
+function myFunction(){
+
+
+        $val = document.getElementById('buscador-noticias').value;
+
+    if($val != ''){
+        document.getElementById('result').style.display = "none";
+    }else{
+        document.getElementById('result').style.display = "block";
     }
 }
 
