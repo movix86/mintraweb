@@ -114,4 +114,6 @@ Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
 
 #HOME COURSES CONTROLLER
-Route::get('/courses', 'HomeCoursesController@home')->name('home-courses');
+Route::get('/cusos', 'HomeCoursesController@home')->name('courses');
+Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
+Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');

@@ -28,6 +28,9 @@
                     <x-jet-nav-link href="{{ route('cumpleanios-board') }}" :active="request()->routeIs('cumpleanios-board')">
                         {{ __('Cumpleaños') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('back_courses') }}" :active="request()->routeIs('back_courses')">
+                        {{ __('Cursos') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -165,6 +168,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('cumpleanios-board') }}" :active="request()->routeIs('cumpleanios-board')">
                 {{ __('Cumpleaños') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-nav-link href="{{ route('back_courses') }}" :active="request()->routeIs('back_courses')">
+                {{ __('Cursos') }}
             </x-jet-responsive-nav-link>
         </div>
 
