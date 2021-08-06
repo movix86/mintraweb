@@ -10,7 +10,7 @@
     </ul>
 </div>
 @endif
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="{{ route('course-save') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12 upload-banner-new">

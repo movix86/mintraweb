@@ -1,5 +1,4 @@
 @if (isset($data_filter))
-{{--ESTA VARIABLE AUN NO SE HA UTILIZADO Y ES PARA EL CRUD DE CATEGORIAS Y FILTROS--}}
 <div class="container">
     <h2>{{ ucfirst($data_filter['tipo']) }}</h2>
     <p>Puedes utilizar el filtro para navegar en las diferentes categorías de {{ $data_filter['tipo'] }}:</p>

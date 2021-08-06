@@ -117,3 +117,8 @@ Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 Route::get('/cusos', 'HomeCoursesController@home')->name('courses');
 Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
 Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
+Route::post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
+
+Route::get('/categorias-cursos', 'HomeCoursesController@category_courses_site')->name('category-courses-site');
+Route::get('/crear-categoria-cursos', 'HomeCoursesController@category_create')->name('create-category-courses');
+Route::post('/guardar-categoria-curso', 'HomeCoursesController@save_category_courses')->name('save-category-courses');

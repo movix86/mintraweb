@@ -36,13 +36,13 @@ class CoursesFormValidator extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'Título de la noticia',
+            'name' => 'Nombre de curso',
             'description' => 'Resumen',
             'tittle_activation' => 'Titulo activacion',
             'url_path_image_course' => 'Banner',
             'url_path_image_course_btn' => 'Boton',
             'code_block' => 'Caja de texto HTML',
-            'type' => 'Tipo de noticia',
+            'type' => 'Tipo de curso',
             'category' => 'Categoria'
         ];
     }

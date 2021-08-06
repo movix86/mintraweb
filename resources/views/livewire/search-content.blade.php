@@ -1,6 +1,6 @@
 <div>
     <div class="searchy">
-        <input wire:model="search" oninput="myFunction()" type="search" class="form-control" id="buscador-noticias" placeholder="Buscar contenido"/>
+        <input wire:model="search" type="search" class="form-control" id="buscador-noticias" placeholder="Buscar contenido"/>
     </div>
     <br>
     <div class="box-searchy">

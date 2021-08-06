@@ -17,7 +17,7 @@ class CreateCategoryCourse extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('url_path_image_course_btn')->nullable();
+            $table->string('url_path_image_category_btn')->nullable();
             $table->string('condition')->nullable();
             $table->timestamps();
         });
