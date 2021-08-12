@@ -7,7 +7,6 @@ function delete_date(url='', id=''){
     var path_delete = url + id;
     var elemento = document.getElementById('delete');
     elemento.setAttribute('href', path_delete);
-
 }
 
 function show_data_file(url='', sizes = ''){
@@ -31,22 +30,10 @@ function btn_services(state){
     }
 }
 
-//BUSCADOR DE NOTICIAS, ESTE DESACTUVA LA CAJA DE FILTROS
-function myFunction(){
-
-
-        $val = document.getElementById('buscador-noticias').value;
-
-    if($val != ''){
-        document.getElementById('result').style.display = "none";
-    }else{
-        document.getElementById('result').style.display = "block";
-    }
-}
-
+//FILE
 // Add the following code if you want the name of the file appear on select
 $(".url_path_image_course_btn").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-  });
+});
 

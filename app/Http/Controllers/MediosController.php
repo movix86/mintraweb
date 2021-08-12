@@ -32,21 +32,13 @@ class MediosController extends Controller
                 }
             }
 
-
-
             $lista = [
                 'archivos' => $files,
                 'tamaños' => $tamaños
             ];
 
-
-
-
         }
          return view('medios', ['archivos' => $files]);
-
-
-
     }
 
 
@@ -57,14 +49,8 @@ class MediosController extends Controller
             'file-all' => 'mimes:jpeg,bmp,png,gif,svg,pdf|file|max:3000'
         ]);
         $file_path = $data->file('file-all');
-
-
-
         //Subir fichero
         if($file_path){
-
-
-
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
@@ -72,8 +58,6 @@ class MediosController extends Controller
             Storage::disk('public')->put($image_path_name, File::get($file_path));
             #$slider->url_path_image = asset('storage') . '/' . $image_path_name;
         }
-
-
 
         return back()->with('success','Se guardo el archivo!');
     }

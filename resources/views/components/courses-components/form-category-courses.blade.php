@@ -1,5 +1,5 @@
 <div class="form-user">
-    <form action="{{ url('/guardar-categoria-curso') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('save-category-courses') }}" method="POST" enctype="multipart/form-data">
         @csrf
         {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
         @include('flash-message')

@@ -91,8 +91,8 @@ Route::prefix('/medios')->group(function () {
 #ADMINISTRACION CRUD MEDIOS
 Route::group(['prefix' => 'medios'], function ()
 {
- Route::middleware(['auth:sanctum', 'verified'])->get('/show_medios', 'MediosController@show_medios')->name('admin-medios');
- Route::middleware(['auth:sanctum', 'verified'])->post('/subir_medio', 'MediosController@subir_medio')->name('subir-medio');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/show_medios', 'MediosController@show_medios')->name('admin-medios');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/subir_medio', 'MediosController@subir_medio')->name('subir-medio');
 });
 
 # CRUD CUMPLEANIOS Y CRUD ADMIN-CUMPLEANIOS
@@ -108,17 +108,24 @@ Route::prefix('/cumpleanios')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->post('nuevo-cumpleanios', 'CumpleaniosController@insert');
 });
 
+
+#HOME COURSES CONTROLLER
+Route::prefix('/cursos')->group(function () {
+    Route::get('/oferta', 'HomeCoursesController@home')->name('courses');
+    Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
+    Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
+    Route::post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
+    Route::get('/eliminar/{id}', 'HomeCoursesController@delete_courses')->name('delete-courses');
+});
+
+Route::prefix('/categoria-cursos')->group(function () {
+    Route::get('/cursos', 'HomeCoursesController@category_courses_site')->name('category-courses-site');
+    Route::get('/crear', 'HomeCoursesController@category_create')->name('create-category-courses');
+    Route::post('/guardar', 'HomeCoursesController@save_category_courses')->name('save-category-courses');
+    Route::get('/eliminar/{id}', 'HomeCoursesController@delete_category_courses')->name('delete-category-courses');
+});
+
 #GOOGLE LOGIN
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
-
-#HOME COURSES CONTROLLER
-Route::get('/cusos', 'HomeCoursesController@home')->name('courses');
-Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
-Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
-Route::post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
-
-Route::get('/categorias-cursos', 'HomeCoursesController@category_courses_site')->name('category-courses-site');
-Route::get('/crear-categoria-cursos', 'HomeCoursesController@category_create')->name('create-category-courses');
-Route::post('/guardar-categoria-curso', 'HomeCoursesController@save_category_courses')->name('save-category-courses');

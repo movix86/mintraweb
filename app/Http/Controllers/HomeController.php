@@ -120,34 +120,12 @@ class HomeController extends Controller
     }
 
 
-    public function dashboard_c($tipo = '', $categoria = ''){
+    public function dashboard_c(){
         $category_db = Category::all();
-        $filter = [
-            'tipo' => $tipo,
-            'categoria' => $categoria
-        ];
         $data = '';
-        #var_dump($filter);
-        if ($filter['tipo'] == '' && $filter['categoria'] == '') {
-            $data = News::all();
-        }elseif($filter['tipo'] == 'todas' && $filter['categoria'] == 'todas'){
-            $data = News::all();
-        }elseif($filter['tipo'] !== '' && $filter['categoria'] == 'todas'){
 
-            $data = News::where([['type', $filter['tipo']]])->get();
-
-        }elseif($filter['tipo'] == 'todas' && $filter['categoria'] !== ''){
-
-            $data = News::where([['category', $filter['categoria']]])->get();
-
-        }elseif($filter['tipo'] !== '' && $filter['categoria'] !== ''){
-
-            $data = News::where([['type', $filter['tipo']], ['category', $filter['categoria']]])->get();
-        }
 
         $data_filter = [
-            'tipo' => $filter['tipo'],
-            'categoria' => $filter['categoria'],
             'data' => $data,
             'category_db' => $category_db
         ];

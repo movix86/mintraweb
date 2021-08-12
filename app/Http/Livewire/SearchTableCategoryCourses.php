@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\CategoryCourses;
+use Livewire\WithPagination;
 
 class SearchTableCategoryCourses extends Component
 {
-
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $search = '';
     public function render()
     {

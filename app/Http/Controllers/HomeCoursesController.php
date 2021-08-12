@@ -14,7 +14,7 @@ use App\Models\CategoryCourses;
 class HomeCoursesController extends Controller
 {
     public function home(){
-        $cursos = Courses::all();
+        $cursos = CategoryCourses::all();
         return view('home.home_courses', ['cursos' => $cursos]);
     }
     public function back_courses(){
@@ -64,7 +64,11 @@ class HomeCoursesController extends Controller
         $course->save();
         return back()->with('success','Se creo el curso con exito!');
     }
-
+    public function delete_courses($id){
+        $course = Courses::findOrFail($id);
+        $course->delete();
+        return redirect('/home');
+    }
 
     public function category_courses_site(){
         return view('components.courses-components.category-courses-site');
@@ -95,5 +99,11 @@ class HomeCoursesController extends Controller
         }
         $category_course->save();
         return back()->with('success','Se creo la categoria con exito!');
+    }
+
+    public function delete_category_courses($id){
+        $category_course = CategoryCourses::where('id', $id)->first();
+        $category_course->delete();
+        return back()->with('success','Categoria se elimino con exito!');
     }
 }

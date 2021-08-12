@@ -19,7 +19,7 @@
             <input type="file" id="file-all" name="file-all">
 
             <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     </div>

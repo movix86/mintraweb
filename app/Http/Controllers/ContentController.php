@@ -127,7 +127,7 @@ class ContentController extends Controller
     public function delete_page($id){
         $page_delete = News::where('id', $id)->first();
         $page_delete->delete();
-        return back()->with('success','Se elimino la noticia con exito!');
+        return redirect('/dashboard')->with('success','Se elimino la noticia con exito!');
     }
 
     public function show_pages_events($filtro = ''){
