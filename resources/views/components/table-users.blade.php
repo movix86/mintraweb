@@ -26,14 +26,8 @@
                         {{--<td><a href="{{ url('/eliminar/usuario/'.$user_table->id) }}"><i class="material-icons" style="color:red">delete</i></a></td>--}}
                         <td><a href="javascript:void(0)" onclick="delete_date('/eliminar/usuario/' , {{ $user_table->id }})"><i class="material-icons" data-toggle="modal" data-target="#myModal" style="color:red">delete</i></a></td>
                     @endif
-
-
                   </tr>
                 @endforeach
-
-
-
-
             @else
                 No existe
             @endif

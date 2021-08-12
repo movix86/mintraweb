@@ -67,7 +67,7 @@ class HomeCoursesController extends Controller
     public function delete_courses($id){
         $course = Courses::findOrFail($id);
         $course->delete();
-        return redirect('/home');
+        return back()->with('success','Se elimino el curso con exito!');
     }
 
     public function category_courses_site(){
@@ -102,8 +102,8 @@ class HomeCoursesController extends Controller
     }
 
     public function delete_category_courses($id){
-        $category_course = CategoryCourses::where('id', $id)->first();
+        $category_course = CategoryCourses::findOrFail($id);
         $category_course->delete();
-        return back()->with('success','Categoria se elimino con exito!');
+        return back()->with('success','La categoria se elimino con exito!');
     }
 }

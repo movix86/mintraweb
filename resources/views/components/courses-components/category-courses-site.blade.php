@@ -21,6 +21,17 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{--  <x-jet-welcome /> --}}
                 {{-- https://dev.to/kingsconsult/customize-laravel-jetstream-registration-and-login-210f --}}
+                @include('flash-message')
+                {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @livewire('search-table-category-courses')
             </div>
         </div>

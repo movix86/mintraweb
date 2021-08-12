@@ -29,11 +29,12 @@
                                     <tbody>
                                         @foreach($content as $category)
                                             <tr>
-                                                <td class="w-30"><a href='' title="{{ $category->name }}">{{ $category->name }}</a></td>
-                                                <td class="w-15">{{ $category->created_at }}</td>
+                                                <td class="w-40"><a href='javascript:void(0);' title="{{ $category->name }}">{{ $category->name }}</a></td>
+                                                <td class="w-30">{{ $category->created_at }}</td>
                                                 {{--<td align="center"><a href="javascript:void(0);" onclick="delete_date('/eliminar/usuario/' , {{ $user_table->id }})"><i class="material-icons" style="color:red" data-toggle="modal" data-target="#myModal">delete</i></a></td>--}}
                                                 {{--EJEMPLO--}}
-                                                <td align="center"><a href="{{url('/categoria-cursos/eliminar/' . $category->id)}}" onclick=""><i class="material-icons" style="color:red" data-toggle="modal" data-target="#myModal">delete</i></a></td>
+                                                <td class="w-15"><a href="javascript:void(0);"><i class="material-icons">edit</i></a></td>
+                                                <td class="w-15"><a href="javascript:void(0);" onclick="delete_date('/categoria-cursos/eliminar/' , {{ $category->id }})"><i class="material-icons" style="color:red" data-toggle="modal" data-target="#myModal">delete</i></a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -51,5 +52,5 @@
             </div>
         </div>
     </div>
-    {{--<x-modal-delete-date/>--}}
+    <x-modal-delete-date/>
 </div>

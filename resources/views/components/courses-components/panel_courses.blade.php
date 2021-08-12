@@ -15,6 +15,18 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 jumbotron box-shadow">
+                        {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
+                        @include('flash-message')
+                        {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <livewire:search-table-courses />
                     </div>
                 </div>
