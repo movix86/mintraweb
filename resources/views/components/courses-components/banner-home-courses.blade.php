@@ -1,4 +1,4 @@
-<div class="jumbotron" style="background-image: url('img/cursos/banner-cursos-default.jpg'); color:white;">
+<div class="jumbotron" style="background-image: url({{asset('img/cursos/banner-cursos-default.jpg')}}); color:white;">
     <h1 class="display-4">Cursos</h1>
     <p class="lead">Bienvenidos a nuestros cursos, preparate para el mañana!</p>
     {{--<hr class="my-4">--}}

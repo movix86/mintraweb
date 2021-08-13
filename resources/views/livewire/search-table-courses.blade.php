@@ -20,7 +20,7 @@
                         <td class="w-40"><a href='javascript:void(0);' title="{{ $cursos->name }}">{{ $cursos->name }}</a></td>
                         {{--<td class="w-10">{{ $cursos->category }}</td>--}}
                         <td class="w-30">{{ $cursos->created_at }}</td>
-                        <td class="w-15"><a href="javascript:void(0);"><i class="material-icons">edit</i></a></td>
+                        <td class="w-15"><a href="{{ url('/cursos/actualizar/'. $cursos->id) }}"><i class="material-icons">edit</i></a></td>
                         <td class="w-15"><a href="javascript:void(0);" onclick="delete_date('/cursos/eliminar/' , {{ $cursos->id }})"><i class="material-icons" data-toggle="modal" data-target="#myModal" style="color:red">delete</i></a></td>
                     </tr>
                 @endforeach

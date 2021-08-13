@@ -115,6 +115,8 @@ Route::prefix('/cursos')->group(function () {
     Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
     Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
     Route::post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
+    Route::get('/actualizar/{id}', 'HomeCoursesController@update_courses')->name('update-courses');
+    Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_courses')->name('save-update-courses');
     Route::get('/eliminar/{id}', 'HomeCoursesController@delete_courses')->name('delete-courses');
 });
 
@@ -123,6 +125,9 @@ Route::prefix('/categoria-cursos')->group(function () {
     Route::get('/crear', 'HomeCoursesController@category_create')->name('create-category-courses');
     Route::post('/guardar', 'HomeCoursesController@save_category_courses')->name('save-category-courses');
     Route::get('/eliminar/{id}', 'HomeCoursesController@delete_category_courses')->name('delete-category-courses');
+
+    Route::get('/actualizar/{id}', 'HomeCoursesController@update_category_courses')->name('update-category-courses');
+    Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_category_courses')->name('save-update-category-courses');
 });
 
 #GOOGLE LOGIN

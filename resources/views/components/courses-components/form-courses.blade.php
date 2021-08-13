@@ -10,7 +10,7 @@
     </ul>
 </div>
 @endif
-<form action="{{ route('course-save') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ isset($data) ? route('save-update-courses') : route('course-save') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-12 upload-banner-new">
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <select class="form-control form-control-lg" id="tittle_activation" name="tittle_activation">
                   <option value="si" selected>Con título</option>
-                  <option value="no"} @endphp>Sin título</option>
+                  <option value="no">Sin título</option>
                 </select>
             </div>
         </div>
@@ -38,23 +38,27 @@
     </div>
     <div class="row padding-20">
         <div class="col-12 sm-12 col-md-12 col-lg-6">
-            <input type="hidden" id="id" name="id" value="">
-            <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Nombre del curso" value="">
+            <input type="hidden" id="id" name="id" value="{{ isset($data) ? $data['course_data']->id : '' }}">
+            <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Nombre del curso" value="{{isset($data) ? $data['course_data']->name : ''}}">
         </div>
         <div class="col-12 sm-12 col-md-12 col-lg-6">
-            <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Resumen del curso" maxlength="100" value="">
+            <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Resumen del curso" maxlength="100" value="{{isset($data) ? $data['course_data']->description : ''}}">
         </div>
     </div>
     <div class="row">
         <div class="col-12 father-text-box-code" id="father-text-box-code">
-            <textarea class="text-editor" name="code_block"></textarea>
+            <textarea class="text-editor" name="code_block">{{ isset($data) ? $data['course_data']->code_block : '' }}</textarea>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <label for="sel2">Seleccione Categoria:</label>
             <select multiple class="form-control" id="sel2" name="category">
-                <option value="">Option 1</option>
+                @if (isset($data))
+                    @foreach ($data['category'] as $item)
+                        <option value="{{ $item->name }}" @php if(isset($data) && $item->name == $data['course_data']->category){ echo "selected"; } @endphp>{{ ucfirst($item->name) }}</option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>

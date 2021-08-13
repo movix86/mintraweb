@@ -1,5 +1,5 @@
 <div class="form-user">
-    <form action="{{ route('save-category-courses') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{isset($data) ? route('save-update-category-courses') : route('save-category-courses') }}" method="POST" enctype="multipart/form-data">
         @csrf
         {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
         @include('flash-message')
@@ -15,14 +15,14 @@
         @endif
         {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
 
-        {{--<input type="hidden" name="id" value="">--}}
+        <input type="hidden" name="id" value="{{ isset($data) ? $data->id : '' }}">
         <div class="form-group">
             <label for="name">Nombre de la Categoria</label><br>
-            <input type="text" class="form-control" name="name" id="name" value=""><br>
+            <input type="text" class="form-control" name="name" id="name" value="{{ isset($data) ? $data->name : '' }}"><br>
         </div>
         <div class="form-group">
             <label for="lastname">Descripcion de la Categoria</label><br>
-            <input type="text" class="form-control" name="description" id="description" value=""><br>
+            <input type="text" class="form-control" name="description" id="description" value="{{ isset($data) ? $data->description : '' }}"><br>
         </div>
         <div class="custom-file mb-3">
             <input type="file" class="custom-file-input url_path_image_course_btn" id="url_path_image_category_btn" name="url_path_image_category_btn">
