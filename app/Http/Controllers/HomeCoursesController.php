@@ -22,7 +22,8 @@ class HomeCoursesController extends Controller
     }
 
     public function course_create(){
-        return view('courses.page-form-courses');
+        $category = CategoryCourses::all('name');
+        return view('courses.page-form-courses', ['category' => $category]);
     }
 
     public function save_course(Request $inputs, CoursesFormValidator $validador){
@@ -184,5 +185,18 @@ class HomeCoursesController extends Controller
         $category_course = CategoryCourses::findOrFail($id);
         $category_course->delete();
         return back()->with('success','La categoria se elimino con exito!');
+    }
+
+    public function category_btn_page($categoria){
+        if ($categoria) {
+            $categoria_group = Courses::where('category','=', $categoria)->get();
+        }
+        return view('home.home_courses_info', ['cursos' => $categoria_group]);
+    }
+
+    public function view_course($id, $name_course){
+        $find_course = Courses::findOrFail($id);
+
+        return view('courses.front-page-courses', ['data' => $find_course]);
     }
 }

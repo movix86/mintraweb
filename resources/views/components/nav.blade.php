@@ -25,7 +25,7 @@
                 <a class="nav-link" href="{{ route('show-pages-news') }}">Noticias</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('courses') }}">Cursos</a>
+                <a class="nav-link" href="{{ route('allcategories') }}">Cursos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">FQRS</a>

@@ -54,8 +54,16 @@
         <div class="col-12">
             <label for="sel2">Seleccione Categoria:</label>
             <select multiple class="form-control" id="sel2" name="category">
-                @if (isset($data))
-                    @foreach ($data['category'] as $item)
+                @if (isset($data) || isset($category))
+
+                @php
+                    if (isset($data)) {
+                        $info = $data['category'];
+                    }elseif (isset($category)) {
+                        $info = $category;
+                    }
+                @endphp
+                    @foreach ($info as $item)
                         <option value="{{ $item->name }}" @php if(isset($data) && $item->name == $data['course_data']->category){ echo "selected"; } @endphp>{{ ucfirst($item->name) }}</option>
                     @endforeach
                 @endif

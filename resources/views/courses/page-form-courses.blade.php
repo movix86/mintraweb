@@ -22,7 +22,9 @@
                         <x-courses-components.form-courses/>
                     @endcomponent
                 @else
-                    <x-courses-components.form-courses/>
+                    @component('components.courses-components.form-courses', ['category' => $category])
+                        <x-courses-components.form-courses/>
+                    @endcomponent
                 @endif
             </div>
         </div>
