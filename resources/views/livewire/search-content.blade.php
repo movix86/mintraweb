@@ -1,6 +1,6 @@
 <div>
     <div>
-        <h2>Categorias</h2>
+        <h2>Contenido y entradas</h2>
         <p>Panel de administracion:</p>
         <input wire:model="search" type="search" class="form-control" id="buscador-noticias" placeholder="Buscar contenido"/>
         <br>
