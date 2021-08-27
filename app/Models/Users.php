@@ -18,4 +18,9 @@ class Users extends Model
     public function teams(){
         return $this->hasMany('App/Models/TeamsUser');
     }
+
+    public function users_courses(){
+        return $this->hasMany(Users_courses::class, 'id');
+    }
+
 }

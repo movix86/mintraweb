@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\File;
 
 use App\Models\Courses;
 use App\Models\CategoryCourses;
+use App\Models\Users_courses;
+use App\Models\Users;
 
 class HomeCoursesController extends Controller
 {
@@ -198,5 +200,26 @@ class HomeCoursesController extends Controller
         $find_course = Courses::findOrFail($id);
 
         return view('courses.front-page-courses', ['data' => $find_course]);
+    }
+    public function suscription($user, $course){
+        #AQUI SE VA HACER LA SUSCRIPCION AL CURO ######################################################
+        $query = Users_courses::where([['id_users', $user],['id_courses', $course]])->first();
+        if ($query == NULL) {
+            $user_table = new Users_courses;
+            $user_table->id_users = $user;
+            $user_table->id_courses = $course;
+            $user_table->progress = '0%';
+            $user_table->icon = '<i class="fa fa-puzzle-piece" style="font-size:36px"></i>';
+            $user_table->save();
+            return back()->with('success','Se suscribio con exito!');
+        }else{
+            return back()->with('success','Ya esta suscrito en este curso!');
+        }
+    }
+    public function suscriptores(){
+        #$all_suscrip = Users_courses::with(['users', 'courses'])->get();
+        #var_dump($all_suscrip);
+        #exit();
+        return view('courses.subscribers-back');
     }
 }

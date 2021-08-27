@@ -132,6 +132,11 @@ Route::prefix('/categoria-cursos')->group(function () {
     Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_category_courses')->name('save-update-category-courses');
 });
 
+Route::prefix('/panel-suscriptores')->group(function () {
+    Route::get('/suscripcion/data/{user}/{course}', 'HomeCoursesController@suscription')->name('suscription');
+    Route::get('/usuarios', 'HomeCoursesController@suscriptores')->name('suscriptores');
+
+});
 
 #GOOGLE LOGIN
 Route::get('auth/google', 'GoogleController@redirectToGoogle');

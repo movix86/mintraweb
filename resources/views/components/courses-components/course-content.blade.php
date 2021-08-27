@@ -13,6 +13,18 @@
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-xl-9 col-lg-9">
         <div class="jumbotron" style="height: 500px;">
+            {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
+            @include('flash-message')
+            {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <h1 class="display-4">
                 @if (isset($data))
                     {{ $data->name }}
@@ -25,8 +37,11 @@
             </p>
             <hr class="my-4">
             <p>Cursos uniagustiniana de la categoria de @if(isset($data)) {{$data->category}}@endif</p>
+
             <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Inscribete</a>
+            @if(isset($data))
+              <a class="btn btn-primary btn-lg" href="{{ route('suscription', ["user" => Auth::user()->id, "course" => $data->id ]) }}" role="button">Inscribete</a>
+            @endif
             </p>
         </div>
     </div>
