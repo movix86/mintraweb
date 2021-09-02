@@ -23,4 +23,8 @@ class Users extends Model
         return $this->hasMany(Users_courses::class, 'id');
     }
 
+    public function courses(){
+        return $this->users_courses->belongsTo(Courses::class);
+    }
+
 }

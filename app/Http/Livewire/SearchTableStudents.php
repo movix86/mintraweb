@@ -19,20 +19,15 @@ class SearchTableStudents extends Component
         $content = [];
 
         if(strlen($this->search) > 0){
-            /*
+
             if(Users::where('name', 'like', '%'.$this->search.'%')->exists()){
                 $content = Users::where('name', 'like', '%'.$this->search.'%')->orderBy('created_at', 'desc')->paginate(2);
             }
-            */
-            if(Users::where('name', 'like', '%'.$this->search.'%')->exists()){
-                $content = Users::with(['users_courses'])->get();
-                var_dump($content);
-                exit();
-            }
+
 
         }else{
 
-            $content = users_courses::with(['users', 'courses'])->orderBy('created_at', 'desc')->paginate(3);
+            $content = Users::orderBy('created_at', 'desc')->paginate(3);
         }
         return view('livewire.search-table-students', ['content' => $content]);
     }

@@ -222,4 +222,21 @@ class HomeCoursesController extends Controller
         #exit();
         return view('courses.subscribers-back');
     }
+
+    public function subscriptor($id){
+        $ids = [];
+        $user = Users::where('id', $id)->first();
+        $users_courses = Users_courses::where('id_users', $id)->get();
+        foreach ($users_courses as $value) {
+            $ids[]= $value->id_courses;
+        }
+        $courses = Courses::whereIn('id', $ids)->get();
+
+        $data = [
+            'user' => $user,
+            'course' => $courses,
+            'users_courses' => $users_courses
+        ];
+        return view('courses.subscriber', ['data' => $data]);
+    }
 }

@@ -6,16 +6,29 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 jumbotron box-shadow">
                         <div class="row">
                             <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
-                                <a href="{{ route('create-category-courses') }}" class="btn btn-primary box-shadow b-dash">Agregar <br>Categoria</a>
+                                <a href="{{ route('course-create') }}"><i class="fa fa-plus-square" style="font-size:36px;"></i><br><p>Agregar Curso</p></a>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
+                                <a href="{{ route('category-courses-site') }}"><i class="fa fa-pencil-square-o" style="font-size:36px"></i><br><p>Categorias</p></a>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-12 padding-20" align="center">
+                                <a href="{{ route('suscriptores') }}"><i class="fa fa-vcard-o" style="font-size:36px"></i><br><p>Inscripciones <br>Estudiantes</p></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 jumbotron box-shadow">
-                        <div>
-                            <h2>Categorias</h2>
-                            <p>Panel de administracion:</p>
-                            <input wire:model="search" type="search" class="form-control" id="buscador-cursos" placeholder="Buscador de Cursos"/>
-                            <br>
+                        <div class="row">
+                            <div class="col-8 col-sm-8 col-md-8 col-lg-9 padding-20">
+                                <h3>Categorias</h3>
+                                <p>Panel de administracion:</p>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4 col-lg-3 padding-20" align="center">
+                                <a href="{{ route('create-category-courses') }}"><i class="fa fa-plus-square" style="font-size:36px;"></i><br>Agregar Categoria</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input wire:model="search" type="search" class="form-control" id="buscador-cursos" placeholder="Buscador de Categorias"/>
+
                             <div class="container table-news">
                                 <table class="table table-hover">
                                     <thead>

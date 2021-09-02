@@ -135,7 +135,7 @@ Route::prefix('/categoria-cursos')->group(function () {
 Route::prefix('/panel-suscriptores')->group(function () {
     Route::get('/suscripcion/data/{user}/{course}', 'HomeCoursesController@suscription')->name('suscription');
     Route::get('/usuarios', 'HomeCoursesController@suscriptores')->name('suscriptores');
-
+    Route::get('/usuario/{id}', 'HomeCoursesController@subscriptor')->name('subscriptor');
 });
 
 #GOOGLE LOGIN
