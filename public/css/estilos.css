@@ -181,6 +181,7 @@ a span.fa{
 /* CURSOS HOME */
 .box-btns-category{
     min-width: 326px;
+    min-height: 250px;
     max-width: 656px;
     margin: 0 auto;
     padding: 1rem;
@@ -189,6 +190,7 @@ a span.fa{
 .categorias-cursos-home{
     min-width: 100px;
     max-width: 150px;
+    padding: 5px;
 }
 /* If the screen size is 601px or more, set the font-size of <div> to 80px ESCRITORIO*/
 @media only screen and (min-width: 601px) {
