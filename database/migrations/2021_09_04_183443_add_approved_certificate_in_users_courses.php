@@ -14,7 +14,7 @@ class AddApprovedCertificateInUsersCourses extends Migration
     public function up()
     {
         Schema::table('users_courses', function (Blueprint $table) {
-            $table->string('approved')->nullable();
+            $table->string('approved')->default('no');
             $table->string('certificate')->nullable();
         });
     }

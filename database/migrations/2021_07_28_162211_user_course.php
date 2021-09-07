@@ -17,7 +17,7 @@ class UserCourse extends Migration
             $table->id();
             $table->foreignId('id_users')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('id_courses')->constrained('courses')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('progress');
+            $table->string('progress')->default('0%');
             $table->string('icon');
             $table->timestamps();
         });
