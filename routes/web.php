@@ -57,6 +57,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/modificar/usuario/{id}', 
 Route::middleware(['auth:sanctum', 'verified'])->post('/actualizar/usuario/', 'HomeController@actualizar_usuario')->name('actualizar-usuario');
 Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/usuario/{id}', 'HomeController@eliminar_usuario')->name('eliminar-usuario');
 
+
 #ADMINISTRACION CRUD DE SLIDERS
 Route::prefix('/slider')->group(function () {
     Route::middleware(['auth:sanctum', 'verified'])->get('/admin', 'FileController@admin_sliders')->name('admin-sliders');
@@ -120,6 +121,7 @@ Route::prefix('/cursos')->group(function () {
     Route::get('/eliminar/{id}', 'HomeCoursesController@delete_courses')->name('delete-courses');
     Route::get('/{id}/{name}', 'HomeCoursesController@view_course')->name('view-course');
     Route::get('/categorias/de/{categoria}', 'HomeCoursesController@category_btn_page')->name('category-page-btn');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/lista/usuario/{id}', 'HomeController@mis_cursos')->name('mis-cursos');
 });
 
 Route::prefix('/categoria-cursos')->group(function () {
@@ -130,12 +132,19 @@ Route::prefix('/categoria-cursos')->group(function () {
 
     Route::get('/actualizar/{id}', 'HomeCoursesController@update_category_courses')->name('update-category-courses');
     Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_category_courses')->name('save-update-category-courses');
+
+
+    Route::get('/guardar-finalizar/{id_user}/{id_course}', 'HomeCoursesController@final_course')->name('final-course');
+    Route::get('/guardar-aprobar-curso/{id_user}/{id_course}', 'HomeCoursesController@approved_course')->name('approved-course');
+    Route::post('/guardar-certificado-curso', 'HomeCoursesController@save_certificate')->name('save-certificate');
+
 });
 
 Route::prefix('/panel-suscriptores')->group(function () {
     Route::get('/suscripcion/data/{user}/{course}', 'HomeCoursesController@suscription')->name('suscription');
     Route::get('/usuarios', 'HomeCoursesController@suscriptores')->name('suscriptores');
     Route::get('/usuario/{id}', 'HomeCoursesController@subscriptor')->name('subscriptor');
+
 });
 
 #GOOGLE LOGIN

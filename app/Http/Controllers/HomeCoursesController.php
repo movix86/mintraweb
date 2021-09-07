@@ -224,6 +224,7 @@ class HomeCoursesController extends Controller
     }
 
     public function subscriptor($id){
+        #ESTA FUNCION MUESTRA LOS DATOS DEL SUSCRIPTOR EN EL PANEL
         $ids = [];
         $user = Users::where('id', $id)->first();
         $users_courses = Users_courses::where('id_users', $id)->get();
@@ -239,4 +240,61 @@ class HomeCoursesController extends Controller
         ];
         return view('courses.subscriber', ['data' => $data]);
     }
+
+    public function final_course($id_user, $id_courses){
+        $users_courses = Users_courses::where([['id_users', $id_user], ['id_courses', $id_courses]])->first();
+        if ($users_courses->progress == '0%') {
+            $users_courses->progress = '100%';
+            $users_courses->save();
+            return back()->with('success','Se guardo con exito!');
+        }
+        if ($users_courses->progress == '100%') {
+            $users_courses->progress = '0%';
+            $users_courses->save();
+            return back()->with('success','Se guardo con exito!');
+        }
+
+    }
+
+    public function approved_course($id_user, $id_courses){
+        $users_courses = Users_courses::where([['id_users', $id_user], ['id_courses', $id_courses]])->first();
+        if ($users_courses->approved == 'no') {
+            $users_courses->approved = 'si';
+            $users_courses->save();
+            return back()->with('success','Se guardo con exito!');
+        }
+        if ($users_courses->approved == 'si') {
+            $users_courses->approved = 'no';
+            $users_courses->save();
+            return back()->with('success','Se guardo con exito!');
+        }
+    }
+
+    public function save_certificate(Request $input_certificate){
+
+        #dd($input_certificate->input('id_course'));
+        if ($input_certificate->input('id_user')) {
+            $certificates = Users_courses::where([['id_users', $input_certificate->input('id_user')], ['id_courses', $input_certificate->input('id_course')]])->first();
+        }
+        #Captura ruta de la imagen
+        $image_path_c = $input_certificate->file('certificate');
+
+
+        //Verifica y configura el fichero o imagen
+        if($image_path_c !== NULL){
+            #1 - Crea nuevo nombre del archivo con fecha al inicio
+            #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
+            #3 - Guarda el nombre de la url
+
+            $image_path_name_c = time().$image_path_c->getClientOriginalName();
+            Storage::disk('public')->put($image_path_name_c, File::get($image_path_c));
+            $certificates->certificate = asset('storage') . '/' . $image_path_name_c;
+
+        }
+
+        $certificates->save();
+        return back()->with('success','Se actualizo el certificado con exito!');
+    }
+
+
 }

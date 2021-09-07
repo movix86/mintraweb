@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserFormValidator;
 
 use App\Models\User;
+use App\Models\Users;
 use App\Models\Team;
 use App\Models\TeamsUser;
 use App\Models\Sliders;
 use App\Models\News;
 use App\Models\Category;
+use App\Models\Courses;
+use App\Models\Users_courses;
+
 
 class HomeController extends Controller
 {
@@ -195,6 +199,24 @@ class HomeController extends Controller
             'name' => explode(' ', $user->name, 2)[0]."'s Team",
             'personal_team' => true,
         ]));
+    }
+
+    public function mis_cursos($id){
+        $ids = [];
+        $user = Users::where('id', $id)->first();
+        $users_courses = Users_courses::where('id_users', $id)->get();
+        foreach ($users_courses as $value) {
+            $ids[]= $value->id_courses;
+        }
+        $courses = Courses::whereIn('id', $ids)->get();
+
+        $data = [
+            'user' => $user,
+            'course' => $courses,
+            'users_courses' => $users_courses
+        ];
+
+        return view('usuarios-mis-cursos', ['data' => $data]);
     }
 
 

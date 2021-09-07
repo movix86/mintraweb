@@ -1,6 +1,15 @@
 <div>
-    <h2>Usuarios</h2>
-    <p>Panel modification de usuarios</p>
+    <div class="row">
+        <div class="col-8 col-sm-8 col-md-8 col-lg-8 padding-20">
+            <h2>Hola {{Auth::user()->name}}</h2>
+            <p>*Panel modificación de usuarios</p>
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 padding-20" align="center">
+            @if (Route::has('register'))
+                <a href="{{ route('mis-cursos', [Auth::user()->id]) }}"><i class="fa fa-mortar-board" style="font-size:36px"></i><br>Mis cursos</a>
+            @endif
+        </div>
+    </div>
     <div class="container table-users">
         <table class="table table-hover">
           <thead>
