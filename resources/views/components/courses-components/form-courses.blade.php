@@ -60,7 +60,7 @@
                         <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Nombre del curso" value="{{isset($data) ? $data['course_data']->name : ''}}">
                     </div>
                     <div class="col-12 sm-12 col-md-12 col-lg-6">
-                        <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Resumen del curso" maxlength="100" value="{{isset($data) ? $data['course_data']->description : ''}}">
+                        <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Resumen del curso" maxlength="255" value="{{isset($data) ? $data['course_data']->description : ''}}">
                     </div>
                 </div>
                 <div class="row">
