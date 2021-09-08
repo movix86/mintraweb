@@ -26,7 +26,7 @@ class CoursesFormValidator extends FormRequest
     {
         return [
             'name' => ['required','max:255'],
-            'description' => ['required','max:250'],
+            'description' => ['required','max:255'],
             'url_path_image_course' => ['max:3000'],
             'url_path_image_course_btn' => ['max:3000'],
             'category' => ['max:255']
