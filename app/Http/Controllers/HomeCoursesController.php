@@ -198,11 +198,15 @@ class HomeCoursesController extends Controller
 
     public function view_course($id, $name_course){
         $find_course = Courses::findOrFail($id);
-
-        return view('courses.front-page-courses', ['data' => $find_course]);
+        $category = Courses::where('category', $find_course->category)->take(3)->get();
+        $data = [
+            'course' => $find_course,
+            'category' => $category
+        ];
+        return view('courses.front-page-courses', ['data' => $data]);
     }
     public function suscription($user, $course){
-        #AQUI SE VA HACER LA SUSCRIPCION AL CURO ######################################################
+        #AQUI SE VA HACER LA SUSCRIPCION AL CURSO ######################################################
         $query = Users_courses::where([['id_users', $user],['id_courses', $course]])->first();
         if ($query == NULL) {
             $user_table = new Users_courses;

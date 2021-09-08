@@ -5,8 +5,8 @@
                 <li class="breadcrumb-item"><a href="{{ url('/home') }}">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('/cursos/categorias') }}">Categorias</a></li>
                 @if (isset($data))
-                    <li class="breadcrumb-item"><a href="{{ url('/cursos/categorias/de/' . $data->category)  }}">Cursos de {{ ucfirst($data->category) }}</a></li>
-                    <li class="breadcrumb-item active">{{$data->name}}</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/cursos/categorias/de/' . $data['course']->category)  }}">Cursos de {{ ucfirst($data['course']->category) }}</a></li>
+                    <li class="breadcrumb-item active">{{$data['course']->name}}</li>
                 @endif
             </ol>
         </nav>
@@ -27,30 +27,45 @@
             @endif
             <h1 class="display-4">
                 @if (isset($data))
-                    {{ $data->name }}
+                    {{ $data['course']->name }}
                 @endif
             </h1>
             <p class="lead">
                 @if (isset($data))
-                    {{ $data->description }}
+                    {{ $data['course']->description }}
                 @endif
             </p>
             <hr class="my-4">
-            <p>Cursos uniagustiniana de la categoria de @if(isset($data)) {{$data->category}}@endif</p>
+            <p class="lead">
+                @if(isset($data))
+                   {!! $data['course']->code_block !!}
+                @endif
+            </p>
+            <p>Cursos uniagustiniana de la categoria de @if(isset($data)) {{$data['course']->category}}@endif</p>
 
             <p class="lead">
-            @if(isset($data))
-              <a class="btn btn-primary btn-lg" href="{{ route('suscription', ["user" => Auth::user()->id, "course" => $data->id ]) }}" role="button">Inscribete</a>
-            @endif
+                @if(isset($data))
+                <a class="btn btn-primary btn-lg" href="{{ route('suscription', ["user" => Auth::user()->id, "course" => $data['course']->id ]) }}" role="button">Inscribete</a>
+                @endif
             </p>
         </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-xl-3 col-lg-3">
         <div class="jumbotron" style="height: 500px;">
-            <h5 class="display-4">Mas Cursos</h5>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <h3>Otros cursos de tú interés</h3>
+            @if (isset($data))
+                <p>{{ $data['course']->category }}</p>
+            @endif
+            @if (isset($data))
+                @foreach ($data['category'] as $item)
+                <a href="{{ url('/cursos/' . $item->id . '/' . $item->name) }}">
+                    <p class="lead">
+                        {{ $item->name }}
+                    </p>
+                </a>
+                <hr class="my-4">
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
