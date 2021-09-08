@@ -112,31 +112,31 @@ Route::prefix('/cumpleanios')->group(function () {
 
 #HOME COURSES CONTROLLER
 Route::prefix('/cursos')->group(function () {
-    Route::get('/categorias', 'HomeCoursesController@home')->name('allcategories');
-    Route::get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
-    Route::get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
-    Route::post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
-    Route::get('/actualizar/{id}', 'HomeCoursesController@update_courses')->name('update-courses');
-    Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_courses')->name('save-update-courses');
-    Route::get('/eliminar/{id}', 'HomeCoursesController@delete_courses')->name('delete-courses');
-    Route::get('/{id}/{name}', 'HomeCoursesController@view_course')->name('view-course');
-    Route::get('/categorias/de/{categoria}', 'HomeCoursesController@category_btn_page')->name('category-page-btn');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/categorias', 'HomeCoursesController@home')->name('allcategories');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/administracion-cursos', 'HomeCoursesController@back_courses')->name('back_courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/crear-curso', 'HomeCoursesController@course_create')->name('course-create');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/guardar-curso', 'HomeCoursesController@save_course')->name('course-save');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/actualizar/{id}', 'HomeCoursesController@update_courses')->name('update-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/guardar-actualizar', 'HomeCoursesController@save_update_courses')->name('save-update-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/{id}', 'HomeCoursesController@delete_courses')->name('delete-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/{id}/{name}', 'HomeCoursesController@view_course')->name('view-course');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/categorias/de/{categoria}', 'HomeCoursesController@category_btn_page')->name('category-page-btn');
     Route::middleware(['auth:sanctum', 'verified'])->get('/lista/usuario/{id}', 'HomeController@mis_cursos')->name('mis-cursos');
 });
 
 Route::prefix('/categoria-cursos')->group(function () {
-    Route::get('/cursos', 'HomeCoursesController@category_courses_site')->name('category-courses-site');
-    Route::get('/crear', 'HomeCoursesController@category_create')->name('create-category-courses');
-    Route::post('/guardar', 'HomeCoursesController@save_category_courses')->name('save-category-courses');
-    Route::get('/eliminar/{id}', 'HomeCoursesController@delete_category_courses')->name('delete-category-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/cursos', 'HomeCoursesController@category_courses_site')->name('category-courses-site');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/crear', 'HomeCoursesController@category_create')->name('create-category-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/guardar', 'HomeCoursesController@save_category_courses')->name('save-category-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/eliminar/{id}', 'HomeCoursesController@delete_category_courses')->name('delete-category-courses');
 
-    Route::get('/actualizar/{id}', 'HomeCoursesController@update_category_courses')->name('update-category-courses');
-    Route::post('/guardar-actualizar', 'HomeCoursesController@save_update_category_courses')->name('save-update-category-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/actualizar/{id}', 'HomeCoursesController@update_category_courses')->name('update-category-courses');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/guardar-actualizar', 'HomeCoursesController@save_update_category_courses')->name('save-update-category-courses');
 
 
-    Route::get('/guardar-finalizar/{id_user}/{id_course}', 'HomeCoursesController@final_course')->name('final-course');
-    Route::get('/guardar-aprobar-curso/{id_user}/{id_course}', 'HomeCoursesController@approved_course')->name('approved-course');
-    Route::post('/guardar-certificado-curso', 'HomeCoursesController@save_certificate')->name('save-certificate');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/guardar-finalizar/{id_user}/{id_course}', 'HomeCoursesController@final_course')->name('final-course');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/guardar-aprobar-curso/{id_user}/{id_course}', 'HomeCoursesController@approved_course')->name('approved-course');
+    Route::middleware(['auth:sanctum', 'verified'])->post('/guardar-certificado-curso', 'HomeCoursesController@save_certificate')->name('save-certificate');
 
 });
 

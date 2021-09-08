@@ -12,7 +12,7 @@
         </nav>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-xl-9 col-lg-9">
-        <div class="jumbotron" style="height: 500px;">
+        <div class="jumbotron" style="height: 100%;">
             {{--INCLUDE FUNCIONA PARA GUARDADO EXITOSO--}}
             @include('flash-message')
             {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
