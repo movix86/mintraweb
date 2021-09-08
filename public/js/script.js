@@ -15,7 +15,7 @@ function show_data_file(url='', sizes = ''){
     var file = '/storage/' + url;
     var p = 'Peso sugerido no mas de 3mb';
 
-    data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
+    data_show.innerHTML = '<strong>Url:</strong> ' + '/storage/medios/' + url + '<br>' + '<strong>Peso:</strong> ' + p;
 
 }
 //MODAL PARA ELIMINAR USURIO

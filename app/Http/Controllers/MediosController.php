@@ -12,12 +12,17 @@ class MediosController extends Controller
     public function index(){}
     public function show_medios(){
         //print_r("asigna permisos");exit;
-        $thefolder = "storage/";
+        $thefolder = "storage/medios/";
        // $thefolder = storage_path();
         //print_r($thefolder);exit;
         $files = [];
         $tamaños = [];
         $obj = [];
+
+        if (!file_exists($thefolder)) {
+            mkdir($thefolder, 0777, true);
+        }
+
         if ($gestor = opendir($thefolder)) {
             while(false !== ($archivo = readdir($gestor))){
                 if ($gestor != '.' && $archivo != '..') {
@@ -54,7 +59,7 @@ class MediosController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name = date("dmYGis").$file_path->getClientOriginalName();
+            $image_path_name = 'medios/' . date("dmYGis").$file_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($file_path));
             #$slider->url_path_image = asset('storage') . '/' . $image_path_name;
         }

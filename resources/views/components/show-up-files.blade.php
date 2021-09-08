@@ -43,7 +43,7 @@
                                 @if($archivos[$i] !== '.gitignore' && $archivos[$i] !== '.')
                                     <tr>
                                         <td><i class="material-icons">image</i><a href="javascript:void(0);" onclick="show_data_file('{{ $archivos[$i] }}')">{{ $archivos[$i] }}</a></td>
-                                        <td><a href="{{ url('storage/'.$archivos[$i]) }}" target="_blank" onclick="show_data_file('{{ $archivos[$i] }}')">Ver</a></td>
+                                        <td><a href="{{ url('storage/medios/'.$archivos[$i]) }}" target="_blank" onclick="show_data_file('{{ $archivos[$i] }}')">Ver</a></td>
                                     </tr>
                                 @endif
                             @endfor

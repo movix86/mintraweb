@@ -48,7 +48,7 @@ class HomeCoursesController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path_name = 'banner_cursos/' . time().$image_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($image_path));
             $course->url_path_image_course = asset('storage') . '/' . $image_path_name;
         }else{
@@ -58,7 +58,7 @@ class HomeCoursesController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name_btn = time().$image_path_btn->getClientOriginalName();
+            $image_path_name_btn = 'botones_cursos/' . time().$image_path_btn->getClientOriginalName();
             Storage::disk('public')->put($image_path_name_btn, File::get($image_path_btn));
             $course->url_path_image_course_btn = asset('storage') . '/' . $image_path_name_btn;
         }else{
@@ -101,7 +101,7 @@ class HomeCoursesController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path_name = 'banner_cursos/' . time().$image_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($image_path));
             $course->url_path_image_course = asset('storage') . '/' . $image_path_name;
         }
@@ -109,7 +109,7 @@ class HomeCoursesController extends Controller
             #1 - Crea nuevo nombre del archivo con fecha al inicio
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
-            $image_path_name_btn = time().$image_path_btn->getClientOriginalName();
+            $image_path_name_btn = 'botones_cursos/' . time().$image_path_btn->getClientOriginalName();
             Storage::disk('public')->put($image_path_name_btn, File::get($image_path_btn));
             $course->url_path_image_course_btn = asset('storage') . '/' . $image_path_name_btn;
         }
@@ -286,9 +286,18 @@ class HomeCoursesController extends Controller
             #2 - Utiliza paquete Storage('nombre carpeta')->put(nombre-archivo, de donde obtiene el archivo)
             #3 - Guarda el nombre de la url
 
-            $image_path_name_c = time().$image_path_c->getClientOriginalName();
+            $image_path_name_c = 'certificados' . '/' . time().$image_path_c->getClientOriginalName();
+            #Nuevo proceso
+            /*
+            $new_path = public_path('img/certificados/'.$image_path_name_c);
+            copy($image_path_c->getRealPath(),$new_path);
+            $certificates->certificate = $new_path;
+            */
+
             Storage::disk('public')->put($image_path_name_c, File::get($image_path_c));
             $certificates->certificate = asset('storage') . '/' . $image_path_name_c;
+
+
 
         }
 
