@@ -157,7 +157,7 @@ class ContentController extends Controller
         $data = [
             'tipo' => 'eventos',
             'data_news' => $data_news,
-            '$user_name' => $user_name,
+            'user_name' => $user_name,
             'categorias' => $news_relation
         ];
         return view('home.front-page', ['data'=> $data]);

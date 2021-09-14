@@ -71,7 +71,7 @@
             @foreach ($data['categorias'] as $noticia_relacionada)
                 <a href="{{ url('/informacion/'.$data['tipo']).'/'. $noticia_relacionada->id . '/' . $data['data_news']->news_name }}">
                     <div class="card" style="width:100%">
-                        <img class="card-img-top" src="{{ $noticia_relacionada->url_path_image_news }}" alt="Card image" style="width:100%">
+                        <img class="card-img-top" src="{{ $noticia_relacionada->url_path_image_news }}" alt="Card image" style="width:100%; height:65.27px;">
                         <div class="card-body">
                         {{--<h4 class="card-title">{{ $noticia_relacionada->news_name }}</h4>--}}
                         <p class="card-text">{{ $noticia_relacionada->news_name }}</p>
