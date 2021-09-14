@@ -16,7 +16,7 @@ class CreateCourses extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('description', 255)->nullable();
             $table->string('url_path_image_course');
             $table->string('url_path_image_course_btn')->nullable();
             $table->longText('code_block')->nullable();
