@@ -17,7 +17,7 @@ class CreateCourses extends Migration
             $table->id();
             $table->string('name');
             $table->string('description', 255)->nullable();
-            $table->string('url_path_image_course');
+            $table->string('url_path_image_course')->default('/img/img-courses-default.jpg');
             $table->string('url_path_image_course_btn')->nullable();
             $table->longText('code_block')->nullable();
             $table->string('type')->nullable();

@@ -51,8 +51,6 @@ class HomeCoursesController extends Controller
             $image_path_name = 'banner_cursos/' . time().$image_path->getClientOriginalName();
             Storage::disk('public')->put($image_path_name, File::get($image_path));
             $course->url_path_image_course = asset('storage') . '/' . $image_path_name;
-        }else{
-            $course->url_path_image_course = asset('img') . '/cursos/banner-cursos-default.jpg';
         }
         if($image_path_btn){
             #1 - Crea nuevo nombre del archivo con fecha al inicio

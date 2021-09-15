@@ -17,14 +17,16 @@
             @include('flash-message')
             {{--ERRORS FUNCIONA PARA VALIDACION DE CAMPOS CON UN REUQEST--}}
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
+
+            {{--CODIGO DEL FRONT INICIA AQUI--}}
             <h1 class="display-4">
                 @if (isset($data))
                     {{ $data['course']->name }}
@@ -36,6 +38,11 @@
                 @endif
             </p>
             <hr class="my-4">
+            <div style="text-align: center;">
+                @if(isset($data))
+                   <img src="{{ $data['course']->url_path_image_course }}" alt="{{ $data['course']->name }}" class="img-fluid">
+                @endif
+            </div>
             <p class="lead">
                 @if(isset($data))
                    {!! $data['course']->code_block !!}
