@@ -5,6 +5,7 @@
 @endsection
 
 @section('contenido')
+<x-btn-services/>
     @if (isset($date))
         @component('components.sliders', ['sliders' => $date['sliders']])
             <x-sliders/>
@@ -16,5 +17,4 @@
         @endcomponent
     @endif
     <x-footer/>
-    <x-btn-services/>
 @stop
