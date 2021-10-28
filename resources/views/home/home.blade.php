@@ -16,5 +16,5 @@
         @endcomponent
     @endif
     <x-footer/>
+    <x-btn-services/>
 @stop
-<x-btn-services/>
